@@ -1,0 +1,22 @@
+.navbar-collapse {
+  opacity: 0;
+  flex-grow: 0;
+  flex-basis: 100%;
+  align-items: center;
+  margin-top: 7px;
+  transition: $default-transition;
+  z-index: -1;
+
+  @media (min-width: $navbar-expand) {
+    display: flex !important;
+    opacity: 1;
+    z-index: auto;
+    flex-basis: auto;
+    margin-top: 0;
+  }
+}
+
+.navbar-collapse.show {
+  opacity: 1;
+  z-index: 1;
+}

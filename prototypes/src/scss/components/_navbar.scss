@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 7px;
+
+  @media (min-width: $navbar-expand) {
+    flex-flow: row nowrap;
+    padding-top: 23px;
+  }
+}

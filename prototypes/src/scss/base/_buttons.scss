@@ -1,0 +1,17 @@
+button,
+.btn {
+  border: none;
+  transition: $default-transition;
+}
+
+.btn--primary {
+  @extend .btn;
+  color: #fff;
+  background-color: $primary;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+    background-color: #fff;
+  }
+}
