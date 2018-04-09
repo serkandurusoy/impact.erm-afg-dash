@@ -7,6 +7,9 @@
 // Variables
 @import "variables";
 
+// Mixins
+@import "mixins";
+
 // Core variables, mixins and helper classes
 //@import "mixins";
 @import "helper-classes";
@@ -21,15 +24,18 @@
 @import "base/fonts";
 @import "base/forms";
 //@import "base/main-content";
-//@import "base/type";
+@import "base/type";
 
 // Components
 //
 @import "components/about";
 @import "components/footer";
+@import "components/graph";
 @import "components/header";
 @import "components/header-blocks";
 @import "components/header-search";
+@import "components/heat";
+@import "components/heat-map";
 @import "components/icons";
 @import "components/logo";
 @import "components/navbar";

@@ -8,3 +8,15 @@
   height: auto;
   display: block;
 }
+
+.bg--gray-1 {
+  background-color: $gray-1;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.b-padding-50 {
+  padding-bottom: 50px;
+}

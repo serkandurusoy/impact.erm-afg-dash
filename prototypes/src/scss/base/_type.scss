@@ -1,27 +1,28 @@
+h1, h2, h3, h4, h5, h6 {
+  color: $secondary;
+  font-family: $font-family-2;
+  font-weight: 300;
+  margin: 0;
+}
+
 h1 {
-  @include media-breakpoint-between(xs, md) {
-    font-size: $h1-font-size * 0.8;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 40px;
+  margin-bottom: 25px;
+
+  @media (min-width: $lg-min) {
+    font-size: 48px;
   }
 }
 
 h4 {
-  font-family: $font-family-base;
-  font-weight: bold;
-}
-
-h6 {
-  font-family: $font-family-base;
-  font-weight: bold;
-}
-
-.font-weight-500 {
-  font-weight: 500 !important;
-}
-
-.font-weight-600 {
-  font-weight: 600 !important;
-}
-
-.text-blue-200 {
-  color: $blue-200 !important;
+  font-size: 36px;
+  margin-bottom: 30px;
 }
