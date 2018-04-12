@@ -1,3 +1,38 @@
 .form-control {
   width: 100%;
 }
+
+input[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+
+  + label {
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: 600;
+    align-items: center;
+
+    &:before {
+      content: "";
+      display: inline-flex;
+      border: 1px #56687d solid;
+      margin-right: 20px;
+      width: 20px;
+      height: 20px;
+      padding: 2px;
+      @extend .icon;
+    }
+  }
+
+  &:checked {
+    + label {
+      &:before {
+        @extend .icon--check:before;
+      }
+    }
+  }
+}
+
+label {
+
+}

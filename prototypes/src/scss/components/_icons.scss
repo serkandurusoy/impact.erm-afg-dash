@@ -48,7 +48,7 @@
 .icon--arrow-left:before {
   content: "\e612";
 }
-.icon-circle-plus:before {
+.icon--circle-plus:before {
   content: "\e60c";
 }
 .icon--circle-minus:before {
@@ -56,4 +56,10 @@
 }
 .icon--filter:before {
   content: "\e893";
+}
+.icon--check:before {
+  content: "\e66b";
+}
+.icon--arrow-top-right:before {
+  content: "\e667";
 }

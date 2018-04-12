@@ -1,0 +1,14 @@
+.checkboxes {
+
+}
+
+.checkboxes__item {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  min-height: 50px;
+  padding: 13px 0;
+
+  &:last-of-type {
+    border-color: transparent;
+  }
+}
