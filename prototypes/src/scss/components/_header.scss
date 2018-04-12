@@ -103,11 +103,12 @@
 }
 
 .header__list {
-  max-width: 300px;
+  max-width: 290px;
   margin-left: auto;
   margin-right: auto;
   
   @media (min-width: $lg-min) {
+    flex: 1;
     margin: 0 15px;
   }
 }
@@ -130,6 +131,32 @@
   }
 }
 
+.header__list-link {
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+}
+
+.header__back {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+  padding-bottom: 50px;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+}
+
 .header--homepage {
   @extend .header;
   background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-homepage.jpg');
@@ -138,4 +165,48 @@
 .header--heat {
   @extend .header;
   background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat.jpg');
+}
+
+.header--provinces {
+  @extend .header;
+  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces.jpg');
+
+  .header__title {
+    @media (min-width: $xl-min) {
+      margin-top: 90px;
+    }
+  }
+
+  .header__lists {
+    padding-bottom: 90px;
+
+    .header__list-item {
+      margin-top: 25px;
+
+      @media (min-width: $lg-min) {
+        margin-top: 25px;
+        min-height: 0;
+        padding-bottom: 25px;
+      }
+    }
+  }
+}
+
+.header--province {
+  @extend .header;
+  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province.jpg');
+
+  .header__lists {
+    padding-bottom: 90px;
+
+    .header__list-item {
+      margin-top: 25px;
+
+      @media (min-width: $lg-min) {
+        margin-top: 30px;
+        min-height: 0;
+        padding-bottom: 25px;
+      }
+    }
+  }
 }
