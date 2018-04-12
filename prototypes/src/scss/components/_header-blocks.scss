@@ -1,6 +1,7 @@
 .header-blocks {
-  margin: 0 -0.78vw;
+  //margin: 0 -0.78vw;
   margin-top: 50px;
+  max-width: 100%;
 
   @media (min-width: $xl-min) {
     display: flex;
