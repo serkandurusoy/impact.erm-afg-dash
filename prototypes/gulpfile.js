@@ -19,6 +19,21 @@ var paths = {
     input: './src/*.html',
     allfiles: 'src/**/*.+(html|mustache)',
     output: './dist'
+  },
+  fonts: {
+    input: './src/fonts/**/*',
+    allfiles: 'src/fonts/**/*',
+    output: './dist/fonts'
+  },
+  images: {
+    input: './src/images/**/*',
+    allfiles: 'src/images/**/*',
+    output: './dist/images'
+  },
+  js: {
+    input: './src/js/**/*',
+    allfiles: 'src/js/**/*',
+    output: './dist/js'
   }
 };
 
@@ -45,7 +60,21 @@ gulp.task('mustache', function() {
     .pipe(gulp.dest(paths.mustache.output));
 });
 
-// Define copying javascript for styleguide task
+gulp.task('fonts', function() {
+  return gulp.src(paths.fonts.input)
+    .pipe(gulp.dest(paths.fonts.output));
+});
+
+gulp.task('images', function() {
+  return gulp.src(paths.images.input)
+    .pipe(gulp.dest(paths.images.output));
+});
+
+gulp.task('js', function() {
+  return gulp.src(paths.js.input)
+    .pipe(gulp.dest(paths.js.output));
+});
+
 gulp.task('webserver', function() {
   gulp.src('dist')
     .pipe(server({
@@ -58,10 +87,16 @@ gulp.task('webserver', function() {
 gulp.task('default', [
     'sass',
     'mustache',
+    'images',
+    'fonts',
+    'js',
     'webserver'
   ], function() {
-  gulp.watch([paths.sass.allfiles, paths.mustache.allfiles], [
+  gulp.watch([paths.sass.allfiles, paths.mustache.allfiles, paths.images.allfiles, paths.fonts.allfiles, paths.js.allfiles], [
     'sass',
-    'mustache'
+    'mustache',
+    'images',
+    'fonts',
+    'js'
   ]);
 });
