@@ -17,6 +17,6 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "gulp": "gulp",
+    "gulp": "gulp"
   }
 }
