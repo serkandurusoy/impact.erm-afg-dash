@@ -84,7 +84,16 @@ gulp.task('webserver', function() {
 
 
 // Listen folders for changes and apply defined tasks
-gulp.task('default', [
+gulp.task('build', [
+    'sass',
+    'mustache',
+    'images',
+    'fonts',
+    'js'
+  ]
+);
+
+gulp.task('watch', [
     'sass',
     'mustache',
     'images',
@@ -100,3 +109,5 @@ gulp.task('default', [
     'js'
   ]);
 });
+
+gulp.task('default', ['build']);
