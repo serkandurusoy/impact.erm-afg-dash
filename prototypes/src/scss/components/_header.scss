@@ -1,4 +1,5 @@
 .header {
+  background-color: $secondary;
   background-size: cover;
   background-position: center center;
   min-height: 1024px;
@@ -159,17 +160,23 @@
 
 .header--homepage {
   @extend .header;
-  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-homepage.jpg');
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-homepage.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-homepage-l.jpg');
 }
 
 .header--heat {
   @extend .header;
-  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat.jpg');
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat-l.jpg');
 }
 
 .header--provinces {
   @extend .header;
-  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces.jpg');
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces-l.jpg');
 
   .header__title {
     @media (min-width: $xl-min) {
@@ -194,7 +201,9 @@
 
 .header--province {
   @extend .header;
-  background-image: linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province.jpg');
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province-l.jpg');
 
   .header__lists {
     padding-bottom: 90px;
