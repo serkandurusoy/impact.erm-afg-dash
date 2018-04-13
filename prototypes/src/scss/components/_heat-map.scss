@@ -17,20 +17,17 @@
   }
 
   @media (min-width: $lg-min) {
-    max-width: 825px;
-    padding: 100px 100px 80px 175px;
+    min-width: 580px;
+    padding: 100px 50px 60px 75px;
     margin: 0;
   }
-
-  @media (min-width: $xl-min) {
-    min-width: 825px;
   }
 }
 
 .heat-map__right {
   display: none;
 
-  @media (min-width: $xl-min) {
+  @media (min-width: $lg-min) {
     display: block;
   }
 }
