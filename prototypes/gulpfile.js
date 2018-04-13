@@ -40,9 +40,23 @@ var paths = {
 // Define SASS compiling task
 gulp.task('sass', function () {
   gulp.src(paths.sass.input)
-    .pipe(sourcemaps.init())
     .pipe(sass(
       {outputStyle: 'compressed'}
+    ).on('error', sass.logError))
+    .pipe(rename('style.css'))
+    .pipe(autoprefixer({
+      browsers: ['last 10 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest(paths.sass.output))
+});
+
+// Define SASS compiling task
+gulp.task('sass-dev', function () {
+  gulp.src(paths.sass.input)
+    .pipe(sourcemaps.init())
+    .pipe(sass(
+      {outputStyle: ''}
     ).on('error', sass.logError))
     .pipe(rename('style.css'))
     .pipe(autoprefixer({
@@ -94,7 +108,7 @@ gulp.task('build', [
 );
 
 gulp.task('watch', [
-    'sass',
+    'sass-dev',
     'mustache',
     'images',
     'fonts',
@@ -102,7 +116,7 @@ gulp.task('watch', [
     'webserver'
   ], function() {
   gulp.watch([paths.sass.allfiles, paths.mustache.allfiles, paths.images.allfiles, paths.fonts.allfiles, paths.js.allfiles], [
-    'sass',
+    'sass-dev',
     'mustache',
     'images',
     'fonts',

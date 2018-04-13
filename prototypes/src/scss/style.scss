@@ -10,8 +10,7 @@
 // Mixins
 @import "mixins";
 
-// Core variables, mixins and helper classes
-//@import "mixins";
+// Helper classes
 @import "helper-classes";
 
 // Base
@@ -23,7 +22,6 @@
 @import "base/html";
 @import "base/fonts";
 @import "base/forms";
-//@import "base/main-content";
 @import "base/type";
 
 // Components
