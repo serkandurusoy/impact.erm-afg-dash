@@ -3,6 +3,10 @@
     display: flex;
     overflow: hidden;
   }
+
+  @media (min-width: 1700px) {
+    justify-content: center;
+  }
 }
 
 .heat-map__left {
