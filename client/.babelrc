@@ -1,0 +1,22 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 3 versions",
+            "safari >= 7"
+          ],
+          "uglify": true
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
+}

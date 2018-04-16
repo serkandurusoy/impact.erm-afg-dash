@@ -1,0 +1,124 @@
+.header-blocks {
+  //margin: 0 -0.78vw;
+  margin-top: 50px;
+  max-width: 100%;
+
+  @media (min-width: $xl-min) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 140px;
+  }
+}
+
+.header-block {
+  color: #fff;
+  text-align: center;
+  padding: 0 0.78vw 40px;
+}
+
+.header-block__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  position: relative;
+
+  &:before,
+  &:after {
+    background-color: rgba(255, 255, 255, 0.3);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 32%;
+    height: 2px;
+  }
+
+  &:after {
+    left: auto;
+    right: 0;
+  }
+
+  .icon {
+    margin-right: 15px;
+  }
+}
+
+.header-block__items {
+  margin: 0 -0.78vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $sm-min) {
+    flex-direction: row;
+  }
+}
+
+.header-block__item {
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  display: block;
+  color: #fff;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.5);
+  max-width: 290px;
+  margin: 0 0.78vw;
+  position: relative;
+
+  &:after {
+    background-color: #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: $default-transition;
+  }
+
+  &:hover,
+  &:focus {
+    &:after {
+      opacity: 0.1;
+    }
+  }
+
+  & + & {
+    @media (max-width: $xs-max) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.header-block__item-title {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: $xl-min) {
+    font-size: 1.25vw;
+  }
+}
+
+.header-block__link {
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 20px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

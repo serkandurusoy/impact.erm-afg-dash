@@ -1,0 +1,27 @@
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bg--gray-1 {
+  background-color: $gray-1;
+}
+
+.bg--blue-3 {
+  background-color: $blue-3;
+  color: #fff;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.b-padding-50 {
+  padding-bottom: 50px;
+}

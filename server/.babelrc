@@ -1,0 +1,15 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "8.11.1",
+          "uglify": true
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "stage-0"
+  ]
+}

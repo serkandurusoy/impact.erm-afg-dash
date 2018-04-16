@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "@impact/prototype",
+  "version": "1.0.0",
+  "description": "Public web site for visualizations",
+  "scripts": {
+    "build": "rimraf dist && gulp build",
+    "watch": "gulp watch",
+    "start": "yarn run watch"
+  },
+  "author": "Piotr Smykaj<piotr.smykaj@waat.eu>",
+  "contributors": [
+    "Peter Grzywacz<peter@waat.eu>",
+    "Piotr Smykaj<piotr.smykaj@waat.eu>",
+    "Tomek Pazio<tomek.pazio@waat.eu>"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-mustache": "^3.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-watch": "~5.0.0",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}

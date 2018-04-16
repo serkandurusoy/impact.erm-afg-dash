@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server API for data queries",
+  "scripts": {
+    "start": "yarn run dev",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/",
+    "dev": "yarn run lint && PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
+    "build": "rimraf dist && babel --source-maps inline -d dist/ src/ --copy-files"
+  },
+  "author": "Serkan Durusoy<serkan@waat.eu>",
+  "contributors": [
+    "Çağrı Yardımcı<cagri@waat.eu>",
+    "Serkan Durusoy<serkan@waat.eu>"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.17.3"
+  },
+  "main": "dist/main.js",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "brute-knex": "^2.1.0",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-brute": "^1.0.1",
+    "knex": "^0.14.6",
+    "mysql": "^2.15.0",
+    "source-map-support": "^0.5.4"
+  }
+}
