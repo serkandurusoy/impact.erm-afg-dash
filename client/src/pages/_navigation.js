@@ -61,7 +61,7 @@ class Navigation extends Component {
             </li>
             <li className="navbar-nav__item">
               <a className="navbar-nav__link" href="">
-                Market
+                MPC
               </a>
             </li>
             <li className="navbar-nav__item">

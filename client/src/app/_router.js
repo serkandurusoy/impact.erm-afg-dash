@@ -10,15 +10,7 @@ import logoDrc from '@impact/prototype/dist/images/logos/drc@2x.png';
 import logoDacaar from '@impact/prototype/dist/images/logos/dacaar@2x.png';
 import logoAction from '@impact/prototype/dist/images/logos/action@2x.png';
 import logoActed from '@impact/prototype/dist/images/logos/acted@2x.png';
-import {
-  Contact,
-  Heat,
-  Home,
-  Market,
-  NotFound,
-  Pdm,
-  Provinces,
-} from '../pages';
+import { Contact, Heat, Home, Mpc, NotFound, Pdm, Provinces } from '../pages';
 
 const Router = () => (
   <div>
@@ -26,7 +18,7 @@ const Router = () => (
       <Route path="/" exact component={Home} />
       <Route path="/contact" exact component={Contact} />
       <Route path="/heat" exact component={Heat} />
-      <Route path="/market" exact component={Market} />
+      <Route path="/mpc" exact component={Mpc} />
       <Route path="/provinces" exact component={Provinces} />
       <Route path="/pdm" exact component={Pdm} />
       <Route component={NotFound} />
