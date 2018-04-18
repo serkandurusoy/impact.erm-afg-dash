@@ -1,0 +1,26 @@
+{
+  "HEAT": {
+    "rCSI_newThreshold": {
+      "1": "High",
+      "2": "Medium",
+      "3": "No or low"
+    }
+  },
+  "PDM": {
+    "rCSI_newThreshold": {
+      "1": "High",
+      "2": "Medium",
+      "3": "No or low"
+    },
+    "FCS_Level": {
+      "1": "Poor food consumption",
+      "2": "Borderline food consumption",
+      "3": "Acceptable food consumption"
+    }
+    "FCS_rCSI": {
+      "1": "Food insecure",
+      "2": "Moderately food insecure",
+      "3": "Food insecure"
+    }
+  }
+}
