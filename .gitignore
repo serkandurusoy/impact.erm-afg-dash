@@ -59,4 +59,5 @@ Session.vim
 # misc
 .DS_Store
 .ignore
+.~lock.*
 !*.svg
