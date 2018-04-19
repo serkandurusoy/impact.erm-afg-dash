@@ -8,6 +8,3 @@ SELECT
 FROM
     impact_1.heat;
 
-/*
-	!= '' => To be replaced with N/A
-*/
