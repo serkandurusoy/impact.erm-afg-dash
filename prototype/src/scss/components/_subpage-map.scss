@@ -1,4 +1,4 @@
-.heat-map {
+.subpage-map {
   @media (min-width: $lg-min) {
     display: flex;
     overflow: hidden;
@@ -9,7 +9,7 @@
   }
 }
 
-.heat-map__left {
+.subpage-map__left {
   padding: 50px 30px;
   text-align: center;
   max-width: 550px;
@@ -27,7 +27,7 @@
   }
 }
 
-.heat-map__right {
+.subpage-map__right {
   display: none;
 
   @media (min-width: $lg-min) {
@@ -35,28 +35,28 @@
   }
 }
 
-.heat-map__title {
+.subpage-map__title {
   margin-top: 0;
 }
 
-.heat-map__lists {
+.subpage-map__lists {
   @media (min-width: $sm-min) {
     display: flex;
     justify-content: space-between;
   }
 }
 
-.heat-map__list {
+.subpage-map__list {
   display: flex;
   flex-direction: column;
 }
 
-.heat-map__list-item {
+.subpage-map__list-item {
   margin: 3px 0;
 
   &.active {
     margin-left: -32px;
-    .heat-map__list-link {
+    .subpage-map__list-link {
       color: #fff;
       background-color: $primary;
       font-weight: normal;
@@ -73,7 +73,7 @@
   }
 }
 
-.heat-map__list-link {
+.subpage-map__list-link {
   color: $body-color;
   display: inline-flex;
   align-items: center;

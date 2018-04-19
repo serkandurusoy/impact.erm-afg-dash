@@ -1,7 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import Router from './_router';
+import Routes from './_routes';
+import { Layout } from '../components/global';
 
-const App = () => <Router />;
+const App = () => (
+  <Layout>
+    <Routes />
+  </Layout>
+);
 
 export default hot(module)(App);

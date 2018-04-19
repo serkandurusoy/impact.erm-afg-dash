@@ -54,6 +54,12 @@
         "allowAfterThis": true
       }
     ],
+    "jsx-a11y/alt-text": [
+      0
+    ],
+    "jsx-a11y/label-has-for": [
+      0
+    ],
     "jsx-a11y/click-events-have-key-events": [
       0
     ],
@@ -81,6 +87,7 @@
   "globals": {
     "PRODUCTION": false,
     "DEVELOPMENT": false,
-    "API_URL": false
+    "API_URL": false,
+    "jQuery": false
   }
 }

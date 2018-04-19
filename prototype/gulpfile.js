@@ -45,7 +45,7 @@ gulp.task('sass', () => {
     .pipe(rename('style.css'))
     .pipe(
       autoprefixer({
-        browsers: ['last 10 versions'],
+        browsers: ['Last 2 versions', 'iOS > 7', '> 1%'],
         cascade: false,
       }),
     )

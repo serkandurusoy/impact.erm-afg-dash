@@ -107,7 +107,7 @@
   max-width: 290px;
   margin-left: auto;
   margin-right: auto;
-  
+
   @media (min-width: $lg-min) {
     flex: 1;
     margin: 0 15px;
@@ -165,18 +165,32 @@
           linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-homepage-l.jpg');
 }
 
-.header--heat {
+.header--subpage__heat {
   @extend .header;
   background-image:
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat.jpg'),
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-heat-l.jpg');
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-heat.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-heat-l.jpg');
 }
 
-.header--provinces {
+.header--subpage__mpc {
   @extend .header;
   background-image:
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces.jpg'),
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-provinces-l.jpg');
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-mpc.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-mpc-l.jpg');
+}
+
+.header--subpage__pdm {
+  @extend .header;
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-pdm.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-pdm-l.jpg');
+}
+
+.header--subpage__provinces {
+  @extend .header;
+  background-image:
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-provinces.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-provinces-l.jpg');
 
   .header__title {
     @media (min-width: $xl-min) {
@@ -199,11 +213,11 @@
   }
 }
 
-.header--province {
+.header--subpage__province {
   @extend .header;
   background-image:
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province.jpg'),
-          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-province-l.jpg');
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-province.jpg'),
+          linear-gradient(to top, rgba(7, 42, 83, 0.4), rgba(7, 42, 83, 0)), url('../images/header-subpage-province-l.jpg');
 
   .header__lists {
     padding-bottom: 90px;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './_app';
-import Provider from './_providers';
+import Providers from './_providers';
 
 const Root = () => (
-  <Provider>
+  <Providers>
     <App />
-  </Provider>
+  </Providers>
 );
 
 const root = document.getElementById('root');

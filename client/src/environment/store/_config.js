@@ -3,10 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import reducer from './_reducer';
 
-const config = (initialState = {}) => {
+const config = () => {
   const store = createStore(
     reducer,
-    initialState,
     composeWithDevTools(applyMiddleware(thunk)),
   );
 

@@ -1,103 +1,91 @@
 import React from 'react';
 import headerBlock from '@impact/prototype/dist/images/header-block.jpg';
-import Navigation from './_navigation';
+import { Header } from '../components/global';
 
 const Home = () => (
   <div>
-    <header>
-      <section className="header--homepage">
-        <Navigation />
-
-        <div className="container-fluid">
-          <div className="header__title">Afghanistan</div>
-          <div className="header__subtitle">
-            Emergency Response Mechanism (ERM) Dashboard
-          </div>
-
-          <div className="header-search">
-            <form>
-              <div className="header-search__group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search by region"
-                />
-                <div className="header-search__submit">
-                  <button className="btn--primary" type="submit">
-                    <span className="icon icon--search" />
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div className="header-blocks">
-            <div className="header-block">
-              <div className="header-block__title">
-                <span className="icon icon--tools" />HEAT
-              </div>
-              <div className="header-block__items">
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="Heat" />
-                  <div className="header-block__item-title">Household</div>
-                </a>
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="Heat" />
-                  <div className="header-block__item-title">
-                    Additional Vulnerability Assessment
-                  </div>
-                </a>
-              </div>
-              <a className="header-block__link" href="">
-                Find out more (6)
-              </a>
-            </div>
-
-            <div className="header-block">
-              <div className="header-block__title">
-                <span className="icon icon--broken-battery" />PDM
-              </div>
-              <div className="header-block__items">
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="Pdm" />
-                  <div className="header-block__item-title">Household</div>
-                </a>
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="Pdm" />
-                  <div className="header-block__item-title">
-                    Additional Vulnerability Assessment
-                  </div>
-                </a>
-              </div>
-              <a className="header-block__link" href="">
-                Find out more (6)
-              </a>
-            </div>
-
-            <div className="header-block">
-              <div className="header-block__title">
-                <span className="icon icon--apple" />MPC
-              </div>
-              <div className="header-block__items">
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="MPC" />
-                  <div className="header-block__item-title">Household</div>
-                </a>
-                <a href="" className="header-block__item">
-                  <img className="img-fluid" src={headerBlock} alt="MPC" />
-                  <div className="header-block__item-title">
-                    Additional Vulnerability Assessment
-                  </div>
-                </a>
-              </div>
-              <a className="header-block__link" href="">
-                Find out more (6)
-              </a>
+    <Header>
+      <div className="header-search">
+        <form>
+          <div className="header-search__group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search by region"
+            />
+            <div className="header-search__submit">
+              <button className="btn--primary" type="submit">
+                <span className="icon icon--search" />
+              </button>
             </div>
           </div>
+        </form>
+      </div>
+      <div className="header-blocks">
+        <div className="header-block">
+          <div className="header-block__title">
+            <span className="icon icon--tools" />HEAT
+          </div>
+          <div className="header-block__items">
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">Household</div>
+            </a>
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">
+                Additional Vulnerability Assessment
+              </div>
+            </a>
+          </div>
+          <a className="header-block__link" href="">
+            Find out more (6)
+          </a>
         </div>
-      </section>
-    </header>
+
+        <div className="header-block">
+          <div className="header-block__title">
+            <span className="icon icon--broken-battery" />PDM
+          </div>
+          <div className="header-block__items">
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">Household</div>
+            </a>
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">
+                Additional Vulnerability Assessment
+              </div>
+            </a>
+          </div>
+          <a className="header-block__link" href="">
+            Find out more (6)
+          </a>
+        </div>
+
+        <div className="header-block">
+          <div className="header-block__title">
+            <span className="icon icon--apple" />MPC
+          </div>
+          <div className="header-block__items">
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">Household</div>
+            </a>
+            <a href="" className="header-block__item">
+              <img className="img-fluid" src={headerBlock} />
+              <div className="header-block__item-title">
+                Additional Vulnerability Assessment
+              </div>
+            </a>
+          </div>
+          <a className="header-block__link" href="">
+            Find out more (6)
+          </a>
+        </div>
+      </div>
+    </Header>
 
     <main className="main-content">
       <div className="container-fluid">
