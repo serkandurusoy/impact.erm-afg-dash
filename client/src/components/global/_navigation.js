@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import logo from '@impact/prototype/dist/images/logo.png';
+import NavigationLink from './_navigation-link';
 
 class Navigation extends Component {
   state = {
@@ -26,9 +28,9 @@ class Navigation extends Component {
     const { navigationSearchActive, showMobileMenu } = this.state;
     return (
       <nav className="navbar">
-        <a className="logo" href="">
-          <img className="img-fluid" src={logo} alt="Home" />
-        </a>
+        <Link className="logo" to="/">
+          <img className="img-fluid" src={logo} />
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -44,36 +46,14 @@ class Navigation extends Component {
           id="navbarCollapse"
         >
           <ul className="navbar-nav">
-            <li className="navbar-nav__item active">
-              <a className="navbar-nav__link" href="">
-                Home
-              </a>
-            </li>
-            <li className="navbar-nav__item">
-              <a className="navbar-nav__link" href="">
-                Provinces
-              </a>
-            </li>
-            <li className="navbar-nav__item">
-              <a className="navbar-nav__link" href="">
-                HEAT
-              </a>
-            </li>
-            <li className="navbar-nav__item">
-              <a className="navbar-nav__link" href="">
-                MPC
-              </a>
-            </li>
-            <li className="navbar-nav__item">
-              <a className="navbar-nav__link" href="">
-                PDM
-              </a>
-            </li>
-            <li className="navbar-nav__item">
-              <a className="navbar-nav__link" href="">
-                Contact
-              </a>
-            </li>
+            <NavigationLink to="/" exact>
+              Home
+            </NavigationLink>
+            <NavigationLink to="/provinces">Provinces</NavigationLink>
+            <NavigationLink to="/heat">HEAT</NavigationLink>
+            <NavigationLink to="/mpc">MPC</NavigationLink>
+            <NavigationLink to="/pdm">PDM</NavigationLink>
+            <NavigationLink to="/contact">Contact</NavigationLink>
             <li
               className={classNames('navbar-nav__item', 'nav-search', {
                 active: navigationSearchActive,

@@ -5,7 +5,7 @@
   "description": "Public web site for visualizations",
   "scripts": {
     "start": "yarn run dev",
-    "lint": "eslint src/",
+    "lint": "eslint --cache src/",
     "lint-fix": "eslint --fix src/",
     "dev": "yarn run lint && TZ=Etc/UTC NODE_ENV=development API_URL=http://localhost:8002/api node webpack-dev-server.js",
     "build": "rimraf dist && NODE_ENV=production API_URL=https://staging.impact.waat.eu/api webpack --display-optimization-bailout --define process.env.NODE_ENV=\"'production'\""
@@ -27,7 +27,9 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",
-    "webpack": "^4.5.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^3.1.3"
   },
@@ -36,13 +38,15 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-hot-loader": "^4.0.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.1.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "recompose": "^0.26.0",
-    "redux": "^3.7.2",
+    "react-router-prop-types": "^1.0.3",
+    "recompose": "^0.27.0",
+    "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
   }

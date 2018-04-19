@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf client/node_modules client/dist server/node_modules server/dist prototype/node_modules prototype/dist node_modules",
     "precommit": "yarn run lint",
-    "lint": "eslint client/src server/src",
-    "lint-fix": "eslint --fix client/src server/src",
+    "lint": "eslint --cache client/src server/src prototype/src",
+    "lint-fix": "eslint --fix client/src server/src prototype/src",
     "preinstall": "./env/check/node-version.sh && ./env/check/npm-version.sh && ./env/check/yarn-version.sh",
     "postinstall": "cd prototype && yarn run build",
     "prototype:start": "cd prototype && yarn start",
@@ -60,7 +60,7 @@
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3",
     "opener": "^1.4.3",
-    "prettier": "^1.12.0",
+    "prettier": "^1.12.1",
     "prettier-eslint": "^8.8.1",
     "rimraf": "^2.6.2"
   }

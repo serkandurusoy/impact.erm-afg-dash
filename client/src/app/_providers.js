@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { config } from '../store';
+import { Provider as Redux } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { config } from '../environment/store';
 
 const store = config();
 
 const Providers = ({ children }) => (
-  <Provider store={store}>
-    <BrowserRouter>{children}</BrowserRouter>
-  </Provider>
+  <Redux store={store}>
+    <Router>{children}</Router>
+  </Redux>
 );
 
 Providers.propTypes = {

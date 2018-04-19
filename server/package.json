@@ -5,7 +5,7 @@
   "description": "Server API for data queries",
   "scripts": {
     "start": "yarn run dev",
-    "lint": "eslint src/",
+    "lint": "eslint --cache src/",
     "lint-fix": "eslint --fix src/",
     "dev": "yarn run lint && PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
     "build": "rimraf dist && babel --source-maps inline -d dist/ src/ --copy-files"

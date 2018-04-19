@@ -1,19 +1,17 @@
-(function($) {
-  $('.navbar-toggler')
-    .on('click', function(e) {
-    $('.navbar-collapse')
-      .toggleClass('show');
+(function pageInteractions($) {
+  $('.navbar-toggler').on('click', () => {
+    $('.navbar-collapse').toggleClass('show');
+    return false;
   });
 
-  $('.nav-search__link')
-    .on('click', function() {
+  $('.nav-search__link').on('click', function toggleSearch() {
     $(this)
       .parents('.nav-search')
       .toggleClass('active');
+    return false;
   });
 
-  $('.accordion__item-title')
-    .on('click', function() {
+  $('.accordion__item-title').on('click', function toggleAccordion() {
     $(this)
       .parents('.accordion')
       .children('.accordion__item')
@@ -24,12 +22,10 @@
     return false;
   });
 
-  $('.filter__link')
-    .on('click', function() {
+  $('.filter__link').on('click', function toggleFilter() {
     $(this)
       .parents('.filter')
       .toggleClass('active');
-
     return false;
   });
 })(jQuery);

@@ -1,10 +1,10 @@
-/* eslint-disable comma-dangle */
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const { API_URL, NODE_ENV } = process.env;
 
@@ -53,20 +53,42 @@ plugins.push(
     logo: path.join(__dirname, 'favicon.png'),
     background: '#ED4E4E',
     title: 'Afghanistan Emergency Response Mechanism Dashboard',
+    icons: {
+      android: false,
+      appleIcon: false,
+      appleStartup: false,
+      coast: false,
+      favicons: true,
+      firefox: false,
+      opengraph: false,
+      twitter: false,
+      yandex: false,
+      windows: false,
+    },
   }),
 );
 
 plugins.push(
   new MiniCssExtractPlugin({
-    filename: 'index-[hash].css',
-    chunkFilename: '[name]-[chunkhash].css',
+    filename: 'index-[contenthash].css',
+    chunkFilename: '[name]-[contenthash].css',
   }),
 );
 
 module.exports = {
   mode: NODE_ENV,
-  devtool: PRODUCTION ? 'nosources-source-map' : 'cheap-module-eval-source-map',
+  devtool: PRODUCTION ? false : 'cheap-module-eval-source-map',
   entry,
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: DEVELOPMENT,
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
   plugins,
   resolve: {
     extensions: ['.js'],
@@ -111,6 +133,6 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: 'index-[hash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    chunkFilename: '[name]-[contenthash].js',
   },
 };
