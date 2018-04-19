@@ -13,12 +13,3 @@ FROM
     impact_1.pdm
 GROUP BY `general_infoq1_province`;
 
-/*
-	a Province can have different values
-*/
-
-SELECT
-    `general_infoq1_province` AS Province,
-    `s5_multi_sector_outcome_indexq5_4_debt_compared`
-FROM
-    impact_1.pdm;
