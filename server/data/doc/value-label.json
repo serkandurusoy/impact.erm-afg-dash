@@ -4,6 +4,19 @@
       "1": "High",
       "2": "Medium",
       "3": "No or low"
+    },
+    "S3_GEN_ASSESSq3_1_disp_categ": {
+      "conf_idp":	"Conflict IDP",
+      "nat_disaster": "idp	Natural disaster IDP",
+      "doc_returnee":	"Documented Returnee",
+      "undoc_returnee":	"Undocumented Returnee",
+      "no_disp":	"No Displacement"
+    },
+    "S4_financial_ASSESSq4_5_new_debts": {
+      "no_dept":	"No debts",
+      "less_afs_2000":	"Less then 2000 AFN",
+      "between_2000_8000":	"Between 2000-8000 AFN",
+      "more_8000":	"More than 8000 AFN"
     }
   },
   "PDM": {
@@ -16,7 +29,7 @@
       "1": "Poor food consumption",
       "2": "Borderline food consumption",
       "3": "Acceptable food consumption"
-    }
+    },
     "FCS_rCSI": {
       "1": "Food insecure",
       "2": "Moderately food insecure",
