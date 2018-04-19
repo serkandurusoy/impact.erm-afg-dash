@@ -68,13 +68,11 @@ class Navigation extends Component {
                 <span className="nav-search__link-text">Search</span>
               </a>
               <div className="dropdown-menu nav-search__form">
-                <form>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="What are you looking for?"
-                  />
-                </form>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search by province"
+                />
               </div>
             </li>
           </ul>

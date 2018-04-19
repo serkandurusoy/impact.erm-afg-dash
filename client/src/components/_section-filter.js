@@ -30,38 +30,36 @@ class SectionFilter extends Component {
         <a className="filter__link" onClick={this.toggleFilter} href="#">
           <span className="icon icon--filter" />Filter
         </a>
-        <form>
-          <div className="filter__content">
-            {sections.map(({ title, subTitles }) => (
-              <div key={title} className="filter__column checkboxes">
-                <div className="checkboxes__item--main">
+        <div className="filter__content">
+          {sections.map(({ title, subTitles }) => (
+            <div key={title} className="filter__column checkboxes">
+              <div className="checkboxes__item--main">
+                <input
+                  id={title}
+                  type="checkbox"
+                  className="checkbox"
+                  defaultChecked
+                />
+                <label className="label" htmlFor={title}>
+                  {title}
+                </label>
+              </div>
+              {subTitles.map((subTitle, index) => (
+                <div key={subTitle} className="checkboxes__item">
                   <input
-                    id={title}
+                    id={`${title}-${index}`}
                     type="checkbox"
                     className="checkbox"
                     defaultChecked
                   />
-                  <label className="label" htmlFor={title}>
-                    {title}
+                  <label className="label" htmlFor={`${title}-${index}`}>
+                    {subTitle}
                   </label>
                 </div>
-                {subTitles.map((subTitle, index) => (
-                  <div key={subTitle} className="checkboxes__item">
-                    <input
-                      id={`${title}-${index}`}
-                      type="checkbox"
-                      className="checkbox"
-                      defaultChecked
-                    />
-                    <label className="label" htmlFor={`${title}-${index}`}>
-                      {subTitle}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </form>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

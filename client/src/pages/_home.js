@@ -1,89 +1,37 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import headerBlock from '@impact/prototype/dist/images/header-block.jpg';
-import { Header } from '../components/index';
+import { Header, ProvinceSearch } from '../components/index';
+import SECTIONS from '../constants/sections';
 
 const Home = () => (
   <div>
     <Header>
-      <div className="header-search">
-        <form>
-          <div className="header-search__group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by region"
-            />
-            <div className="header-search__submit">
-              <button className="btn--primary" type="submit">
-                <span className="icon icon--search" />
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <ProvinceSearch />
       <div className="header-blocks">
-        <div className="header-block">
-          <div className="header-block__title">
-            <span className="icon icon--tools" />HEAT
+        {SECTIONS.map(({ title, subTitles }) => (
+          <div key={title} className="header-block">
+            <div className="header-block__title">
+              <span className="icon icon--tools" />
+              {title}
+            </div>
+            <div className="header-block__items">
+              {subTitles.slice(0, 2).map(subTitle => (
+                <Link
+                  to={`/${title.toLowerCase()}`}
+                  className="header-block__item"
+                  key={subTitle}
+                >
+                  <img className="img-fluid" src={headerBlock} />
+                  <div className="header-block__item-title">{subTitle}</div>
+                </Link>
+              ))}
+            </div>
+            <Link className="header-block__link" to={`/${title.toLowerCase()}`}>
+              Find out more ({subTitles.length})
+            </Link>
           </div>
-          <div className="header-block__items">
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">Household</div>
-            </a>
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">
-                Additional Vulnerability Assessment
-              </div>
-            </a>
-          </div>
-          <a className="header-block__link" href="">
-            Find out more (6)
-          </a>
-        </div>
-
-        <div className="header-block">
-          <div className="header-block__title">
-            <span className="icon icon--broken-battery" />PDM
-          </div>
-          <div className="header-block__items">
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">Household</div>
-            </a>
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">
-                Additional Vulnerability Assessment
-              </div>
-            </a>
-          </div>
-          <a className="header-block__link" href="">
-            Find out more (6)
-          </a>
-        </div>
-
-        <div className="header-block">
-          <div className="header-block__title">
-            <span className="icon icon--apple" />MPC
-          </div>
-          <div className="header-block__items">
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">Household</div>
-            </a>
-            <a href="" className="header-block__item">
-              <img className="img-fluid" src={headerBlock} />
-              <div className="header-block__item-title">
-                Additional Vulnerability Assessment
-              </div>
-            </a>
-          </div>
-          <a className="header-block__link" href="">
-            Find out more (6)
-          </a>
-        </div>
+        ))}
       </div>
     </Header>
 
