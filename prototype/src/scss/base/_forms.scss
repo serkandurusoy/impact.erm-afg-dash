@@ -12,6 +12,10 @@ input[type='checkbox'] {
     font-weight: 600;
     align-items: center;
 
+    &.main {
+      font-weight: bold;
+    }
+
     &:before {
       content: "";
       display: inline-flex;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import { Header } from '../components/global';
+import { Header } from '../components/index';
 import chunkedArray from '../utils/chunkedArray';
-import PROVINCE_INFO from '../environment/constants/_province-info';
+import PROVINCE_INFO from '../constants/province-info';
 
 const provinceColumns = chunkedArray(7, PROVINCE_INFO);
 

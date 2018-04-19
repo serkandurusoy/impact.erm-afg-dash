@@ -10,7 +10,7 @@ import {
   Provinces,
   Province,
 } from '../pages';
-import PROVINCE_INFO from '../environment/constants/_province-info';
+import PROVINCE_INFO from '../constants/province-info';
 
 const Routes = () => (
   <Switch>

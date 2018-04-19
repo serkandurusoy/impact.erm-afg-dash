@@ -1,6 +1,6 @@
 import React from 'react';
 import headerBlock from '@impact/prototype/dist/images/header-block.jpg';
-import { Header } from '../components/global';
+import { Header } from '../components/index';
 
 const Home = () => (
   <div>

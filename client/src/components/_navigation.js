@@ -62,6 +62,7 @@ class Navigation extends Component {
               <a
                 onClick={this.toggleSearch}
                 className="navbar-nav__link nav-search__link"
+                href="#"
               >
                 <span className="icon icon--search" />
                 <span className="nav-search__link-text">Search</span>
