@@ -1,9 +1,13 @@
-SELECT 
+SELECT
     `general_infoq1_province`,
-    COUNT(IF(`S6_washq6_1_bathing_water` = 'yes', 1, NULL)) as `Bathing Water Access`,
-    COUNT(IF(`S6_washq6_1_bathing_water` = 'no', 1, NULL)) as `No Bathing Water Access`,
-    COUNT(`S6_washq6_1_bathing_water`) as Total
+    SUM(IF(`S6_washq6_1_bathing_water` = 'yes',
+        1,
+        0)) AS `Bathing Water Access`,
+    SUM(IF(`S6_washq6_1_bathing_water` = 'no',
+        1,
+        0)) AS `No Bathing Water Access`,
+    COUNT(`S6_washq6_1_bathing_water`) AS Total
 FROM
     impact_1.heat
-    GROUP BY general_infoq1_province;
+GROUP BY general_infoq1_province;
 

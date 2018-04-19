@@ -1,6 +1,6 @@
 SELECT
-    `general_info/q3_province` as Province,
-    `s1_full_market_survey/q1_4_market_appearance` as `Market Appearance`
+    `general_info/q3_province` AS Province,
+    `s1_full_market_survey/q1_4_market_appearance` AS `Market Appearance`
 FROM
     impact_1.mpc
 ORDER BY `general_info/q3_province` ASC;
@@ -10,9 +10,13 @@ ORDER BY `general_info/q3_province` ASC;
 */
 
 SELECT
-    `general_info/q3_province` as Province,
-    COUNT(IF(`s1_full_market_survey/q1_4_market_appearance` = "well_function_busy",1,NULL)) as `Well Function Busy`,
-    COUNT(IF(`s1_full_market_survey/q1_4_market_appearance` = "moderate_function",1,NULL)) as `Moderate Function`
+    `general_info/q3_province` AS Province,
+    SUM(IF(`s1_full_market_survey/q1_4_market_appearance` = 'well_function_busy',
+        1,
+        0)) AS `Well Function Busy`,
+    SUM(IF(`s1_full_market_survey/q1_4_market_appearance` = 'moderate_function',
+        1,
+        0)) AS `Moderate Function`
 FROM
     impact_1.mpc
 GROUP BY `general_info/q3_province` ASC;
