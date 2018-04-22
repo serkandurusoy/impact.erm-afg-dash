@@ -1,3 +1,4 @@
 import 'babel-polyfill';
-import '@impact/prototype/dist/css/style.css';
+import 'intersection-observer';
+import './styles/scss/style.scss';
 import './app';

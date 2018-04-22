@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import headerBlock from '@impact/prototype/dist/images/header-block.jpg';
+import headerBlock from '../styles/images/header-block.jpg';
 import { Header, ProvinceSearch } from '../components/index';
 import SECTIONS from '../constants/sections';
 
 const Home = () => (
   <div>
-    <Header>
+    <Header
+      className="header--homepage"
+      title="Afghanistan"
+      subTitle="Emergency Response Mechanism (ERM) Dashboard"
+      iconClass="icon--tools"
+    >
       <ProvinceSearch />
       <div className="header-blocks">
         {SECTIONS.map(({ title, subTitles }) => (

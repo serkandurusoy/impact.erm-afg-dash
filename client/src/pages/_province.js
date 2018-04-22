@@ -16,13 +16,133 @@ class Province extends Component {
     /* eslint-enable react/no-typos */
   };
 
-  state = {
-    selectedTab: 'HEAT',
+  constructor(props) {
+    super(props);
+    const allDistricts = PROVINCE_INFO.find(
+      province => province.slug === this.props.match.params.provinceSlug,
+    )
+      .districts.map(district => district.name)
+      .sort();
+    const allSections = SECTIONS;
+    this.state = {
+      filterActive: false,
+      selectedTab: 'HEAT',
+      selectedSections: allSections.map(({ title, subTitles }) => ({
+        title,
+        subTitles,
+      })),
+      allSections,
+      selectedDistricts: allDistricts,
+      allDistricts,
+    };
+  }
+
+  toggleSection = (title, subTitleIndex) => {
+    const { selectedSections, allSections } = this.state;
+    const selected = selectedSections
+      .find(section => section.title === title)
+      .subTitles.find(subTitle => subTitle.index === subTitleIndex);
+    if (selected) {
+      this.setState({
+        selectedSections: [
+          ...selectedSections.filter(section => section.title !== title),
+          {
+            ...(selectedSections.find(section => section.title === title) ||
+              {}),
+            subTitles: selectedSections
+              .find(section => section.title === title)
+              .subTitles.filter(subTitle => subTitle.index !== subTitleIndex),
+          },
+        ],
+      });
+    } else {
+      this.setState({
+        selectedSections: [
+          ...selectedSections.filter(section => section.title !== title),
+          {
+            ...(selectedSections.find(section => section.title === title) ||
+              {}),
+            subTitles: [
+              ...((
+                selectedSections.find(section => section.title === title) || {}
+              ).subTitles || []),
+              allSections
+                .find(section => section.title === title)
+                .subTitles.find(subTitle => subTitle.index === subTitleIndex),
+            ].sort((l, r) => (l.index > r.index ? 1 : -1)),
+          },
+        ],
+      });
+    }
+  };
+
+  toggleSectionAll = title => {
+    const { selectedSections, allSections } = this.state;
+    const allSelected =
+      allSections.find(section => section.title === title).subTitles.length ===
+      selectedSections.find(section => section.title === title).subTitles
+        .length;
+
+    if (allSelected) {
+      this.setState({
+        selectedSections: [
+          ...selectedSections.filter(section => section.title !== title),
+          {
+            ...selectedSections.find(section => section.title === title),
+            subTitles: [],
+          },
+        ],
+      });
+    } else {
+      this.setState({
+        selectedSections: [
+          ...selectedSections.filter(section => section.title !== title),
+          {
+            ...selectedSections.find(section => section.title === title),
+            subTitles: allSections.find(section => section.title === title)
+              .subTitles,
+          },
+        ],
+      });
+    }
+  };
+
+  toggleFilter = e => {
+    e.preventDefault();
+    this.setState({
+      filterActive: !this.state.filterActive,
+    });
   };
 
   selectTab = (e, tab) => {
     e.preventDefault();
     this.setState({ selectedTab: tab });
+  };
+
+  toggleDistrict = name => {
+    const { selectedDistricts } = this.state;
+    if (selectedDistricts.includes(name)) {
+      this.setState({
+        selectedDistricts: selectedDistricts.filter(p => p !== name),
+      });
+    } else {
+      this.setState({
+        selectedDistricts: [...selectedDistricts, name].sort(),
+      });
+    }
+  };
+
+  toggleAllDistricts = () => {
+    const { selectedDistricts, allDistricts } = this.state;
+    if (selectedDistricts.length === allDistricts.length) {
+      this.setState({
+        selectedDistricts: [],
+      });
+    } else {
+      this.setState({
+        selectedDistricts: allDistricts,
+      });
+    }
   };
 
   render() {
@@ -31,22 +151,36 @@ class Province extends Component {
         params: { provinceSlug },
       },
     } = this.props;
-    const { selectedTab } = this.state;
+
+    const {
+      selectedTab,
+      selectedSections,
+      allSections,
+      selectedDistricts,
+      allDistricts,
+      filterActive,
+    } = this.state;
+
     const { label, info, districts } = PROVINCE_INFO.find(
       province => province.slug === provinceSlug,
     );
-    const count = districts.length;
+
+    const districtCount = allDistricts.length;
+
     const districtColumns = chunkedArray(
-      Math.floor(count / (count < 10 ? 2 : count < 15 ? 3 : 4)),
+      Math.floor(
+        districtCount / (districtCount < 10 ? 2 : districtCount < 15 ? 3 : 4),
+      ),
       districts,
     );
+
     return (
       <div>
         <Helmet title={label} />
         <Header
           className="header--subpage__province"
           title={label}
-          subtitle={`${label} province is divided into ${
+          subTitle={`${label} province is divided into ${
             districts.length
           } districts`}
           iconClass="icon--sign"
@@ -89,10 +223,11 @@ class Province extends Component {
                     id="province"
                     type="checkbox"
                     className="checkbox"
-                    defaultChecked
+                    checked={selectedDistricts.length === districtCount}
+                    onChange={() => this.toggleAllDistricts()}
                   />
                   <label className="label main" htmlFor="province">
-                    PROVINCE
+                    ALL DISTRICTS
                   </label>
                 </div>
                 {districts.map(({ name, label: districtLabel }) => (
@@ -101,7 +236,8 @@ class Province extends Component {
                       id={name}
                       type="checkbox"
                       className="checkbox"
-                      defaultChecked
+                      checked={selectedDistricts.includes(name)}
+                      onChange={() => this.toggleDistrict(name)}
                     />
                     <label className="label" htmlFor={name}>
                       {districtLabel}
@@ -111,7 +247,14 @@ class Province extends Component {
               </div>
             </section>
             <section className="content__right bg--gray-1">
-              <SectionFilter sections={SECTIONS} />
+              <SectionFilter
+                allSections={allSections}
+                selectedSections={selectedSections}
+                toggleSection={this.toggleSection}
+                toggleSectionAll={this.toggleSectionAll}
+                filterActive={filterActive}
+                toggleFilter={this.toggleFilter}
+              />
               <div className="accordion">
                 <div
                   className={classNames('accordion__item', {

@@ -13,7 +13,7 @@ const Provinces = ({ match }) => (
     <Header
       className="header--subpage__provinces"
       title="Provinces"
-      subtitle="Afghanistan is divided into 34 provinces."
+      subTitle="Afghanistan is divided into 34 provinces."
       iconClass="icon--tools"
     >
       <div className="header__lists">

@@ -4,20 +4,20 @@
   "version": "1.0.0",
   "description": "Impact / REACH - Afghanistan Emergency Response Mechanism Dashboard",
   "scripts": {
-    "clean": "rimraf client/node_modules client/dist server/node_modules server/dist prototype/node_modules prototype/dist node_modules",
+    "clean": "rimraf client/node_modules client/dist server/node_modules server/dist node_modules",
     "precommit": "yarn run lint",
-    "lint": "eslint --cache client/src server/src prototype/src",
-    "lint-fix": "eslint --fix client/src server/src prototype/src",
+    "lint": "eslint --cache client/src server/src",
+    "lint-fix": "eslint --fix client/src server/src",
     "preinstall": "./env/check/node-version.sh && ./env/check/npm-version.sh && ./env/check/yarn-version.sh",
-    "postinstall": "cd prototype && yarn run build",
-    "prototype:start": "cd prototype && yarn start",
-    "prototype:open": "opener http://localhost:8000",
     "db:start": "docker-compose -f \"./env/docker/docker-compose.yml\" -p \"mysql.impact.dev\" up --no-recreate",
     "db:stop": "docker-compose -f \"./env/docker/docker-compose.yml\" -p \"mysql.impact.dev\" stop",
+    "server:build": "cd server && yarn run build",
     "server:start": "cd server && yarn start",
+    "client:build": "cd client && yarn run build",
     "client:start": "cd client && yarn start",
     "client:open": "opener http://localhost:8001",
-    "dev": "concurrently --kill-others 'yarn run db:start' 'yarn run server:start' 'yarn run client:start'",
+    "build": "yarn run server:build && yarn run client:build",
+    "dev": "concurrently --kill-others 'yarn run db:start' 'yarn run server:start' 'yarn run client:start' 'yarn run client:open'",
     "start": "yarn run dev"
   },
   "author": "Serkan Durusoy<serkan@waat.eu>",
@@ -36,7 +36,6 @@
     "url": "https://git.assembla.com/waat/impact.git"
   },
   "workspaces": [
-    "prototype",
     "client",
     "server"
   ],

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navigation from './_navigation';
 
-const Header = ({ children, className, title, subtitle, iconClass }) => (
+const Header = ({ children, className, title, subTitle, iconClass }) => (
   <header>
     <section className={className}>
       <Navigation />
@@ -12,7 +12,7 @@ const Header = ({ children, className, title, subtitle, iconClass }) => (
           {iconClass && <span className={`header__icon icon ${iconClass}`} />}
           {title}
         </div>
-        <div className="header__subtitle">{subtitle}</div>
+        <div className="header__subtitle">{subTitle}</div>
         {children}
       </div>
     </section>
@@ -21,17 +21,14 @@ const Header = ({ children, className, title, subtitle, iconClass }) => (
 
 Header.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
+  className: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   iconClass: PropTypes.string,
 };
 
 Header.defaultProps = {
   children: null,
-  className: 'header--homepage',
-  title: 'Afghanistan',
-  subtitle: 'Emergency Response Mechanism (ERM) Dashboard',
   iconClass: null,
 };
 

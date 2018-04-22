@@ -89,8 +89,6 @@
   },
   "globals": {
     "PRODUCTION": false,
-    "DEVELOPMENT": false,
-    "API_URL": false,
-    "jQuery": false
+    "DEVELOPMENT": false
   }
 }

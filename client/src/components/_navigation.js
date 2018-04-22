@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '@impact/prototype/dist/images/logo.png';
+import logo from '../styles/images/logo.png';
 import NavigationLink from './_navigation-link';
 
 class Navigation extends Component {

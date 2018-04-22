@@ -119,6 +119,7 @@ const PROVINCE_INFO = [
     slug: 'badakhshan',
     info:
       'Badakhshan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 1,
   },
   {
     name: 'Badghis',
@@ -156,6 +157,7 @@ const PROVINCE_INFO = [
     slug: 'badghis',
     info:
       'Badghis pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 2,
   },
   {
     name: 'Baghlan',
@@ -225,6 +227,7 @@ const PROVINCE_INFO = [
     slug: 'baghlan',
     info:
       'Baghlan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 3,
   },
   {
     name: 'Balkh',
@@ -298,6 +301,7 @@ const PROVINCE_INFO = [
     slug: 'balkh',
     info:
       'Balkh pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 4,
   },
   {
     name: 'Bamyan',
@@ -335,6 +339,7 @@ const PROVINCE_INFO = [
     slug: 'bamyan',
     info:
       'Bamyan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 5,
   },
   {
     name: 'Daykundi',
@@ -380,6 +385,7 @@ const PROVINCE_INFO = [
     slug: 'daykundi',
     info:
       'Daykundi pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 6,
   },
   {
     name: 'Farah',
@@ -433,6 +439,7 @@ const PROVINCE_INFO = [
     slug: 'farah',
     info:
       'Farah pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 7,
   },
   {
     name: 'Faryab',
@@ -498,6 +505,7 @@ const PROVINCE_INFO = [
     slug: 'faryab',
     info:
       'Faryab pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 8,
   },
   {
     name: 'Ghazni',
@@ -583,6 +591,7 @@ const PROVINCE_INFO = [
     slug: 'ghazni',
     info:
       'Ghazni pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 9,
   },
   {
     name: 'Ghor',
@@ -632,6 +641,7 @@ const PROVINCE_INFO = [
     slug: 'ghor',
     info:
       'Ghor pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 10,
   },
   {
     name: 'Hilmand',
@@ -693,6 +703,7 @@ const PROVINCE_INFO = [
     slug: 'hilmand',
     info:
       'Hilmand pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 11,
   },
   {
     name: 'Hirat',
@@ -766,6 +777,7 @@ const PROVINCE_INFO = [
     slug: 'hirat',
     info:
       'Hirat pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 12,
   },
   {
     name: 'Jawzjan',
@@ -819,6 +831,7 @@ const PROVINCE_INFO = [
     slug: 'jawzjan',
     info:
       'Jawzjan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 13,
   },
   {
     name: 'Kabul',
@@ -888,6 +901,7 @@ const PROVINCE_INFO = [
     slug: 'kabul',
     info:
       'Kabul pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 14,
   },
   {
     name: 'Kandahar',
@@ -961,6 +975,7 @@ const PROVINCE_INFO = [
     slug: 'kandahar',
     info:
       'Kandahar pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 15,
   },
   {
     name: 'Kapisa',
@@ -998,6 +1013,7 @@ const PROVINCE_INFO = [
     slug: 'kapisa',
     info:
       'Kapisa pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 16,
   },
   {
     name: 'Khost',
@@ -1059,6 +1075,7 @@ const PROVINCE_INFO = [
     slug: 'khost',
     info:
       'Khost pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 17,
   },
   {
     name: 'Kunar',
@@ -1128,6 +1145,7 @@ const PROVINCE_INFO = [
     slug: 'kunar',
     info:
       'Kunar pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 18,
   },
   {
     name: 'Kunduz',
@@ -1165,6 +1183,7 @@ const PROVINCE_INFO = [
     slug: 'kunduz',
     info:
       'Kunduz pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 19,
   },
   {
     name: 'Laghman',
@@ -1194,6 +1213,7 @@ const PROVINCE_INFO = [
     slug: 'laghman',
     info:
       'Laghman pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 20,
   },
   {
     name: 'Logar',
@@ -1231,6 +1251,7 @@ const PROVINCE_INFO = [
     slug: 'logar',
     info:
       'Logar pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 21,
   },
   {
     name: 'Nangarhar',
@@ -1328,6 +1349,7 @@ const PROVINCE_INFO = [
     slug: 'nangarhar',
     info:
       'Nangarhar pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 22,
   },
   {
     name: 'Nimroz',
@@ -1357,6 +1379,7 @@ const PROVINCE_INFO = [
     slug: 'nimroz',
     info:
       'Nimroz pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 23,
   },
   {
     name: 'Nuristan',
@@ -1398,6 +1421,7 @@ const PROVINCE_INFO = [
     slug: 'nuristan',
     info:
       'Nuristan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 24,
   },
   {
     name: 'Paktika',
@@ -1483,6 +1507,7 @@ const PROVINCE_INFO = [
     slug: 'paktika',
     info:
       'Paktika pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 25,
   },
   {
     name: 'Paktya',
@@ -1536,6 +1561,7 @@ const PROVINCE_INFO = [
     slug: 'paktya',
     info:
       'Paktya pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 26,
   },
   {
     name: 'Panjsher',
@@ -1573,6 +1599,7 @@ const PROVINCE_INFO = [
     slug: 'panjsher',
     info:
       'Panjsher pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 27,
   },
   {
     name: 'Parwan',
@@ -1622,6 +1649,7 @@ const PROVINCE_INFO = [
     slug: 'parwan',
     info:
       'Parwan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 28,
   },
   {
     name: 'Samangan',
@@ -1659,6 +1687,7 @@ const PROVINCE_INFO = [
     slug: 'samangan',
     info:
       'Samangan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 29,
   },
   {
     name: 'Sar_e_Pul',
@@ -1696,6 +1725,7 @@ const PROVINCE_INFO = [
     slug: 'sar-e-pul',
     info:
       'Sar_e_Pul pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 30,
   },
   {
     name: 'Takhar',
@@ -1773,6 +1803,7 @@ const PROVINCE_INFO = [
     slug: 'takhar',
     info:
       'Takhar pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 31,
   },
   {
     name: 'Uruzgan',
@@ -1802,6 +1833,7 @@ const PROVINCE_INFO = [
     slug: 'uruzgan',
     info:
       'Uruzgan pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 32,
   },
   {
     name: 'Wardak',
@@ -1847,6 +1879,7 @@ const PROVINCE_INFO = [
     slug: 'wardak',
     info:
       'Wardak pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 33,
   },
   {
     name: 'Zabul',
@@ -1900,6 +1933,7 @@ const PROVINCE_INFO = [
     slug: 'zabul',
     info:
       'Zabul pulvinar sagittis tortor vel ullamcorper. Praesent pretium risus lacus, ut ultrices risus luctus et. Donec semper nisl vel felis commodo, nec vulputate ex consequat. Maecenas consequat tellus et diam cursus, a sodales urna laoreet. Aliquam eget nulla vehicula, sollicitudin orci ac, cursus lacus. Donec viverra erat velit. Nam elementum enim purus, sit amet dapibus odio gravida in. Phasellus eleifend neque justo.',
+    id: 34,
   },
 ];
 

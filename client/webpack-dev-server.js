@@ -12,6 +12,9 @@ const server = new WebpackDevServer(compiler, {
   stats: {
     colors: true,
   },
+  proxy: {
+    '/api': 'http://localhost:8002',
+  },
 });
 
 server.listen(8001, 'localhost', () => {});

@@ -5,8 +5,11 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
 
-const { API_URL, NODE_ENV } = process.env;
+const { NODE_ENV } = process.env;
 
 const DEVELOPMENT = NODE_ENV === 'development';
 const PRODUCTION = NODE_ENV === 'production';
@@ -37,7 +40,6 @@ plugins.push(
   new webpack.DefinePlugin({
     DEVELOPMENT: JSON.stringify(DEVELOPMENT),
     PRODUCTION: JSON.stringify(PRODUCTION),
-    API_URL,
   }),
 );
 
@@ -75,6 +77,13 @@ plugins.push(
   }),
 );
 
+plugins.push(
+  new WorkboxPlugin.GenerateSW({
+    clientsClaim: true,
+    skipWaiting: true,
+  }),
+);
+
 module.exports = {
   mode: NODE_ENV,
   devtool: PRODUCTION ? false : 'cheap-module-eval-source-map',
@@ -108,20 +117,49 @@ module.exports = {
         include: [path.join(__dirname, 'src')],
       },
       {
-        test: /\.(css)$/,
-        include: [
-          path.join(__dirname, 'src'),
-          path.join(__dirname, '../prototype/dist'),
+        test: /\.(scss|sass)$/,
+        exclude: '/node_modules/',
+        include: [path.join(__dirname, 'src')],
+        use: [
+          PRODUCTION ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: DEVELOPMENT,
+              plugins: () => [
+                autoprefixer({
+                  browsers: [
+                    'last 3 versions',
+                    'safari >= 7',
+                    'iOS > 7',
+                    '> 1%',
+                  ],
+                }),
+              ],
+            },
+          },
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: DEVELOPMENT,
+            },
+          },
         ],
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|eot|ttf|woff)$/,
-        loaders: ['file-loader'],
-        include: [
-          path.join(__dirname, 'src'),
-          path.join(__dirname, '../prototype/dist'),
+        loaders: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'assets/',
+            },
+          },
         ],
+        include: [path.join(__dirname, 'src')],
       },
       {
         test: /\.html$/,

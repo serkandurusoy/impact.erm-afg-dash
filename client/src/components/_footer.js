@@ -1,14 +1,14 @@
 import React from 'react';
-import logoEu from '@impact/prototype/dist/images/logos/eu@2x.png';
-import logoReach from '@impact/prototype/dist/images/logos/reach@2x.png';
-import logoPremiere from '@impact/prototype/dist/images/logos/premiere@2x.png';
-import logoSolidarites from '@impact/prototype/dist/images/logos/solidarites@2x.png';
-import logoPeopleInNeed from '@impact/prototype/dist/images/logos/people-in-need.svg';
-import logoNorwegian from '@impact/prototype/dist/images/logos/norvegian.svg';
-import logoDrc from '@impact/prototype/dist/images/logos/drc@2x.png';
-import logoDacaar from '@impact/prototype/dist/images/logos/dacaar@2x.png';
-import logoAction from '@impact/prototype/dist/images/logos/action@2x.png';
-import logoActed from '@impact/prototype/dist/images/logos/acted@2x.png';
+import logoEu from '../styles/images/logos/eu@2x.png';
+import logoReach from '../styles/images/logos/reach@2x.png';
+import logoPremiere from '../styles/images/logos/premiere@2x.png';
+import logoSolidarites from '../styles/images/logos/solidarites@2x.png';
+import logoPeopleInNeed from '../styles/images/logos/people-in-need.svg';
+import logoNorwegian from '../styles/images/logos/norvegian.svg';
+import logoDrc from '../styles/images/logos/drc@2x.png';
+import logoDacaar from '../styles/images/logos/dacaar@2x.png';
+import logoAction from '../styles/images/logos/action@2x.png';
+import logoActed from '../styles/images/logos/acted@2x.png';
 
 const Footer = () => (
   <footer className="footer">
