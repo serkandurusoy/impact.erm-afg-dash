@@ -33,7 +33,6 @@
     "node-sass": "^4.8.3",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "postcss-loader": "^2.1.4",
-    "precss": "^3.1.2",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",

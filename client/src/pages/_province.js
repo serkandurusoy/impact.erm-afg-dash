@@ -7,7 +7,9 @@ import { Header, SectionFilter } from '../components/index';
 import chunkedArray from '../utils/chunkedArray';
 import PROVINCE_INFO from '../constants/province-info';
 import SECTIONS from '../constants/sections';
-import DELETEME_GRAPH from './DELETEME_GRAPH.png';
+import HeatCharts from '../charts/heat';
+import PdmCharts from '../charts/pdm';
+import MpcCharts from '../charts/mpc';
 
 class Province extends Component {
   static propTypes = {
@@ -282,17 +284,12 @@ class Province extends Component {
                     {SECTIONS.find(
                       section => section.title === 'HEAT',
                     ).info.map((text, index) => <p key={index}>{text}</p>)}
-                    <div className="graph">
-                      <h4 className="graph__title">
-                        Household<a className="graph__full" href="#">
-                          <span className="icon icon--arrow-top-right" />
-                        </a>
-                      </h4>
-                      <div className="graph__subtitle">Lorem ipsum</div>
-                      <div className="graph__graph">
-                        <img className="img-fluid" src={DELETEME_GRAPH} />
-                      </div>
-                    </div>
+                    <HeatCharts
+                      sectionFilter={selectedSections
+                        .find(section => section.title === 'HEAT')
+                        .subTitles.map(subTitle => subTitle.subTitle)}
+                      districtFilter={selectedDistricts}
+                    />
                   </div>
                 </div>
                 <div
@@ -311,17 +308,12 @@ class Province extends Component {
                     {SECTIONS.find(section => section.title === 'MPC').info.map(
                       (text, index) => <p key={index}>{text}</p>,
                     )}
-                    <div className="graph">
-                      <h4 className="graph__title">
-                        General Information<a className="graph__full" href="#">
-                          <span className="icon icon--arrow-top-right" />
-                        </a>
-                      </h4>
-                      <div className="graph__subtitle">Lorem ipsum</div>
-                      <div className="graph__graph">
-                        <img className="img-fluid" src={DELETEME_GRAPH} />
-                      </div>
-                    </div>
+                    <MpcCharts
+                      sectionFilter={selectedSections
+                        .find(section => section.title === 'MPC')
+                        .subTitles.map(subTitle => subTitle.subTitle)}
+                      districtFilter={selectedDistricts}
+                    />
                   </div>
                 </div>
                 <div
@@ -340,17 +332,12 @@ class Province extends Component {
                     {SECTIONS.find(section => section.title === 'PDM').info.map(
                       (text, index) => <p key={index}>{text}</p>,
                     )}
-                    <div className="graph">
-                      <h4 className="graph__title">
-                        General Information<a className="graph__full" href="#">
-                          <span className="icon icon--arrow-top-right" />
-                        </a>
-                      </h4>
-                      <div className="graph__subtitle">Lorem ipsum</div>
-                      <div className="graph__graph">
-                        <img className="img-fluid" src={DELETEME_GRAPH} />
-                      </div>
-                    </div>
+                    <PdmCharts
+                      sectionFilter={selectedSections
+                        .find(section => section.title === 'PDM')
+                        .subTitles.map(subTitle => subTitle.subTitle)}
+                      districtFilter={selectedDistricts}
+                    />
                   </div>
                 </div>
               </div>

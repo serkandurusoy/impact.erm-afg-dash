@@ -25,11 +25,11 @@ const SECTIONS = [
     ],
     subTitles: [
       { index: 0, subTitle: 'General Information' },
-      { index: 1, subTitle: 'Household profile' },
-      { index: 2, subTitle: 'Cash distribution process' },
-      { index: 3, subTitle: 'Use of cash assistance' },
-      { index: 4, subTitle: 'Coping strategies' },
-      { index: 5, subTitle: 'Multi-sector outcome' },
+      { index: 1, subTitle: 'Household Profile' },
+      { index: 2, subTitle: 'Cash Distribution Process' },
+      { index: 3, subTitle: 'Use of Cash Assistance' },
+      { index: 4, subTitle: 'Coping Strategies' },
+      { index: 5, subTitle: 'Multi-Sector Outcome' },
     ],
   },
   {
@@ -41,8 +41,8 @@ const SECTIONS = [
     ],
     subTitles: [
       { index: 0, subTitle: 'General Information' },
-      { index: 1, subTitle: 'Full market survey' },
-      { index: 2, subTitle: 'Prices survey' },
+      { index: 1, subTitle: 'Full Market Survey' },
+      { index: 2, subTitle: 'Prices Survey' },
     ],
   },
 ];

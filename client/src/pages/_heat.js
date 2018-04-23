@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Header, ProvinceFilter } from '../components/index';
 import chunkedArray from '../utils/chunkedArray';
 import SECTIONS from '../constants/sections';
-import DELETEME_GRAPH from './DELETEME_GRAPH.png';
+import HeatCharts from '../charts/heat';
 
 const SECTION = SECTIONS.find(({ title }) => title === 'HEAT');
 
@@ -70,17 +70,7 @@ class Heat extends Component {
             />
 
             <section className="content__single">
-              <div className="graph">
-                <h4 className="graph__title">
-                  Household<a className="graph__full" href="#">
-                    <span className="icon icon--arrow-top-right" />
-                  </a>
-                </h4>
-                <div className="graph__subtitle">Lorem ipsum</div>
-                <div className="graph__graph">
-                  <img className="img-fluid" src={DELETEME_GRAPH} />
-                </div>
-              </div>
+              <HeatCharts provinceFilter={selectedProvinces} />
             </section>
           </section>
         </main>
