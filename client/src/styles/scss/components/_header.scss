@@ -234,6 +234,14 @@
   }
 }
 
+.header--subpage__province__info-source {
+  text-align: right;
+
+  span {
+    font-weight: bold;
+  }
+}
+
 .header--subpage__contact {
   @extend .header;
   background-image:

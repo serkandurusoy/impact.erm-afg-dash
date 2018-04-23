@@ -161,7 +161,7 @@ class Province extends Component {
       filterActive,
     } = this.state;
 
-    const { label, info, districts } = PROVINCE_INFO.find(
+    const { label, info, infoSource, districts } = PROVINCE_INFO.find(
       province => province.slug === provinceSlug,
     );
 
@@ -209,6 +209,16 @@ class Province extends Component {
                 {/* if there are two paragraphs, duplicate the whole div, not just the p */}
                 <div className="subpage__content-item">
                   <p>{info}</p>
+                  <p className="header--subpage__province__info-source">
+                    <span>Source: </span>
+                    <a
+                      href={infoSource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Wikipedia
+                    </a>
+                  </p>
                 </div>
               </div>
             </section>

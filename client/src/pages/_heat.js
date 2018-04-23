@@ -40,9 +40,9 @@ class Heat extends Component {
           <div className="header__lists">
             {chunkedArray(3, SECTION.subTitles).map((column, index) => (
               <div key={index} className="header__list">
-                {column.map(section => (
-                  <div key={section} className="header__list-item">
-                    {section}
+                {column.map(({ subTitle, index: subTitleIndex }) => (
+                  <div key={subTitleIndex} className="header__list-item">
+                    {subTitle}
                   </div>
                 ))}
               </div>

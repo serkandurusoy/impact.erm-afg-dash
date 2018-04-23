@@ -21,11 +21,11 @@ const Home = () => (
               {title}
             </div>
             <div className="header-block__items">
-              {subTitles.slice(0, 2).map(subTitle => (
+              {subTitles.slice(0, 2).map(({ index, subTitle }) => (
                 <Link
                   to={`/${title.toLowerCase()}`}
                   className="header-block__item"
-                  key={subTitle}
+                  key={index}
                 >
                   <img className="img-fluid" src={headerBlock} />
                   <div className="header-block__item-title">{subTitle}</div>
