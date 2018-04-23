@@ -1,4 +1,4 @@
-export const callDb = async database => {
+const callDb = async database => {
   // TODO: cache handler!
   const dbResult = await database.select('*').from('xxx');
 

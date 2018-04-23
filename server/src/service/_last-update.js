@@ -1,4 +1,4 @@
-export const lastUpdate = async (/* database */) => {
+const lastUpdate = async (/* database */) => {
   // TODO: last update date across tables!
 
   // const dbResult = await database.select('*').from('xxx');

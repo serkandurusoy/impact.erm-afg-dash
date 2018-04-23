@@ -27,6 +27,7 @@
     "brute-knex": "^2.1.0",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
+    "csv-parse": "^2.2.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-brute": "^1.0.1",
