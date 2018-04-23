@@ -1,11 +1,15 @@
-const lastUpdate = async (/* database */) => {
-  // TODO: last update date across tables!
-
-  // const dbResult = await database.select('*').from('xxx');
-
-  const dbResult = { lastUpdate: new Date('2019-04-23T19:45:39.329Z') };
-
-  return dbResult;
+const lastUpdate = async database => {
+  const [results] = await database.raw(`
+  select max(lastUpdateOnTable) as lastUpdate from 
+    (
+      select max(today) as lastUpdateOnTable FROM mpc
+      union
+      select max(today) as lastUpdateOnTable FROM heat
+      union
+      select max(today) as lastUpdateOnTable FROM pdm
+    ) as tables
+	`);
+  return results[0];
 };
 
 export default lastUpdate;
