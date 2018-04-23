@@ -1,11 +1,16 @@
 import requestValidator from './_request-validator';
-import { callDb } from '../service';
+import { callDb, lastUpdate } from '../service';
 
 const controller = (database, router) => {
   router.use(requestValidator);
 
   router.get('/', (req, res) => {
     res.send({ status: 'ok', from: '/api' });
+  });
+
+  router.get('/lastUpdate', async (req, res) => {
+    const data = await lastUpdate(database);
+    res.send(data);
   });
 
   router.get('/db', async (req, res) => {

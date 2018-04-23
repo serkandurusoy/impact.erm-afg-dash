@@ -1,8 +1,2 @@
-export const callDb = async database => {
-  // TODO: cache handler!
-  const dbResult = await database.select('*').from('xxx');
-
-  return dbResult;
-};
-
-export default callDb;
+export { default as lastUpdate } from './_last-update';
+export { default as callDb } from './_call-db';

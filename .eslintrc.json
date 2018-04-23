@@ -16,6 +16,9 @@
         "trailingComma": "all"
       }
     ],
+    "react/no-did-mount-set-state": [
+      0
+    ],
     "react/jsx-filename-extension": [
       1,
       {
