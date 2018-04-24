@@ -16,6 +16,6 @@ SELECT
         1,
         0)) AS `Squatting`
 FROM
-    impact_1.heat
+    heat
 GROUP BY `S7_SHELTERq7_1_accomodation`;
 

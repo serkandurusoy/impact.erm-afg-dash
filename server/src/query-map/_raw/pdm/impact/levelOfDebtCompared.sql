@@ -9,4 +9,4 @@ SELECT
         1,
         0)) AS `same`
 FROM
-    impact_1.pdm;
+    pdm;

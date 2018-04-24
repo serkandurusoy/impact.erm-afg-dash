@@ -8,4 +8,4 @@ SELECT
     SUM(`S1_headOfHouseholdelders_60_abv_male`) as `S1_headOfHouseholdelders_60_abv_male`,
     SUM(`S1_headOfHouseholdelders_60_abv_female`) as`S1_headOfHouseholdelders_60_abv_female`
 FROM
-    impact_1.heat;
+    heat;

@@ -24,12 +24,12 @@ const SECTIONS = [
       'In additional to the HEAT need assessment the ERM partners are conducting rapid market assessments in order to determine whether markets are functional enough to allow a cash-based response. The market assessments inform on whether the local markets are safe to access and whether prices of key commodities are within a reasonable range of the established baseline prices. The aim of the survey is not to provide a full supply chain and market analysis, but only to quickly assess the appropriateness of cash based assistance at that given time.',
     ],
     subTitles: [
-      { index: 0, subTitle: 'General Information' },
-      { index: 1, subTitle: 'Household Profile' },
-      { index: 2, subTitle: 'Cash Distribution Process' },
-      { index: 3, subTitle: 'Use of Cash Assistance' },
-      { index: 4, subTitle: 'Coping Strategies' },
-      { index: 5, subTitle: 'Multi-Sector Outcome' },
+      { index: 0, subTitle: 'Average Current Selling Prices' },
+      { index: 1, subTitle: 'Market Appearance (Functionality)' },
+      { index: 2, subTitle: 'Market Size' },
+      { index: 3, subTitle: 'Market Size by Province' },
+      { index: 4, subTitle: 'Reported Maximum Rent Amount' },
+      { index: 5, subTitle: 'Reported Minimum Rent Amount' },
     ],
   },
   {
@@ -40,9 +40,9 @@ const SECTIONS = [
       'The survey should include ten percent (10%) of the assisted households, or at least ten households for caseloads with less than 100 HHs assisted. It should be attempted to include an equal representation of men and women, especially for caseloads over 100 HHs. ERM partners are using for the household survey the common PDM questionnaire of the Cash and Voucher Working Group. The findings of the PDM allows the ERM partners to assess the quality and short-term outcomes of the multi-purpose cash assistance.',
     ],
     subTitles: [
-      { index: 0, subTitle: 'General Information' },
-      { index: 1, subTitle: 'Full Market Survey' },
-      { index: 2, subTitle: 'Prices Survey' },
+      { index: 0, subTitle: 'General' },
+      { index: 1, subTitle: 'Cash Distribution' },
+      { index: 2, subTitle: 'Impact' },
     ],
   },
 ];

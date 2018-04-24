@@ -3,7 +3,7 @@ SELECT
     MIN(`S4_financial_ASSESSq4_4_income_after`) as `min_S4_financial_ASSESSq4_4_income_after`,
     MAX(`S4_financial_ASSESSq4_4_income_after`) as `max_S4_financial_ASSESSq4_4_income_after`
 FROM
-    impact_1.heat;
+    heat;
 
 /*
 	Percentile how to handle ?

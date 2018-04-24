@@ -2,64 +2,80 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChartLoader from '../_lib/chart-loader';
 
-const General = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_general'),
+const AverageSellingPrices = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './AverageSellingPrices'),
 });
 
-const Household = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_household'),
+const MarketAppearance = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './MarketAppearance'),
 });
 
-const Cash = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_cash'),
+const MarketSize = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './MarketSize'),
 });
 
-const UseOfCash = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_use-of-cash'),
+const MarketSizeByProvince = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './MarketSizeByProvince'),
 });
 
-const Coping = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_coping'),
+const MaxRent = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './MaxRent'),
 });
 
-const MultiSector = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './_multi-sector'),
+const MinRent = ChartLoader({
+  loader: () => import(/* webpackPrefetch: true */ './MinRent'),
 });
 
-const MpcCharts = ({ sectionFilter, provinceFilter, districtFilter }) => (
+const Charts = ({ sectionFilter, provinceFilter, districtFilter }) => (
   <div>
     {(sectionFilter === null ||
-      sectionFilter.includes('General Information')) && (
-      <General
+      sectionFilter.includes('Average Current Selling Prices')) && (
+      <AverageSellingPrices
+        title="Average Current Selling Prices"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
     )}
+
     {(sectionFilter === null ||
-      sectionFilter.includes('Household Profile')) && (
-      <Household
+      sectionFilter.includes('Market Appearance (Functionality)')) && (
+      <MarketAppearance
+        title="Market Appearance (Functionality)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
     )}
-    {(sectionFilter === null ||
-      sectionFilter.includes('Cash Distribution Process')) && (
-      <Cash provinceFilter={provinceFilter} districtFilter={districtFilter} />
-    )}
-    {(sectionFilter === null ||
-      sectionFilter.includes('Use of Cash Assistance')) && (
-      <UseOfCash
+
+    {(sectionFilter === null || sectionFilter.includes('Market Size')) && (
+      <MarketSize
+        title="Market Size"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
     )}
+
     {(sectionFilter === null ||
-      sectionFilter.includes('Coping Strategies')) && (
-      <Coping provinceFilter={provinceFilter} districtFilter={districtFilter} />
+      sectionFilter.includes('Market Size by Province')) && (
+      <MarketSizeByProvince
+        title="Market Size by Province"
+        provinceFilter={provinceFilter}
+        districtFilter={districtFilter}
+      />
     )}
+
     {(sectionFilter === null ||
-      sectionFilter.includes('Multi-Sector Outcome')) && (
-      <MultiSector
+      sectionFilter.includes('Reported Maximum Rent Amount')) && (
+      <MaxRent
+        title="Reported Maximum Rent Amount"
+        provinceFilter={provinceFilter}
+        districtFilter={districtFilter}
+      />
+    )}
+
+    {(sectionFilter === null ||
+      sectionFilter.includes('Reported Minimum Rent Amount')) && (
+      <MinRent
+        title="Reported Minimum Rent Amount"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
@@ -67,16 +83,16 @@ const MpcCharts = ({ sectionFilter, provinceFilter, districtFilter }) => (
   </div>
 );
 
-MpcCharts.propTypes = {
+Charts.propTypes = {
   sectionFilter: PropTypes.arrayOf(PropTypes.string.isRequired),
   provinceFilter: PropTypes.arrayOf(PropTypes.number.isRequired),
   districtFilter: PropTypes.arrayOf(PropTypes.string.isRequired),
 };
 
-MpcCharts.defaultProps = {
+Charts.defaultProps = {
   sectionFilter: null,
   provinceFilter: null,
   districtFilter: null,
 };
 
-export default MpcCharts;
+export default Charts;

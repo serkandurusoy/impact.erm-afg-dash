@@ -2,5 +2,5 @@ SELECT
     `S5_FOOD_ASSESSq5_5_food_stocks`,
     COUNT( `S5_FOOD_ASSESSq5_5_food_stocks`) as `count`
 FROM
-    impact_1.heat
+    heat
 GROUP BY  `S5_FOOD_ASSESSq5_5_food_stocks`;

@@ -7,6 +7,6 @@ SELECT
         1,
         0)) AS `no`
 FROM
-    impact_1.heat
+    heat
 GROUP BY general_infoq1_province;
 

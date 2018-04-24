@@ -6,4 +6,4 @@ SELECT
         1,
         0)) `no`
 FROM
-    impact_1.heat;
+    heat;

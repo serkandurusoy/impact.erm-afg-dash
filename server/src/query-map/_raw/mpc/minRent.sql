@@ -4,5 +4,5 @@ SELECT
     MAX(`s1_full_market_survey/q1_17_1_room_cost_min`) AS `max_s1_full_market_survey/q1_17_1_room_cost_min`,
     AVG(`s1_full_market_survey/q1_17_1_room_cost_min`) AS `avg_s1_full_market_survey/q1_17_1_room_cost_min`
 FROM
-    impact_1.mpc
+    mpc
 GROUP BY `general_info/q3_province`;

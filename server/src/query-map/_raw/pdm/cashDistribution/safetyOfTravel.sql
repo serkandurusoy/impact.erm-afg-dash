@@ -7,4 +7,4 @@ SELECT
         1,
         0)) AS `no`
 FROM
-    impact_1.pdm
+    pdm

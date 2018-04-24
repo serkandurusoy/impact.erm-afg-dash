@@ -27,7 +27,7 @@ SELECT
         1,
         0)) AS `S2_AdditionalVulnerabilityq2_5_chronically`
 FROM
-    impact_1.heat
+    heat
 GROUP BY `general_infoq1_province`;
 
 

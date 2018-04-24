@@ -3,7 +3,7 @@ SELECT
     MIN(`S7_SHELTERq7_4_if_rented_amount`) as `min_S7_SHELTERq7_4_if_rented_amount`,
     MAX(`S7_SHELTERq7_4_if_rented_amount`) as `max_S7_SHELTERq7_4_if_rented_amount`
 FROM
-    impact_1.heat
+    heat
 WHERE `S7_SHELTERq7_4_if_rented_amount` != '';
 
 /*

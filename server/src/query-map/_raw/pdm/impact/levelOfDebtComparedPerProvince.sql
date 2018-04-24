@@ -10,6 +10,6 @@ SELECT
         1,
         0)) AS `same`
 FROM
-    impact_1.pdm
+    pdm
 GROUP BY `general_infoq1_province`;
 

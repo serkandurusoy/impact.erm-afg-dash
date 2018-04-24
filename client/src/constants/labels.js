@@ -1,3 +1,29 @@
+/*
+
+General rules => Replace underscores with space Capitalize first letters
+
+s1_full_market_survey/q1_10_current_price_wheat_flour => numeric values
+
+s1_full_market_survey/q1_10_1_current_price_rice => numeric
+
+s3_use_of_cash* columns=> replace spaces with “Unanswered”
+
+S3_GEN_ASSESSq3_1_disp_categ => İf the first one = “no_disp” the otherʼs corresponding is empty (we call it N/A)
+
+S3_GEN_ASSESSq3_4_can_go_origin_place => if empty => N/A
+
+S3_GEN_ASSESSq3_4_1_if_no => if empty => N/A
+
+S5_FOOD_ASSESSq5_2_distance_marketkm => numerical, blanks are NULL exclude NULL in queries
+
+S5_FOOD_ASSESSq5_2_distance_marketmin => numerical, blanks are NULL exclude NULL in queries
+
+S6_washq6_6_latrine_type => ıf blanks => N/A
+
+S7_SHELTERq7_4_if_rented_amount => numerical, blanks are NULL exclude NULL in queries
+
+*/
+
 const LABELS = {
   column: {
     general_infoq5_organization: 'Organization',
@@ -129,6 +155,16 @@ const LABELS = {
       between_2000_8000: 'Between 2000-8000 AFN',
       more_8000: 'More than 8000 AFN',
     },
+  },
+  abbreviation: {
+    HEAT: 'Household Emergency Assessment Tool',
+    MPC: 'Multi-purpose cash',
+    PDM: 'Post-distribution monitoring',
+    CSI: 'Coping Strategy Index',
+    rCSI: 'reduced Coping Strategy Index',
+    HH: 'Household',
+    FCS: 'Food Consumption Score',
+    FSI: 'Food Security Index',
   },
 };
 

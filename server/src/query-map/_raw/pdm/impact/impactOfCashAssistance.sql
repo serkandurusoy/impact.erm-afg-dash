@@ -12,4 +12,4 @@ SELECT
         1,
         0)) AS `yes_improved_a_lot'`
 FROM
-    impact_1.pdm;
+    pdm;

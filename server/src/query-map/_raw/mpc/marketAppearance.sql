@@ -7,5 +7,5 @@ SELECT
         1,
         0)) `moderate_function`
 FROM
-    impact_1.mpc
+    mpc
 GROUP BY `general_info/q3_province` ASC;

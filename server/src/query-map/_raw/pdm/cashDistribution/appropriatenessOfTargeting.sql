@@ -9,5 +9,5 @@ SELECT
         1,
         0)) AS `yes`
 FROM
-    impact_1.pdm;
+    pdm;
 

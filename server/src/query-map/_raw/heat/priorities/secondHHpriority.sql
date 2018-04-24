@@ -2,5 +2,5 @@ SELECT
     `s8_prioritiesSecond`,
     COUNT(`s8_prioritiesSecond`) as `count`
 FROM
-    impact_1.heat
+    heat
 GROUP BY `s8_prioritiesSecond`;

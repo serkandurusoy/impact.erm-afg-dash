@@ -4,5 +4,5 @@ SELECT
         1,
         0)) AS `S2_AdditionalVulnerabilityq2_1_elderly_hdd`
 FROM
-    impact_1.heat;
+    heat;
 
