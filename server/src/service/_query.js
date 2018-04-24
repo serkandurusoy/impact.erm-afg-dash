@@ -1,5 +1,5 @@
 import { cacheGet, cacheSet } from './';
-import queryMap from '../query-map';
+import * as queryMap from '../query-map';
 
 const query = async (database, queryObject) => {
   const cachedValue = await cacheGet(database, queryObject);

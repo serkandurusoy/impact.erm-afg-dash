@@ -3,27 +3,29 @@ import PropTypes from 'prop-types';
 import ChartLoader from '../_lib/chart-loader';
 
 const AverageSellingPrices = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './AverageSellingPrices'),
+  loader: () =>
+    import(/* webpackPrefetch: true */ './mpc/AverageSellingPrices'),
 });
 
 const MarketAppearance = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './MarketAppearance'),
+  loader: () => import(/* webpackPrefetch: true */ './mpc/MarketAppearance'),
 });
 
 const MarketSize = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './MarketSize'),
+  loader: () => import(/* webpackPrefetch: true */ './mpc/MarketSize'),
 });
 
 const MarketSizeByProvince = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './MarketSizeByProvince'),
+  loader: () =>
+    import(/* webpackPrefetch: true */ './mpc/MarketSizeByProvince'),
 });
 
 const MaxRent = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './MaxRent'),
+  loader: () => import(/* webpackPrefetch: true */ './mpc/MaxRent'),
 });
 
 const MinRent = ChartLoader({
-  loader: () => import(/* webpackPrefetch: true */ './MinRent'),
+  loader: () => import(/* webpackPrefetch: true */ './mpc/MinRent'),
 });
 
 const Charts = ({ sectionFilter, provinceFilter, districtFilter }) => (

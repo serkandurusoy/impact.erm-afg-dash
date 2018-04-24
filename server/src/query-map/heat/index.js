@@ -1,0 +1,9 @@
+export * as demographics from './demographics';
+export * as financial from './financial';
+export * as food from './food';
+export * as general from './general';
+export * as generalAssessment from './generalAssessment';
+export * as priorities from './priorities';
+export * as shelter from './shelter';
+export * as vulnerabilities from './vulnerabilities';
+export * as wash from './wash';
