@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Chart = ({ title, provinceFilter, districtFilter }) => (
+const Chart = (
+  { title, provinceFilter, districtFilter }, // eslint-disable-line no-unused-vars
+) => (
   <div>
-    <div>PROVINCES: {provinceFilter && provinceFilter.join('')}</div>
-    <div>DISTRICTS: {districtFilter && districtFilter.join('')}</div>
     <div className="graph">
       <h4 className="graph__title">
         {title}

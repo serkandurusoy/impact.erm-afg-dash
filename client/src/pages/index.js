@@ -13,7 +13,8 @@ const PageIsLoading = ({ error, pastDelay, timedOut }) => (
 );
 
 PageIsLoading.propTypes = {
-  error: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  error: PropTypes.object,
   pastDelay: PropTypes.bool,
   timedOut: PropTypes.bool,
 };

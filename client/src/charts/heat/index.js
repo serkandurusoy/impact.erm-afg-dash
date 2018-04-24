@@ -159,7 +159,9 @@ const ThirdHHPriority = ChartLoader({
     import(/* webpackPrefetch: true */ './priorities/ThirdHHPriority'),
 });
 
-const Charts = ({ sectionFilter, provinceFilter, districtFilter }) => (
+const Charts = (
+  { sectionFilter, provinceFilter, districtFilter }, // eslint-disable-line no-unused-vars
+) => (
   <div>
     {(sectionFilter === null || sectionFilter.includes('General')) && (
       <div>

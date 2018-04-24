@@ -28,7 +28,9 @@ const MinRent = ChartLoader({
   loader: () => import(/* webpackPrefetch: true */ './mpc/MinRent'),
 });
 
-const Charts = ({ sectionFilter, provinceFilter, districtFilter }) => (
+const Charts = (
+  { sectionFilter, provinceFilter, districtFilter }, // eslint-disable-line no-unused-vars
+) => (
   <div>
     {(sectionFilter === null ||
       sectionFilter.includes('Average Current Selling Prices')) && (
