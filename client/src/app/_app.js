@@ -37,6 +37,16 @@ class App extends Component {
           .catch(localForageError => console.log({ localForageError }));
       });
     }
+    axios
+      .get('/api/query/heat/general/chart1', {
+        params: {
+          provinces: ['foo', 'bar'],
+          districts: ['fooDD', 'barDD'],
+          dateBegin: new Date(123124),
+          dateEnd: new Date(0),
+        },
+      })
+      .then(result => console.log(11111, result.data));
   }
 
   render() {
