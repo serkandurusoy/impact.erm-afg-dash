@@ -1,2 +1,2 @@
 export { default as numberOfHH } from './numberOfHH';
-export { default as numberOfHHperProvince } from './numberOfHHperProvince';
+export { default as numberOfHHPerProvince } from './numberOfHHPerProvince';

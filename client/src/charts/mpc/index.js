@@ -35,6 +35,7 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Average Current Selling Prices')) && (
       <AverageSellingPrices
+        apiPath="/api/query/mpc/mpc/averageSellingPrices"
         title="Average Current Selling Prices"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
@@ -44,6 +45,7 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Market Appearance (Functionality)')) && (
       <MarketAppearance
+        apiPath="/api/query/mpc/mpc/marketAppearance"
         title="Market Appearance (Functionality)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
@@ -52,6 +54,7 @@ const Charts = (
 
     {(sectionFilter === null || sectionFilter.includes('Market Size')) && (
       <MarketSize
+        apiPath="/api/query/mpc/mpc/marketSize"
         title="Market Size"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
@@ -61,6 +64,7 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Market Size by Province')) && (
       <MarketSizeByProvince
+        apiPath="/api/query/mpc/mpc/marketSizeByProvince"
         title="Market Size by Province"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
@@ -70,6 +74,7 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Reported Maximum Rent Amount')) && (
       <MaxRent
+        apiPath="/api/query/mpc/mpc/maxRent"
         title="Reported Maximum Rent Amount"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
@@ -79,6 +84,7 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Reported Minimum Rent Amount')) && (
       <MinRent
+        apiPath="/api/query/mpc/mpc/minRent"
         title="Reported Minimum Rent Amount"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}

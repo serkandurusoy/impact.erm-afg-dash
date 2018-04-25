@@ -5,28 +5,36 @@ const api = (database, router) => {
     res.send({ status: 'ok', from: '/api' });
   });
 
-  router.get('/lastUpdate', async (req, res) => {
-    const data = await lastUpdate(database);
-    res.send(data);
+  router.get('/lastUpdate', async (req, res, next) => {
+    try {
+      const data = await lastUpdate(database);
+      res.send(data);
+    } catch (error) {
+      next(error);
+    }
   });
 
-  router.get('/query/:title/:subTitle/:name', async (req, res) => {
+  router.get('/query/:title/:subTitle/:name', async (req, res, next) => {
     const { title, subTitle, name } = req.params;
     const { provinces, districts, dateBegin, dateEnd } = req.query;
 
-    const data = await query(database, {
-      title,
-      subTitle,
-      name,
-      where: {
-        provinces,
-        districts,
-        dateBegin,
-        dateEnd,
-      },
-    });
+    try {
+      const data = await query(database, {
+        title,
+        subTitle,
+        name,
+        where: {
+          provinces,
+          districts,
+          dateBegin,
+          dateEnd,
+        },
+      });
 
-    res.send(data);
+      res.send(data);
+    } catch (error) {
+      next(error);
+    }
   });
 
   return router;

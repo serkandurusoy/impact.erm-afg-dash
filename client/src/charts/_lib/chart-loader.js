@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoadableVisibility from 'react-loadable-visibility/react-loadable';
+import ChartDataLoader from './chart-data-loader';
 
 const ChartIsLoading = ({ error, pastDelay, timedOut }) => (
   <div className="loader loader__component">
@@ -29,6 +30,14 @@ const ChartLoader = opts =>
     loading: ChartIsLoading,
     delay: 200,
     timeout: 10 * 1000,
+    render(loaded, props) {
+      const Component = loaded.default;
+      return (
+        <ChartDataLoader {...props}>
+          {data => <Component data={data} />}
+        </ChartDataLoader>
+      );
+    },
     ...opts,
   });
 

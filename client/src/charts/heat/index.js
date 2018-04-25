@@ -166,12 +166,14 @@ const Charts = (
     {(sectionFilter === null || sectionFilter.includes('General')) && (
       <div>
         <NumberOfHH
+          apiPath="/api/query/heat/general/numberOfHH"
           title="General"
           subTitle="Number of Households Assessed"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <NumberOfHHPerProvince
+          apiPath="/api/query/heat/general/numberOfHHPerProvince"
           title="General"
           subTitle="Number of Households Assessed Per Province"
           provinceFilter={provinceFilter}
@@ -183,18 +185,21 @@ const Charts = (
       sectionFilter.includes('Household Demographics')) && (
       <div>
         <AgeDisaggregation
+          apiPath="/api/query/heat/demographics/ageDisaggregation"
           title="Household Demographics"
           subTitle="Age disaggregation"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AverageNumberOfBreadWinner
+          apiPath="/api/query/heat/demographics/averageNumberOfBreadWinner"
           title="Household Demographics"
           subTitle="Average Number of Breadwinner per HH"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <FrequencyWithNationalId
+          apiPath="/api/query/heat/demographics/frequencyWithNationalId"
           title="Household Demographics"
           subTitle="Frequency of HHs with National ID"
           provinceFilter={provinceFilter}
@@ -206,36 +211,42 @@ const Charts = (
       sectionFilter.includes('Additional Vulnerability Assessment')) && (
       <div>
         <ChildHeaded
+          apiPath="/api/query/heat/vulnerabilities/childHeaded"
           title="Additional Vulnerability Assessment"
           subTitle="Number and Percentage of Child Headed HHs"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <ChronicallyIllHeaded
+          apiPath="/api/query/heat/vulnerabilities/chronicallyIllHeaded"
           title="Additional Vulnerability Assessment"
           subTitle="Number and Percentage of HHs with Chronically Ill Member"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <DisabledHeaded
+          apiPath="/api/query/heat/vulnerabilities/disabledHeaded"
           title="Additional Vulnerability Assessment"
           subTitle="Number and Percentage of HHs with Disabled Member"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <ElderlyHeaded
+          apiPath="/api/query/heat/vulnerabilities/elderlyHeaded"
           title="Additional Vulnerability Assessment"
           subTitle="Number and Percentage of Elderly Headed HHs"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <FemaleHeaded
+          apiPath="/api/query/heat/vulnerabilities/femaleHeaded"
           title="Additional Vulnerability Assessment"
           subTitle="Number and Percentage of Female Headed HHs"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <VulnerabilitiesMap
+          apiPath="/api/query/heat/vulnerabilities/vulnerabilitiesMap"
           title="Additional Vulnerability Assessment"
           subTitle="Vulnerabilities Map"
           provinceFilter={provinceFilter}
@@ -247,24 +258,28 @@ const Charts = (
       sectionFilter.includes('General Assessment')) && (
       <div>
         <DisplacementCategory
+          apiPath="/api/query/heat/generalAssessment/displacementCategory"
           title="General Assessment"
           subTitle="Displacement Category"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <PossibilityOfReturn
+          apiPath="/api/query/heat/generalAssessment/possibilityOfReturn"
           title="General Assessment"
           subTitle="Reported Possibility to Return to Place of Origin"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <ProvinceOfOrigin
+          apiPath="/api/query/heat/generalAssessment/provinceOfOrigin"
           title="General Assessment"
           subTitle="Reported Province of Origin"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <ReasonForNoReturn
+          apiPath="/api/query/heat/generalAssessment/reasonForNoReturn"
           title="General Assessment"
           subTitle="Reported Reason for not Being Able to Return to Origin"
           provinceFilter={provinceFilter}
@@ -276,24 +291,28 @@ const Charts = (
       sectionFilter.includes('Financial & Asset Assessment')) && (
       <div>
         <AverageIncomeAfterShock
+          apiPath="/api/query/heat/financial/averageIncomeAfterShock"
           title="Financial & Asset Assessment"
           subTitle="Average Income After Shock"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AverageIncomeAfterShockPerProvince
+          apiPath="/api/query/heat/financial/averageIncomeAfterShockPerProvince"
           title="Financial & Asset Assessment"
           subTitle="Average Income After Shock per Province"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AverageIncomeBeforeShock
+          apiPath="/api/query/heat/financial/averageIncomeBeforeShock"
           title="Financial & Asset Assessment"
           subTitle="Average Income Before Shock"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <LevelOfDebt
+          apiPath="/api/query/heat/financial/levelOfDebts"
           title="Financial & Asset Assessment"
           subTitle="Level of Debt"
           provinceFilter={provinceFilter}
@@ -305,24 +324,28 @@ const Charts = (
       sectionFilter.includes('Food & Nutrition Assessment')) && (
       <div>
         <AccessToMarket
+          apiPath="/api/query/heat/food/accessToMarket"
           title="Food & Nutrition Assessment"
           subTitle="Reported Access to Market"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AvailableFoodStocks
+          apiPath="/api/query/heat/food/availableFoodStocks"
           title="Food & Nutrition Assessment"
           subTitle="Reported Food Stocks Available"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AverageDistanceToMarket
+          apiPath="/api/query/heat/food/averageDistanceToMarket"
           title="Food & Nutrition Assessment"
           subTitle="Average Distance to Market (In Minutes)"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <FCSIndex
+          apiPath="/api/query/heat/food/fcsIndex"
           title="Food & Nutrition Assessment"
           subTitle="Food Coping Strategy Index"
           provinceFilter={provinceFilter}
@@ -333,30 +356,35 @@ const Charts = (
     {(sectionFilter === null || sectionFilter.includes('Wash Assessment')) && (
       <div>
         <AccessToBathingWater
+          apiPath="/api/query/heat/wash/accessToBathingWater"
           title="Wash Assessment"
           subTitle="Reported Access to Bathing Water"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AccessToCookingWater
+          apiPath="/api/query/heat/wash/accessToCookingWater"
           title="Wash Assessment"
           subTitle="Reported Access to Cooking Water"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AccessToDrinkingWater
+          apiPath="/api/query/heat/wash/accessToDrinkingWater"
           title="Wash Assessment"
           subTitle="Reported Access to Drinking Water"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AccessToLatrine
+          apiPath="/api/query/heat/wash/accessToLatrine"
           title="Wash Assessment"
           subTitle="Reported Access to Latrine"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <TypeOfLatrine
+          apiPath="/api/query/heat/wash/typeOfLatrine"
           title="Wash Assessment"
           subTitle="Reported Type of Latrine Available"
           provinceFilter={provinceFilter}
@@ -368,12 +396,14 @@ const Charts = (
       sectionFilter.includes('Shelter & NFI Assessment')) && (
       <div>
         <Accomodation
+          apiPath="/api/query/heat/shelter/accomodation"
           title="Shelter & NFI Assessment"
           subTitle="Reported Type and Arrangement of Accomodation"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <AverageRent
+          apiPath="/api/query/heat/shelter/averageRent"
           title="Shelter & NFI Assessment"
           subTitle="Average Reported Rent Amount"
           provinceFilter={provinceFilter}
@@ -385,18 +415,21 @@ const Charts = (
       sectionFilter.includes('Beneficiaries’ Priorities')) && (
       <div>
         <FirstHHPriority
+          apiPath="/api/query/heat/priorities/firstHHpriority"
           title="Beneficiaries’ Priorities"
           subTitle="Reported First Household Priority"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <SecondHHPriority
+          apiPath="/api/query/heat/priorities/secondHHpriority"
           title="Beneficiaries’ Priorities"
           subTitle="Reported Second Household Priority"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
         <ThirdHHPriority
+          apiPath="/api/query/heat/priorities/thirdHHpriority"
           title="Beneficiaries’ Priorities"
           subTitle="Reported Third Household Priority"
           provinceFilter={provinceFilter}
