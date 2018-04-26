@@ -26,9 +26,38 @@ class DataLoader extends Component {
     error: false,
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.componentIsInMountedState = true;
+    this.fetchData();
+  }
 
+  componentDidUpdate(prevProps) {
+    const prevProvinces = prevProps.provinceFilter || [];
+    const nextProvinces = this.props.provinceFilter || [];
+
+    const provincesUpdated = prevProvinces.join('') !== nextProvinces.join('');
+
+    const prevDistricts = prevProps.districtFilter || [];
+    const nextDistricts = this.props.districtFilter || [];
+
+    const districtsUpdated = prevDistricts.join('') !== nextDistricts.join('');
+
+    if (provincesUpdated || districtsUpdated) {
+      this.fetchData();
+    }
+  }
+
+  componentWillUnmount() {
+    this.componentIsInMountedState = false;
+  }
+
+  setStateIfMounted = (state, callback) => {
+    if (this.componentIsInMountedState) {
+      this.setState(state, callback);
+    }
+  };
+
+  fetchData = async () => {
     const { apiPath, provinceFilter, districtFilter } = this.props;
 
     let lastUpdate;
@@ -45,10 +74,8 @@ class DataLoader extends Component {
 
     const query = {};
 
-    if (lastUpdate) {
-      query.dateBegin = new Date(0);
-      query.dateEnd = new Date(lastUpdate);
-    }
+    query.dateBegin = new Date(0);
+    query.dateEnd = lastUpdate ? new Date(lastUpdate) : new Date();
 
     if (provinceFilter && provinceFilter.length > 0) {
       query.provinces = provinceFilter;
@@ -74,31 +101,42 @@ class DataLoader extends Component {
         .getItem(hash)
         .catch(localForageError => console.log({ localForageError }));
 
-      if (!noCache && cachedResult && this.componentIsInMountedState) {
-        this.setState({ loading: false, error: false, data: cachedResult });
+      if (!noCache && cachedResult) {
+        this.setStateIfMounted({
+          loading: false,
+          error: false,
+          data: cachedResult,
+        });
       } else {
-        const { data } = await axios.get(apiPath, options);
-        if (this.componentIsInMountedState) {
-          this.setState({ loading: false, error: false, data }, async () => {
-            if (!noCache) {
-              await localForage
-                .setItem(hash, data)
-                .catch(localForageError => console.log({ localForageError }));
+        this.setStateIfMounted(
+          { loading: true, error: false, data: null },
+          async () => {
+            try {
+              const { data } = await axios.get(apiPath, options);
+              this.setStateIfMounted(
+                { loading: false, error: false, data },
+                async () => {
+                  if (!noCache) {
+                    await localForage
+                      .setItem(hash, data)
+                      .catch(localForageError =>
+                        console.log({ localForageError }),
+                      );
+                  }
+                },
+              );
+            } catch (apiError) {
+              console.log({ apiError });
+              this.setStateIfMounted({ loading: false, error: true });
             }
-          });
-        }
+          },
+        );
       }
     } catch (apiError) {
       console.log({ apiError });
-      if (this.componentIsInMountedState) {
-        this.setState({ loading: false, error: true });
-      }
+      this.setStateIfMounted({ loading: false, error: true });
     }
-  }
-
-  componentWillUnmount() {
-    this.componentIsInMountedState = false;
-  }
+  };
 
   componentIsInMountedState = false;
 

@@ -39,6 +39,11 @@
 }
 
 .graph__placeholder {
+  height: 510px;
+  overflow: auto;
+}
+
+.graph__placeholder {
   font-size: 12px;
   display: flex;
   justify-content: center;
