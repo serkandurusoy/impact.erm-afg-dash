@@ -22,10 +22,11 @@ class App extends Component {
         .catch(localForageError => console.log({ localForageError }));
 
       const {
-        data: { lastUpdate, version },
+        data: { noCache, lastUpdate, version },
       } = await axios.get('/api/lastUpdate');
 
       if (
+        noCache ||
         !cachedLastUpdate ||
         new Date(lastUpdate) > new Date(cachedLastUpdate) ||
         !cachedVersion ||
@@ -33,6 +34,10 @@ class App extends Component {
       ) {
         await localForage
           .clear()
+          .catch(localForageError => console.log({ localForageError }));
+
+        await localForage
+          .setItem('noCache', noCache)
           .catch(localForageError => console.log({ localForageError }));
 
         await localForage

@@ -33,10 +33,12 @@ class DataLoader extends Component {
 
     let lastUpdate;
     let version;
+    let noCache;
 
     try {
       lastUpdate = await localForage.getItem('lastUpdate');
       version = await localForage.getItem('version');
+      noCache = await localForage.getItem('noCache');
     } catch (localForageError) {
       console.log({ localForageError });
     }
@@ -72,15 +74,17 @@ class DataLoader extends Component {
         .getItem(hash)
         .catch(localForageError => console.log({ localForageError }));
 
-      if (cachedResult && this.componentIsInMountedState) {
+      if (!noCache && cachedResult && this.componentIsInMountedState) {
         this.setState({ loading: false, error: false, data: cachedResult });
       } else {
         const { data } = await axios.get(apiPath, options);
         if (this.componentIsInMountedState) {
           this.setState({ loading: false, error: false, data }, async () => {
-            await localForage
-              .setItem(hash, data)
-              .catch(localForageError => console.log({ localForageError }));
+            if (!noCache) {
+              await localForage
+                .setItem(hash, data)
+                .catch(localForageError => console.log({ localForageError }));
+            }
           });
         }
       }

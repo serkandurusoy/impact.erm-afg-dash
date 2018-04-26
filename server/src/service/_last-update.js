@@ -1,4 +1,16 @@
 const lastUpdate = async database => {
+  const { NO_CACHE } = process.env;
+
+  const noCache = NO_CACHE === 'true';
+
+  if (noCache) {
+    try {
+      await database.del().from('cache');
+    } catch (error) {
+      console.log('Error clearing the cache', error);
+    }
+  }
+
   const [results] = await database.raw(`
     select max(lastUpdateOnTable) as lastUpdate from 
       (
@@ -9,7 +21,12 @@ const lastUpdate = async database => {
         select max(today) as lastUpdateOnTable FROM pdm
       ) as tables
     `);
-  return { ...results[0], version: process.env.IMPACT_VERSION };
+
+  return {
+    noCache,
+    ...results[0],
+    version: noCache ? Math.random().toString() : process.env.IMPACT_VERSION,
+  };
 };
 
 export default lastUpdate;
