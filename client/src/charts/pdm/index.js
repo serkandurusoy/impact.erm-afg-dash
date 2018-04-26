@@ -267,7 +267,7 @@ const Charts = (
           districtFilter={districtFilter}
         />
         <FoodSecurityIndex
-          apiPath="/api/query/pdm/impact/FoodSecurityIndex"
+          apiPath="/api/query/pdm/impact/foodSecurityIndex"
           title="Impact"
           subTitle="Food Security Index"
           provinceFilter={provinceFilter}

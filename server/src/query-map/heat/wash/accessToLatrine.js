@@ -12,5 +12,5 @@ export default async (
         0)) \`no\`
 FROM
     heat;`);
-  return results;
+  return results[0];
 };

@@ -14,5 +14,5 @@ export default async (
 FROM
     heat
 WHERE \`S7_SHELTERq7_4_if_rented_amount\` != '';`);
-  return results;
+  return results[0];
 };

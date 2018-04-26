@@ -13,5 +13,5 @@ export default async (
     MAX(\`S4_financial_ASSESSq4_4_income_after\`) as \`max_S4_financial_ASSESSq4_4_income_after\`
 FROM
     heat;`);
-  return results;
+  return results[0];
 };
