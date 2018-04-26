@@ -12,5 +12,5 @@ export default async (
         0)) AS \`no\`
 FROM
     pdm;`);
-  return results;
+  return results[0];
 };
