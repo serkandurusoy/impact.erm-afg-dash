@@ -9,7 +9,7 @@ const lastUpdate = async database => {
         select max(today) as lastUpdateOnTable FROM pdm
       ) as tables
     `);
-  return results[0];
+  return { ...results[0], version: process.env.IMPACT_VERSION };
 };
 
 export default lastUpdate;

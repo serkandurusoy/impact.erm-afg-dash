@@ -10,5 +10,5 @@ export default async (
         0)) AS \`S2_AdditionalVulnerabilityq2_3_child_hdd\`
 FROM
     heat;`);
-  return results;
+  return results[0];
 };

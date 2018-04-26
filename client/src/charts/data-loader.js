@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-class ChartDataLoader extends Component {
+class DataLoader extends Component {
   static propTypes = {
     apiPath: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -32,9 +32,11 @@ class ChartDataLoader extends Component {
     const { apiPath, provinceFilter, districtFilter } = this.props;
 
     let lastUpdate;
+    let version;
 
     try {
       lastUpdate = await localForage.getItem('lastUpdate');
+      version = await localForage.getItem('version');
     } catch (localForageError) {
       console.log({ localForageError });
     }
@@ -61,7 +63,10 @@ class ChartDataLoader extends Component {
     }
 
     try {
-      const hash = objectHash({ apiPath, options }, { unorderedArrays: true });
+      const hash = objectHash(
+        { apiPath, options, version },
+        { unorderedArrays: true },
+      );
 
       const cachedResult = await localForage
         .getItem(hash)
@@ -108,12 +113,7 @@ class ChartDataLoader extends Component {
     ) : data ? (
       <div>
         <div className="graph">
-          <h4 className="graph__title">
-            {title}
-            <a className="graph__full" href="#">
-              <span className="icon icon--arrow-top-right" />
-            </a>
-          </h4>
+          <h4 className="graph__title">{title}</h4>
           {subTitle !== '' && <div className="graph__subtitle">{subTitle}</div>}
           <div className="graph__graph">
             <div className="graph__placeholder">{children(data)}</div>
@@ -124,4 +124,4 @@ class ChartDataLoader extends Component {
   }
 }
 
-export default ChartDataLoader;
+export default DataLoader;

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoadableVisibility from 'react-loadable-visibility/react-loadable';
-import ChartDataLoader from './chart-data-loader';
+import DataLoader from './data-loader';
 
-const ChartIsLoading = ({ error, pastDelay, timedOut }) => (
+const ComponentIsLoading = ({ error, pastDelay, timedOut }) => (
   <div className="loader loader__component">
     {error || timedOut ? (
       <div>Error loading chart</div>
@@ -13,32 +13,30 @@ const ChartIsLoading = ({ error, pastDelay, timedOut }) => (
   </div>
 );
 
-ChartIsLoading.propTypes = {
+ComponentIsLoading.propTypes = {
   error: PropTypes.bool,
   pastDelay: PropTypes.bool,
   timedOut: PropTypes.bool,
 };
 
-ChartIsLoading.defaultProps = {
+ComponentIsLoading.defaultProps = {
   error: false,
   pastDelay: false,
   timedOut: false,
 };
 
-const ChartLoader = opts =>
+const ComponentLoader = opts =>
   LoadableVisibility({
-    loading: ChartIsLoading,
+    loading: ComponentIsLoading,
     delay: 200,
     timeout: 10 * 1000,
     render(loaded, props) {
       const Component = loaded.default;
       return (
-        <ChartDataLoader {...props}>
-          {data => <Component data={data} />}
-        </ChartDataLoader>
+        <DataLoader {...props}>{data => <Component data={data} />}</DataLoader>
       );
     },
     ...opts,
   });
 
-export default ChartLoader;
+export default ComponentLoader;

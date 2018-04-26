@@ -14,5 +14,5 @@ export default async (
     SUM(\`S1_headOfHouseholdelders_60_abv_female\`) as\`S1_headOfHouseholdelders_60_abv_female\`
 FROM
     heat;`);
-  return results;
+  return results[0];
 };

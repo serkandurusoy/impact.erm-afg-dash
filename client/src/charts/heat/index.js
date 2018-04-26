@@ -1,160 +1,160 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChartLoader from '../_lib/chart-loader';
+import ComponentLoader from '../component-loader';
 
-const NumberOfHH = ChartLoader({
+const NumberOfHH = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './general/NumberOfHH'),
 });
 
-const NumberOfHHPerProvince = ChartLoader({
+const NumberOfHHPerProvince = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './general/NumberOfHHPerProvince'),
 });
 
-const AgeDisaggregation = ChartLoader({
+const AgeDisaggregation = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './demographics/AgeDisaggregation'),
 });
 
-const AverageNumberOfBreadWinner = ChartLoader({
+const AverageNumberOfBreadWinner = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './demographics/AverageNumberOfBreadWinner'),
 });
 
-const FrequencyWithNationalId = ChartLoader({
+const FrequencyWithNationalId = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './demographics/FrequencyWithNationalId'),
 });
 
-const ChildHeaded = ChartLoader({
+const ChildHeaded = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/ChildHeaded'),
 });
 
-const ChronicallyIllHeaded = ChartLoader({
+const ChronicallyIllHeaded = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/ChronicallyIllHeaded'),
 });
 
-const DisabledHeaded = ChartLoader({
+const DisabledHeaded = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/DisabledHeaded'),
 });
 
-const ElderlyHeaded = ChartLoader({
+const ElderlyHeaded = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/ElderlyHeaded'),
 });
 
-const FemaleHeaded = ChartLoader({
+const FemaleHeaded = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/FemaleHeaded'),
 });
 
-const VulnerabilitiesMap = ChartLoader({
+const VulnerabilitiesMap = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './vulnerabilities/VulnerabilitiesMap'),
 });
 
-const DisplacementCategory = ChartLoader({
+const DisplacementCategory = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './generalAssessment/DisplacementCategory'),
 });
 
-const PossibilityOfReturn = ChartLoader({
+const PossibilityOfReturn = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './generalAssessment/PossibilityOfReturn'),
 });
 
-const ProvinceOfOrigin = ChartLoader({
+const ProvinceOfOrigin = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './generalAssessment/ProvinceOfOrigin'),
 });
 
-const ReasonForNoReturn = ChartLoader({
+const ReasonForNoReturn = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './generalAssessment/ReasonForNoReturn'),
 });
 
-const AverageIncomeAfterShock = ChartLoader({
+const AverageIncomeAfterShock = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './financial/AverageIncomeAfterShock'),
 });
 
-const AverageIncomeAfterShockPerProvince = ChartLoader({
+const AverageIncomeAfterShockPerProvince = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './financial/AverageIncomeAfterShockPerProvince'),
 });
 
-const AverageIncomeBeforeShock = ChartLoader({
+const AverageIncomeBeforeShock = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './financial/AverageIncomeBeforeShock'),
 });
 
-const LevelOfDebt = ChartLoader({
+const LevelOfDebt = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './financial/LevelOfDebt'),
 });
 
-const AccessToMarket = ChartLoader({
+const AccessToMarket = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './food/AccessToMarket'),
 });
 
-const AvailableFoodStocks = ChartLoader({
+const AvailableFoodStocks = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './food/AvailableFoodStocks'),
 });
 
-const AverageDistanceToMarket = ChartLoader({
+const AverageDistanceToMarket = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './food/AverageDistanceToMarket'),
 });
 
-const FCSIndex = ChartLoader({
+const FCSIndex = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './food/FCSIndex'),
 });
 
-const AccessToBathingWater = ChartLoader({
+const AccessToBathingWater = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './wash/AccessToBathingWater'),
 });
 
-const AccessToCookingWater = ChartLoader({
+const AccessToCookingWater = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './wash/AccessToCookingWater'),
 });
 
-const AccessToDrinkingWater = ChartLoader({
+const AccessToDrinkingWater = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './wash/AccessToDrinkingWater'),
 });
 
-const AccessToLatrine = ChartLoader({
+const AccessToLatrine = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './wash/AccessToLatrine'),
 });
 
-const TypeOfLatrine = ChartLoader({
+const TypeOfLatrine = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './wash/TypeOfLatrine'),
 });
 
-const Accomodation = ChartLoader({
+const Accomodation = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './shelter/Accomodation'),
 });
 
-const AverageRent = ChartLoader({
+const AverageRent = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './shelter/AverageRent'),
 });
 
-const FirstHHPriority = ChartLoader({
+const FirstHHPriority = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './priorities/FirstHHPriority'),
 });
 
-const SecondHHPriority = ChartLoader({
+const SecondHHPriority = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './priorities/SecondHHPriority'),
 });
 
-const ThirdHHPriority = ChartLoader({
+const ThirdHHPriority = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './priorities/ThirdHHPriority'),
 });

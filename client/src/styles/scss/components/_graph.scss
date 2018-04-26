@@ -20,7 +20,7 @@
   font-size: 24px;
   color: $secondary;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .graph__full {
@@ -39,9 +39,21 @@
 }
 
 .graph__placeholder {
-  font-size: 200%;
-  height: 500px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.graph__tooltip {
+  background-color: #f9f7f7;
+  border: 1px solid #95a0a9;
+  border-radius: 4px;
+  padding: 4px;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }

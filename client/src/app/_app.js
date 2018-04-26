@@ -16,23 +16,38 @@ class App extends Component {
       const cachedLastUpdate = await localForage
         .getItem('lastUpdate')
         .catch(localForageError => console.log({ localForageError }));
+
+      const cachedVersion = await localForage
+        .getItem('version')
+        .catch(localForageError => console.log({ localForageError }));
+
       const {
-        data: { lastUpdate },
+        data: { lastUpdate, version },
       } = await axios.get('/api/lastUpdate');
+
       if (
         !cachedLastUpdate ||
-        new Date(lastUpdate) > new Date(cachedLastUpdate)
+        new Date(lastUpdate) > new Date(cachedLastUpdate) ||
+        !cachedVersion ||
+        cachedVersion !== version
       ) {
         await localForage
           .clear()
           .catch(localForageError => console.log({ localForageError }));
+
         await localForage
           .setItem('lastUpdate', lastUpdate)
           .catch(localForageError => console.log({ localForageError }));
+
+        await localForage
+          .setItem('version', version)
+          .catch(localForageError => console.log({ localForageError }));
       }
+
       this.setState({ loading: false, error: false });
     } catch (apiError) {
       console.log({ apiError });
+
       this.setState({ loading: false, error: true }, async () => {
         await localForage
           .clear()

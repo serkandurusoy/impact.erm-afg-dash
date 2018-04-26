@@ -1,7 +1,13 @@
 import objectHash from 'object-hash';
+import lastUpdate from './_last-update';
 
 const cacheGet = async (database, queryObject) => {
-  const hash = objectHash(queryObject, { unorderedArrays: true });
+  const lastUpdateObject = await lastUpdate(database);
+
+  const hash = objectHash(
+    { ...queryObject, ...lastUpdateObject },
+    { unorderedArrays: true },
+  );
 
   const [result] = await database
     .select('value')

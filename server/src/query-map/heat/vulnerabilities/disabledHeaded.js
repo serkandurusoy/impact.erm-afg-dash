@@ -10,5 +10,5 @@ export default async (
         0)) AS \`S2_AdditionalVulnerabilityq2_4_physical\`
 FROM
     heat;`);
-  return results;
+  return results[0];
 };

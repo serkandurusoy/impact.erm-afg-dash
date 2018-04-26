@@ -1,117 +1,117 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChartLoader from '../_lib/chart-loader';
+import ComponentLoader from '../component-loader';
 
-const NumberOfHHs = ChartLoader({
+const NumberOfHHs = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './general/NumberOfHHs'),
 });
 
-const NumberOfHHsPerProvince = ChartLoader({
+const NumberOfHHsPerProvince = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './general/NumberOfHHsPerProvince'),
 });
 
-const AppropriatenessOfTargeting = ChartLoader({
+const AppropriatenessOfTargeting = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './cashDistribution/AppropriatenessOfTargeting'),
 });
 
-const AverageCashReceived = ChartLoader({
+const AverageCashReceived = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './cashDistribution/AverageCashReceived'),
 });
 
-const SafetyOfTravel = ChartLoader({
+const SafetyOfTravel = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './cashDistribution/SafetyOfTravel'),
 });
 
-const TravelTime = ChartLoader({
+const TravelTime = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './cashDistribution/TravelTime'),
 });
 
-const FoodSecurityIndex = ChartLoader({
+const FoodSecurityIndex = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/FoodSecurityIndex'),
 });
 
-const ImpactOfCashAssistance = ChartLoader({
+const ImpactOfCashAssistance = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/ImpactOfCashAssistance'),
 });
 
-const LevelOfDebtCompared = ChartLoader({
+const LevelOfDebtCompared = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/LevelOfDebtCompared'),
 });
 
-const LevelOfDebtComparedPerProvince = ChartLoader({
+const LevelOfDebtComparedPerProvince = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/LevelOfDebtComparedPerProvince'),
 });
 
-const AmountSpentOnHHNeedsBlankets = ChartLoader({
+const AmountSpentOnHHNeedsBlankets = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsBlankets'),
 });
 
-const AmountSpentOnHHNeedsClothes = ChartLoader({
+const AmountSpentOnHHNeedsClothes = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsClothes'),
 });
 
-const AmountSpentOnHHNeedsDebtRepayment = ChartLoader({
+const AmountSpentOnHHNeedsDebtRepayment = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsDebtRepayment'),
 });
 
-const AmountSpentOnHHNeedsEducation = ChartLoader({
+const AmountSpentOnHHNeedsEducation = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsEducation'),
 });
 
-const AmountSpentOnHHNeedsFood = ChartLoader({
+const AmountSpentOnHHNeedsFood = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsFood'),
 });
 
-const AmountSpentOnHHNeedsHealth = ChartLoader({
+const AmountSpentOnHHNeedsHealth = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsHealth'),
 });
 
-const AmountSpentOnHHNeedsHygieneItems = ChartLoader({
+const AmountSpentOnHHNeedsHygieneItems = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsHygieneItems'),
 });
 
-const AmountSpentOnHHNeedsKitchenItems = ChartLoader({
+const AmountSpentOnHHNeedsKitchenItems = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsKitchenItems'),
 });
 
-const AmountSpentOnHHNeedsRent = ChartLoader({
+const AmountSpentOnHHNeedsRent = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsRent'),
 });
 
-const AmountSpentOnHHNeedsSaved = ChartLoader({
+const AmountSpentOnHHNeedsSaved = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsSaved'),
 });
 
-const AmountSpentOnHHNeedsShelterRepair = ChartLoader({
+const AmountSpentOnHHNeedsShelterRepair = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsShelterRepair'),
 });
 
-const AmountSpentOnHHNeedsTransportation = ChartLoader({
+const AmountSpentOnHHNeedsTransportation = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsTransportation'),
 });
 
-const AmountSpentOnHHNeedsUtilities = ChartLoader({
+const AmountSpentOnHHNeedsUtilities = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './impact/AmountSpentOnHHNeedsUtilities'),
 });

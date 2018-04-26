@@ -1,7 +1,13 @@
 import objectHash from 'object-hash';
+import lastUpdate from './_last-update';
 
 const cacheSet = async (database, queryObject, queryResult) => {
-  const hash = objectHash(queryObject, { unorderedArrays: true });
+  const lastUpdateObject = await lastUpdate(database);
+
+  const hash = objectHash(
+    { ...queryObject, ...lastUpdateObject },
+    { unorderedArrays: true },
+  );
 
   return database.raw(
     `

@@ -1,30 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChartLoader from '../_lib/chart-loader';
+import ComponentLoader from '../component-loader';
 
-const AverageSellingPrices = ChartLoader({
+const AverageSellingPrices = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './mpc/AverageSellingPrices'),
 });
 
-const MarketAppearance = ChartLoader({
+const MarketAppearance = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './mpc/MarketAppearance'),
 });
 
-const MarketSize = ChartLoader({
+const MarketSize = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './mpc/MarketSize'),
 });
 
-const MarketSizeByProvince = ChartLoader({
+const MarketSizeByProvince = ComponentLoader({
   loader: () =>
     import(/* webpackPrefetch: true */ './mpc/MarketSizeByProvince'),
 });
 
-const MaxRent = ChartLoader({
+const MaxRent = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './mpc/MaxRent'),
 });
 
-const MinRent = ChartLoader({
+const MinRent = ComponentLoader({
   loader: () => import(/* webpackPrefetch: true */ './mpc/MinRent'),
 });
 
