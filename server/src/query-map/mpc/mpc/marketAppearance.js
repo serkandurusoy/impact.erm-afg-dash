@@ -19,10 +19,11 @@ export default async (
         SUM(IF(\`s1_full_market_survey/q1_4_market_appearance\` = 'moderate_function', 1, 0)) \`moderate_function\`
     FROM
         mpc
-    ?
-    GROUP BY \`general_info/q3_province\` ASC
+    :where
+    GROUP BY
+        \`general_info/q3_province\` ASC
     ;`,
-    [where],
+    { where },
   );
 
   return results;

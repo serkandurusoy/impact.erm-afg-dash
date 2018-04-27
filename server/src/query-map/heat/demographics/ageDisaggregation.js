@@ -23,9 +23,9 @@ export default async (
         SUM(\`S1_headOfHouseholdelders_60_abv_female\`) as\`S1_headOfHouseholdelders_60_abv_female\`
     FROM
         heat
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results[0];

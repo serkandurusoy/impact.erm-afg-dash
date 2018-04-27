@@ -21,10 +21,11 @@ export default async (
         SUM(IF(\`FCS_Level\` = 3, 1, 0)) AS \`3\`
     FROM
         pdm
-    ?
-    GROUP BY \`general_infoq1_province\`
+    :where
+    GROUP BY
+        \`general_infoq1_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

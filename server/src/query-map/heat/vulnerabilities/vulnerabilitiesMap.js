@@ -28,10 +28,11 @@ export default async (
         SUM(IF(\`S2_AdditionalVulnerabilityq2_5_chronically\` = 'yes', 1, 0)) AS \`S2_AdditionalVulnerabilityq2_5_chronically\`
     FROM
         heat
-    ?
-    GROUP BY \`general_infoq1_province\`
+    :where
+    GROUP BY
+        \`general_infoq1_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

@@ -20,9 +20,9 @@ export default async (
         SUM(IF(\`s3_use_of_cash_assistanceq3_4_cash_improved_wellbeing_ur_hhd\` = 'yes_improved_a_lot', 1, 0)) AS \`yes_improved_a_lot'\`
     FROM
         pdm
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results;

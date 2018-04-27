@@ -18,8 +18,9 @@ export default async (
         SUM(IF(\`S6_washq6_5_latrine_available\` = 'no', 1, 0)) \`no\`
     FROM
         heat
-    ?;`,
-    [where],
+    :where
+    ;`,
+    { where },
   );
 
   return results[0];

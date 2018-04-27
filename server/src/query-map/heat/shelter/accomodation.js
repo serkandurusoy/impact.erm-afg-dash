@@ -22,10 +22,11 @@ export default async (
         SUM(IF(\`S7_SHELTERq7_2_acc_arrangement\` = 'Squatting', 1, 0)) AS \`Squatting\`
     FROM
         heat
-    ?
-    GROUP BY \`S7_SHELTERq7_1_accomodation\`
+    :where
+    GROUP BY
+        \`S7_SHELTERq7_1_accomodation\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

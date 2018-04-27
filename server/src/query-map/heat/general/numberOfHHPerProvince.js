@@ -19,10 +19,11 @@ export default async (
         SUM(\`S1_headOfHouseholdtotal_mem\`) as \`sum\`
     FROM
         heat
-    ?
-    GROUP BY \`general_infoq1_province\`
+    :where
+    GROUP BY
+        \`general_infoq1_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

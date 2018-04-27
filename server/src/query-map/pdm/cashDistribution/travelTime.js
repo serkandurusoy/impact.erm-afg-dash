@@ -18,9 +18,9 @@ export default async (
         SUM(IF(\`s2_cash_distribution_processq2_5_travel_more_than_1_hour\` = 'no', 1, 0))  AS \`no\`
     FROM
         pdm
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results;

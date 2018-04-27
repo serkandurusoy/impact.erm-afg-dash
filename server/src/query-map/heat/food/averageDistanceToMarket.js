@@ -26,10 +26,11 @@ export default async (
         AVG(\`S5_FOOD_ASSESSq5_2_distance_marketkm\`)  as \`S5_FOOD_ASSESSq5_2_distance_marketkm\`
     FROM
         heat
-    ?
-    GROUP BY \`general_infoq1_province\`
+    :where
+    GROUP BY
+        \`general_infoq1_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

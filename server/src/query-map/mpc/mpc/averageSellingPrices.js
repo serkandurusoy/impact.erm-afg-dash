@@ -21,10 +21,11 @@ export default async (
         AVG(\`s1_full_market_survey/q1_10_3_current_price_diesel\`) AS \`s1_full_market_survey/q1_10_3_current_price_diesel\`
     FROM
         mpc
-    ?
-    GROUP BY \`general_info/q3_province\`
+    :where
+    GROUP BY
+        \`general_info/q3_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

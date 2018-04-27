@@ -18,10 +18,11 @@ export default async (
         COUNT(\`s8_prioritiesSecond\`) as \`count\`
     FROM
         heat
-    ?
-    GROUP BY \`s8_prioritiesSecond\`
+    :where
+    GROUP BY
+        \`s8_prioritiesSecond\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

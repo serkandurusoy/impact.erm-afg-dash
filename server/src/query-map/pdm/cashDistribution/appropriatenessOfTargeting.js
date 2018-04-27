@@ -19,9 +19,9 @@ export default async (
         SUM(IF(\`s2_cash_distribution_processq2_1_do_u_think_gave_right_people\` = 'yes', 1, 0)) AS \`yes\`
     FROM
         pdm
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results;

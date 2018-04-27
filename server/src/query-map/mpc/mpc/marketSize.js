@@ -19,9 +19,9 @@ export default async (
         SUM(IF(\`s1_full_market_survey/q1_3_market_size\` = 'small', 1, 0))  \`small\`
     FROM
         mpc
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results;

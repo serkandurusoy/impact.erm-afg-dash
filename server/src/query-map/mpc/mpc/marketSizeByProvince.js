@@ -20,10 +20,11 @@ export default async (
         SUM(IF(\`s1_full_market_survey/q1_3_market_size\` = 'small', 1, 0))  AS \`small\`
     FROM
         mpc
-    ?
-    GROUP BY \`general_info/q3_province\`
+    :where
+    GROUP BY
+        \`general_info/q3_province\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

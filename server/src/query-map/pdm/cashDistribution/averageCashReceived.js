@@ -19,9 +19,9 @@ export default async (
         MAX(\`s2_cash_distribution_processq2_3_how_mach_cash\`) AS \`max_s2_cash_distribution_processq2_3_how_mach_cash\`
     FROM
         pdm
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results;

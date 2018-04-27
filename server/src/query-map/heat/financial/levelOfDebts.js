@@ -18,10 +18,11 @@ export default async (
         COUNT(\`S4_financial_ASSESSq4_5_new_debts\`) AS \`count\`
     FROM
         heat
-    ?
-    GROUP BY \`S4_financial_ASSESSq4_5_new_debts\`
+    :where
+    GROUP BY
+        \`S4_financial_ASSESSq4_5_new_debts\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;

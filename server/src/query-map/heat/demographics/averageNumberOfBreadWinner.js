@@ -18,10 +18,11 @@ export default async (
          AVG(\`S4_financial_ASSESSfemale_breadwinner\`) as \`S4_financial_ASSESSfemale_breadwinner\`
      FROM
          heat
-     ?
-     GROUP BY general_infoq1_province
+     :where
+     GROUP BY
+        \`general_infoq1_province\`
      ;`,
-    [where],
+    { where },
   );
 
   return results;

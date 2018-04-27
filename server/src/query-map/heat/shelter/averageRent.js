@@ -24,9 +24,9 @@ export default async (
         MAX(\`S7_SHELTERq7_4_if_rented_amount\`) as \`max_S7_SHELTERq7_4_if_rented_amount\`
     FROM
         heat
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results[0];

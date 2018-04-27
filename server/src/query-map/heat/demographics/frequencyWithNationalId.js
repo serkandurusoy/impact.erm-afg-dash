@@ -18,9 +18,9 @@ export default async (
         SUM(IF(\`S1_headOfHouseholdq4_4_nid_numb\` = 'no', 1, 0)) \`no\`
     FROM
         heat
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results[0];

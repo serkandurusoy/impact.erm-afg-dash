@@ -20,9 +20,9 @@ export default async (
         MAX(\`S4_financial_ASSESSq4_3_income_before\`) as \`max_S4_financial_ASSESSq4_3_income_before\`
     FROM
         heat
-    ?
+    :where
     ;`,
-    [where],
+    { where },
   );
 
   return results[0];

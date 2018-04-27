@@ -8,22 +8,26 @@ export default (
   database.raw(
     `
       WHERE
-        ?
-        \`general_infoq1_province\` ? (?) AND
-        \`general_infoq2_district\` ? (?) AND
-        \`today\` between ? and ?
+        :firstWhere
+        \`general_infoq1_province\` :provinceCondition (:provinces) AND
+        \`general_infoq2_district\` :districtCondition (:districts) AND
+        \`today\` between :dateBegin and :dateEnd
     `,
-    [
-      database.raw(firstWhere),
-      provinces ? database.raw('in') : database.raw('not in'),
-      provinces
+    {
+      firstWhere: database.raw(firstWhere),
+      provinceCondition: provinces
+        ? database.raw('in')
+        : database.raw('not in'),
+      provinces: provinces
         ? provinces.map(
             p => PROVINCE_INFO.find(({ id }) => id === parseInt(p, 10)).name,
           )
         : [''],
-      districts ? database.raw('in') : database.raw('not in'),
-      districts || [''],
-      new Date(dateBegin),
-      new Date(dateEnd),
-    ],
+      districtCondition: districts
+        ? database.raw('in')
+        : database.raw('not in'),
+      districts: districts || [''],
+      dateBegin: new Date(dateBegin),
+      dateEnd: new Date(dateEnd),
+    },
   );

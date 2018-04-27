@@ -18,10 +18,11 @@ export default async (
         COUNT(*) AS \`count\`
     FROM
         pdm
-    ?
-    GROUP BY \`general_infoq5_organization\`
+    :where
+    GROUP BY
+        \`general_infoq5_organization\`
     ;`,
-    [where],
+    { where },
   );
 
   return results;
