@@ -18,7 +18,14 @@ const Chart = ({ data }) => (
         x: d.general_infoq1_province,
       }))}
     >
-      <XAxis dataKey="x" />
+      <XAxis
+        dataKey="x"
+        height={80}
+        angle={90}
+        interval={0}
+        tickMargin={40}
+        tickCount={1}
+      />
       <YAxis />
       <Tooltip />
       <Legend />
