@@ -25,6 +25,7 @@ const Chart = ({ data }) => (
         <Geographies geography={PROVINCE_GEO_DATA}>
           {(geographies, projection) =>
             geographies.map(geography => {
+              const avgMax = Math.max(...data.map(d => d.avg_FCS));
               const provinceName = PROVINCE_INFO.find(
                 ({ id }) => id === geography.properties.ID_1,
               ).name;
@@ -33,10 +34,7 @@ const Chart = ({ data }) => (
               );
               // TODO: tooltip breakdown!
               const color =
-                province &&
-                colorScale(
-                  province.avg_FCS / data.reduce((t, v) => t + v.avg_FCS, 0),
-                ).hex();
+                province && colorScale(province.avg_FCS / avgMax).hex();
               return (
                 <Geography
                   key={geography.properties.ID_1}
