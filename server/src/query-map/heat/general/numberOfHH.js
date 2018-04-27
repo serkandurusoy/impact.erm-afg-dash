@@ -2,16 +2,28 @@ import PROVINCE_INFO from '../../../../../client/src/constants/province-info';
 
 export default async (
   database,
-  // eslint-disable-next-line no-unused-vars
   { provinces, districts, dateBegin, dateEnd },
 ) => {
-  const where = database.raw(`WHERE \`general_infoq1_province\` in (?)`, [
-    (provinces &&
-      provinces.map(
-        p => PROVINCE_INFO.find(({ id }) => id === parseInt(p, 10)).name,
-      )) ||
-      PROVINCE_INFO.map(p => p.name),
-  ]);
+  const where = database.raw(
+    `
+      WHERE
+        \`general_infoq1_province\` ? (?) AND
+        \`general_infoq2_district\` ? (?) AND
+        \`today\` between ? and ?
+    `,
+    [
+      provinces ? database.raw('in') : database.raw('not in'),
+      provinces
+        ? provinces.map(
+            p => PROVINCE_INFO.find(({ id }) => id === parseInt(p, 10)).name,
+          )
+        : [''],
+      districts ? database.raw('in') : database.raw('not in'),
+      districts || [''],
+      new Date(dateBegin),
+      new Date(dateEnd),
+    ],
+  );
 
   const query = database.raw(
     `
@@ -26,8 +38,6 @@ export default async (
 `,
     [where],
   );
-
-  console.log(111, query.toString());
 
   const [results] = await query;
 

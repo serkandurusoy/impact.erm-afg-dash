@@ -15,10 +15,12 @@ class App extends Component {
     try {
       const cachedLastUpdate = await localForage
         .getItem('lastUpdate')
+        // eslint-disable-next-line no-console
         .catch(localForageError => console.log({ localForageError }));
 
       const cachedVersion = await localForage
         .getItem('version')
+        // eslint-disable-next-line no-console
         .catch(localForageError => console.log({ localForageError }));
 
       const {
@@ -34,28 +36,34 @@ class App extends Component {
       ) {
         await localForage
           .clear()
+          // eslint-disable-next-line no-console
           .catch(localForageError => console.log({ localForageError }));
 
         await localForage
           .setItem('noCache', noCache)
+          // eslint-disable-next-line no-console
           .catch(localForageError => console.log({ localForageError }));
 
         await localForage
           .setItem('lastUpdate', lastUpdate)
+          // eslint-disable-next-line no-console
           .catch(localForageError => console.log({ localForageError }));
 
         await localForage
           .setItem('version', version)
+          // eslint-disable-next-line no-console
           .catch(localForageError => console.log({ localForageError }));
       }
 
       this.setState({ loading: false, error: false });
     } catch (apiError) {
+      // eslint-disable-next-line no-console
       console.log({ apiError });
 
       this.setState({ loading: false, error: true }, async () => {
         await localForage
           .clear()
+          // eslint-disable-next-line no-console
           .catch(localForageError => console.log({ localForageError }));
       });
     }

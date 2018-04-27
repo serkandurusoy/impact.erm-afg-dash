@@ -12,10 +12,7 @@ import {
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
-      data={data.map(d => {
-        console.log(d);
-        return { ...d, x: d.S4_financial_ASSESSq4_5_new_debts };
-      })}
+      data={data.map(d => ({ ...d, x: d.S4_financial_ASSESSq4_5_new_debts }))}
     >
       <XAxis dataKey="x" />
       <YAxis />

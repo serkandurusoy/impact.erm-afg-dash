@@ -7,6 +7,7 @@ const lastUpdate = async database => {
     try {
       await database.del().from('cache');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('Error clearing the cache', error);
     }
   }

@@ -69,6 +69,7 @@ class DataLoader extends Component {
       version = await localForage.getItem('version');
       noCache = await localForage.getItem('noCache');
     } catch (localForageError) {
+      // eslint-disable-next-line no-console
       console.log({ localForageError });
     }
 
@@ -99,6 +100,7 @@ class DataLoader extends Component {
 
       const cachedResult = await localForage
         .getItem(hash)
+        // eslint-disable-next-line no-console
         .catch(localForageError => console.log({ localForageError }));
 
       if (!noCache && cachedResult) {
@@ -120,12 +122,14 @@ class DataLoader extends Component {
                     await localForage
                       .setItem(hash, data)
                       .catch(localForageError =>
+                        // eslint-disable-next-line no-console
                         console.log({ localForageError }),
                       );
                   }
                 },
               );
             } catch (apiError) {
+              // eslint-disable-next-line no-console
               console.log({ apiError });
               this.setStateIfMounted({ loading: false, error: true });
             }
@@ -133,6 +137,7 @@ class DataLoader extends Component {
         );
       }
     } catch (apiError) {
+      // eslint-disable-next-line no-console
       console.log({ apiError });
       this.setStateIfMounted({ loading: false, error: true });
     }
