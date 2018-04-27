@@ -1,18 +1,33 @@
-/*
-	TODO != To be replaced with N/A
-*/
+import filterWhere from '../filterWhere';
 
 export default async (
   database,
-  // eslint-disable-next-line no-unused-vars
   { provinces, districts, dateBegin, dateEnd },
 ) => {
-  const [results] = await database.raw(`SELECT
-    AVG(\`S7_SHELTERq7_4_if_rented_amount\`) as \`avg_S7_SHELTERq7_4_if_rented_amount\`,
-    MIN(\`S7_SHELTERq7_4_if_rented_amount\`) as \`min_S7_SHELTERq7_4_if_rented_amount\`,
-    MAX(\`S7_SHELTERq7_4_if_rented_amount\`) as \`max_S7_SHELTERq7_4_if_rented_amount\`
-FROM
-    heat
-WHERE \`S7_SHELTERq7_4_if_rented_amount\` != '';`);
+  const where = filterWhere(
+    database,
+    {
+      provinces,
+      districts,
+      dateBegin,
+      dateEnd,
+    },
+    `\`S7_SHELTERq7_4_if_rented_amount\` != '' AND`,
+  );
+
+  // TODO: "!=" should be replaced with N/A
+  const [results] = await database.raw(
+    `
+    SELECT
+        AVG(\`S7_SHELTERq7_4_if_rented_amount\`) as \`avg_S7_SHELTERq7_4_if_rented_amount\`,
+        MIN(\`S7_SHELTERq7_4_if_rented_amount\`) as \`min_S7_SHELTERq7_4_if_rented_amount\`,
+        MAX(\`S7_SHELTERq7_4_if_rented_amount\`) as \`max_S7_SHELTERq7_4_if_rented_amount\`
+    FROM
+        heat
+    ?
+    ;`,
+    [where],
+  );
+
   return results[0];
 };
