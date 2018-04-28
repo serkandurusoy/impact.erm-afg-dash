@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 import chroma from 'chroma-js';
 
-const colorScale = chroma.scale(['ffffff', 'ee4e4e']);
+const colorScale = chroma.scale(['c0c0c0', 'ee4e4e']);
 
 const Chart = ({ data }) => {
   const dataMap = Object.entries(data[0]).map(([k, v]) => ({
@@ -21,6 +21,7 @@ const Chart = ({ data }) => {
         cy="50%"
         outerRadius={150}
         fill="#8884d8"
+        label
       >
         {dataMap.map(d => (
           <Cell
