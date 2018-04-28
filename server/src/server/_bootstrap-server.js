@@ -5,7 +5,6 @@ import validateEnvironmentVariables from './_validate-environment-variables';
 import getDatabaseConnection from './_get-database-connection';
 import setupAppContext from './_setup-app-context';
 import setupSecurity from './_setup-security';
-import rateLimiter from './_rate-limiter';
 import handleNotFound from './_handle-not-found';
 import catchAllErrors from './_catch-all-errors';
 
@@ -21,10 +20,6 @@ import catchAllErrors from './_catch-all-errors';
   setupSecurity(app);
 
   app.enable('trust proxy');
-
-  if (process.env.NODE_ENV === 'production') {
-    app.use(rateLimiter(database));
-  }
 
   app.use(express.static(path.join(__dirname, '../public')));
 
