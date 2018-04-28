@@ -210,48 +210,54 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Additional Vulnerability Assessment')) && (
       <div>
-        <ChildHeaded
-          apiPath="/api/query/heat/vulnerabilities/childHeaded"
-          title="Additional Vulnerability Assessment"
-          subTitle="Number and Percentage of Child Headed HHs"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <ChronicallyIllHeaded
-          apiPath="/api/query/heat/vulnerabilities/chronicallyIllHeaded"
-          title="Additional Vulnerability Assessment"
-          subTitle="Number and Percentage of HHs with Chronically Ill Member"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <DisabledHeaded
-          apiPath="/api/query/heat/vulnerabilities/disabledHeaded"
-          title="Additional Vulnerability Assessment"
-          subTitle="Number and Percentage of HHs with Disabled Member"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <ElderlyHeaded
-          apiPath="/api/query/heat/vulnerabilities/elderlyHeaded"
-          title="Additional Vulnerability Assessment"
-          subTitle="Number and Percentage of Elderly Headed HHs"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <FemaleHeaded
-          apiPath="/api/query/heat/vulnerabilities/femaleHeaded"
-          title="Additional Vulnerability Assessment"
-          subTitle="Number and Percentage of Female Headed HHs"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <VulnerabilitiesMap
-          apiPath="/api/query/heat/vulnerabilities/vulnerabilitiesMap"
-          title="Additional Vulnerability Assessment"
-          subTitle="Vulnerabilities Map"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <ChildHeaded
+            apiPath="/api/query/heat/vulnerabilities/childHeaded"
+            title="Additional Vulnerability Assessment"
+            subTitle="Number and Percentage of Child Headed HHs"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <ChronicallyIllHeaded
+            apiPath="/api/query/heat/vulnerabilities/chronicallyIllHeaded"
+            title="Additional Vulnerability Assessment"
+            subTitle="Number and Percentage of HHs with Chronically Ill Member"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
+        <div className="graph__row">
+          <DisabledHeaded
+            apiPath="/api/query/heat/vulnerabilities/disabledHeaded"
+            title="Additional Vulnerability Assessment"
+            subTitle="Number and Percentage of HHs with Disabled Member"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <ElderlyHeaded
+            apiPath="/api/query/heat/vulnerabilities/elderlyHeaded"
+            title="Additional Vulnerability Assessment"
+            subTitle="Number and Percentage of Elderly Headed HHs"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
+        <div className="graph__row">
+          <FemaleHeaded
+            apiPath="/api/query/heat/vulnerabilities/femaleHeaded"
+            title="Additional Vulnerability Assessment"
+            subTitle="Number and Percentage of Female Headed HHs"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <VulnerabilitiesMap
+            apiPath="/api/query/heat/vulnerabilities/vulnerabilitiesMap"
+            title="Additional Vulnerability Assessment"
+            subTitle="Vulnerabilities Map"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
       </div>
     )}
     {(sectionFilter === null ||

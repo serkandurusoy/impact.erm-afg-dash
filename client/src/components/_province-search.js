@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import Autocomplete from 'react-autocomplete';
+import classNames from 'classnames';
 import PROVINCES from '../constants/province-info';
 
 class ProvinceSearch extends Component {
@@ -13,6 +14,11 @@ class ProvinceSearch extends Component {
 
   state = {
     label: '',
+    active: false,
+  };
+
+  toggleActiveClass = isOpen => {
+    this.setState({ active: isOpen });
   };
 
   handleChange = (e, label) => {
@@ -34,12 +40,12 @@ class ProvinceSearch extends Component {
   };
 
   render() {
-    const { label } = this.state;
+    const { label, active } = this.state;
     return (
       <Autocomplete
         wrapperProps={{
           style: {},
-          className: 'header-search',
+          className: classNames('header-search', { active }),
         }}
         menuStyle={{
           borderRadius: 0,
@@ -96,6 +102,7 @@ class ProvinceSearch extends Component {
         )}
         onChange={this.handleChange}
         onSelect={this.handleSelect}
+        onMenuVisibilityChange={this.toggleActiveClass}
       />
     );
   }
