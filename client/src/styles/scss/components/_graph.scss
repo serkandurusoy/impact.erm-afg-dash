@@ -83,4 +83,10 @@
       margin: 0 15px;
     }
   }
+
+  + .graph__row {
+    @media (min-width: $xl-min) {
+      margin-top: 30px;
+    }
+  }
 }
