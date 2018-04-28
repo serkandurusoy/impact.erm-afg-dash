@@ -14,6 +14,10 @@ import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 const colorScale = chroma.scale(['fbd9d9', 'ee4e4e']);
 
 class Chart extends Component {
+  static propTypes = {
+    data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+  };
+
   componentDidMount() {
     setTimeout(() => {
       ReactTooltip.rebuild();
@@ -88,9 +92,5 @@ class Chart extends Component {
     );
   }
 }
-
-Chart.propTypes = {
-  data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
-};
 
 export default Chart;
