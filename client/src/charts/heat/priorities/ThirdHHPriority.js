@@ -1,21 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 
 const Chart = ({ data }) => (
-  <div
-    style={{
-      backgroundColor: '#696969',
-      color: '#ffffff',
-      textAlign: 'left',
-      lineHeight: 1.5,
-      width: '100%',
-      height: '100%',
-      overflow: 'auto',
-      fontSize: 10,
-    }}
-  >
-    <pre>{JSON.stringify(data, null, 2)}</pre>
-  </div>
+  <ResponsiveContainer height={400}>
+    <BarChart data={data.map(d => ({ ...d, x: d.s8_prioritiesthird }))}>
+      <XAxis dataKey="x" />
+      <YAxis />
+      <Tooltip
+        content={({ payload, label }) =>
+          payload[0] && (
+            <div className="graph__tooltip">
+              {payload[0].payload.count} individuals reported {label} as their
+              third household priority
+            </div>
+          )
+        }
+      />
+      <Bar dataKey="count" fill="#ee4e4e" />
+    </BarChart>
+  </ResponsiveContainer>
 );
 
 Chart.propTypes = {
