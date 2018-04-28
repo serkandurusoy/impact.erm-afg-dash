@@ -75,16 +75,18 @@ class ProvinceSearch extends Component {
           <div
             key={province.slug}
             style={{
-              padding: 8,
+              borderBottom: '1px rgba(7, 42, 83, 0.1) solid',
+              padding: '10px 15px',
               textAlign: 'left',
-              fontSize: '120%',
+              fontSize: '1rem',
+              cursor: 'pointer',
               ...(isHighlighted
                 ? {
-                    color: '#000',
-                    background: 'rgba(255, 255, 255, 0.7)',
+                    color: '#fff',
+                    background: '#072A53',
                   }
                 : {
-                    color: '#fff',
+                    color: '#072A53',
                     background: 'transparent',
                   }),
             }}
