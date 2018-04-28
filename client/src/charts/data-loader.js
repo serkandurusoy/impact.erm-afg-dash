@@ -3,6 +3,7 @@ import localForage from 'localforage';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { debounce } from 'throttle-debounce';
 
 class DataLoader extends Component {
   static propTypes = {
@@ -57,8 +58,9 @@ class DataLoader extends Component {
     }
   };
 
-  fetchData = async () => {
+  fetchData = debounce(1000, async () => {
     const { apiPath, provinceFilter, districtFilter } = this.props;
+    console.log('FETCHING', apiPath);
 
     let lastUpdate;
     let version;
@@ -114,6 +116,8 @@ class DataLoader extends Component {
           { loading: true, error: false, data: null },
           async () => {
             try {
+              console.warn(`FETCHING ${apiPath}`);
+
               const { data } = await axios.get(apiPath, options);
               this.setStateIfMounted(
                 { loading: false, error: false, data },
@@ -141,7 +145,7 @@ class DataLoader extends Component {
       console.log({ apiError });
       this.setStateIfMounted({ loading: false, error: true });
     }
-  };
+  });
 
   componentIsInMountedState = false;
 
