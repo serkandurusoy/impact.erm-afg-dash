@@ -37,7 +37,7 @@ class Chart extends Component {
       >
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
-            <Geographies geography={PROVINCE_GEO_DATA}>
+            <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
               {(geographies, projection) =>
                 geographies.map(geography => {
                   const avgMax = Math.max(...data.map(d => d.avg_FCS));
@@ -49,12 +49,14 @@ class Chart extends Component {
                   );
                   const color =
                     province && colorScale(province.avg_FCS / avgMax).hex();
+                  const tooltip = `${geography.properties.NAME_1}${
+                    province ? `: ${province.avg_FCS}` : ''
+                  }`;
                   return (
                     <Geography
-                      data-tip={`${geography.properties.NAME_1}${
-                        province ? `: ${province.avg_FCS}` : ''
-                      }`}
                       data-for="foodSecurityIndex"
+                      data-tip={tooltip}
+                      cacheId={tooltip}
                       key={geography.properties.ID_1}
                       geography={geography}
                       projection={projection}

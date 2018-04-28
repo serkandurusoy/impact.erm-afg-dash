@@ -34,52 +34,50 @@ class ProvinceFilterMap extends Component {
         >
           <ComposableMap width={600} height={500}>
             <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
-              <Geographies geography={PROVINCE_GEO_DATA}>
+              <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
                 {(geographies, projection) =>
-                  geographies.map(geography => (
-                    <Geography
-                      onClick={() =>
-                        toggleSelectedProvince(geography.properties.ID_1)
-                      }
-                      data-tip={geography.properties.NAME_1}
-                      data-for="provinceFilterMap"
-                      key={geography.properties.ID_1}
-                      geography={geography}
-                      projection={projection}
-                      style={{
-                        default: {
-                          fill: selectedProvinces.includes(
-                            geography.properties.ID_1,
-                          )
-                            ? '#EE4E4E'
-                            : '#ECEFF1',
-                          stroke: '#607D8B',
-                          strokeWidth: 0.01,
-                          outline: 'none',
-                        },
-                        hover: {
-                          fill: selectedProvinces.includes(
-                            geography.properties.ID_1,
-                          )
-                            ? '#9D2104'
-                            : '#607D8B',
-                          stroke: '#607D8B',
-                          strokeWidth: 0.01,
-                          outline: 'none',
-                        },
-                        pressed: {
-                          fill: selectedProvinces.includes(
-                            geography.properties.ID_1,
-                          )
-                            ? '#9D2104'
-                            : '#607D8B',
-                          stroke: '#607D8B',
-                          strokeWidth: 0.01,
-                          outline: 'none',
-                        },
-                      }}
-                    />
-                  ))
+                  geographies.map(geography => {
+                    const {
+                      ID_1: provinceId,
+                      NAME_1: provinceName,
+                    } = geography.properties;
+                    const provinceIsSelected = selectedProvinces.includes(
+                      provinceId,
+                    );
+                    return (
+                      <Geography
+                        onClick={() => toggleSelectedProvince(provinceId)}
+                        data-tip={provinceName}
+                        data-for="provinceFilterMap"
+                        cacheId={`${provinceName}-${
+                          !provinceIsSelected ? 'un' : ''
+                        }selected`}
+                        key={geography.properties.ID_1}
+                        geography={geography}
+                        projection={projection}
+                        style={{
+                          default: {
+                            fill: provinceIsSelected ? '#EE4E4E' : '#ECEFF1',
+                            stroke: '#607D8B',
+                            strokeWidth: 0.01,
+                            outline: 'none',
+                          },
+                          hover: {
+                            fill: provinceIsSelected ? '#9D2104' : '#607D8B',
+                            stroke: '#607D8B',
+                            strokeWidth: 0.01,
+                            outline: 'none',
+                          },
+                          pressed: {
+                            fill: provinceIsSelected ? '#9D2104' : '#607D8B',
+                            stroke: '#607D8B',
+                            strokeWidth: 0.01,
+                            outline: 'none',
+                          },
+                        }}
+                      />
+                    );
+                  })
                 }
               </Geographies>
             </ZoomableGroup>

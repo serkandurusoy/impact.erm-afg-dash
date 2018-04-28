@@ -37,7 +37,7 @@ class Chart extends Component {
       >
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
-            <Geographies geography={PROVINCE_GEO_DATA}>
+            <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
               {(geographies, projection) =>
                 geographies.map(geography => {
                   const provinceName = PROVINCE_INFO.find(
@@ -51,12 +51,14 @@ class Chart extends Component {
                     colorScale(
                       province.total / data.reduce((t, v) => t + v.total, 0),
                     ).hex();
+                  const tooltip = `${geography.properties.NAME_1}${
+                    province ? `: ${province.total}` : ''
+                  }`;
                   return (
                     <Geography
-                      data-tip={`${geography.properties.NAME_1}${
-                        province ? `: ${province.total}` : ''
-                      }`}
                       data-for="vulnerabilitiesMap"
+                      data-tip={tooltip}
+                      cacheId={tooltip}
                       key={geography.properties.ID_1}
                       geography={geography}
                       projection={projection}

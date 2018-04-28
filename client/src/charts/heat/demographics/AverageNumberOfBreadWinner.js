@@ -38,7 +38,7 @@ class Chart extends Component {
       >
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
-            <Geographies geography={PROVINCE_GEO_DATA}>
+            <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
               {(geographies, projection) =>
                 geographies.map(geography => {
                   const provinceName = PROVINCE_INFO.find(
@@ -52,14 +52,16 @@ class Chart extends Component {
                     colorScale(
                       province.S4_financial_ASSESSmale_breadwinner,
                     ).hex();
+                  const tooltip = `${geography.properties.NAME_1}${
+                    province
+                      ? `: ${province.S4_financial_ASSESSmale_breadwinner}`
+                      : ''
+                  }`;
                   return (
                     <Geography
-                      data-tip={`${geography.properties.NAME_1}${
-                        province
-                          ? `: ${province.S4_financial_ASSESSmale_breadwinner}`
-                          : ''
-                      }`}
                       data-for="averageNumberOfBreadWinnerMale"
+                      data-tip={tooltip}
+                      cacheId={tooltip}
                       key={geography.properties.ID_1}
                       geography={geography}
                       projection={projection}

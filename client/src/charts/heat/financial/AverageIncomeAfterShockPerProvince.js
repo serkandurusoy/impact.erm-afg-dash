@@ -37,7 +37,7 @@ class Chart extends Component {
       >
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
-            <Geographies geography={PROVINCE_GEO_DATA}>
+            <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
               {(geographies, projection) => {
                 const maxAvg = Math.max(
                   ...data.map(d => d.avg_S4_financial_ASSESSq4_4_income_after),
@@ -56,16 +56,16 @@ class Chart extends Component {
                       province.avg_S4_financial_ASSESSq4_4_income_after /
                         maxAvg,
                     ).hex();
+                  const tooltip = `${geography.properties.NAME_1}${
+                    province
+                      ? `: ${province.avg_S4_financial_ASSESSq4_4_income_after}`
+                      : ''
+                  }`;
                   return (
                     <Geography
-                      data-tip={`${geography.properties.NAME_1}${
-                        province
-                          ? `: ${
-                              province.avg_S4_financial_ASSESSq4_4_income_after
-                            }`
-                          : ''
-                      }`}
                       data-for="averageIncomeAfterShockPerProvince"
+                      data-tip={tooltip}
+                      cacheId={tooltip}
                       key={geography.properties.ID_1}
                       geography={geography}
                       projection={projection}
