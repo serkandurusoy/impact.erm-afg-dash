@@ -47,6 +47,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  svg {
+    max-width: 100%;
+  }
 }
 
 .graph__tooltip {
@@ -82,7 +86,8 @@
   > * {
     @media (min-width: $xl-min) {
       display: flex;
-      flex-grow: 1;
+      flex: 1;
+      width: 0;
     }
   }
 
