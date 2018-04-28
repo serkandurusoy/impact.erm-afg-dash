@@ -191,20 +191,22 @@ const Charts = (
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
-        <AverageNumberOfBreadWinner
-          apiPath="/api/query/heat/demographics/averageNumberOfBreadWinner"
-          title="Household Demographics"
-          subTitle="Average Number of Breadwinner per HH"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <FrequencyWithNationalId
-          apiPath="/api/query/heat/demographics/frequencyWithNationalId"
-          title="Household Demographics"
-          subTitle="Frequency of HHs with National ID"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <AverageNumberOfBreadWinner
+            apiPath="/api/query/heat/demographics/averageNumberOfBreadWinner"
+            title="Household Demographics"
+            subTitle="Average Number of Breadwinner per HH"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <FrequencyWithNationalId
+            apiPath="/api/query/heat/demographics/frequencyWithNationalId"
+            title="Household Demographics"
+            subTitle="Frequency of HHs with National ID"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
       </div>
     )}
     {(sectionFilter === null ||
@@ -263,20 +265,22 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('General Assessment')) && (
       <div>
-        <DisplacementCategory
-          apiPath="/api/query/heat/generalAssessment/displacementCategory"
-          title="General Assessment"
-          subTitle="Displacement Category"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <PossibilityOfReturn
-          apiPath="/api/query/heat/generalAssessment/possibilityOfReturn"
-          title="General Assessment"
-          subTitle="Reported Possibility to Return to Place of Origin"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <DisplacementCategory
+            apiPath="/api/query/heat/generalAssessment/displacementCategory"
+            title="General Assessment"
+            subTitle="Displacement Category"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <PossibilityOfReturn
+            apiPath="/api/query/heat/generalAssessment/possibilityOfReturn"
+            title="General Assessment"
+            subTitle="Reported Possibility to Return to Place of Origin"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
         <ProvinceOfOrigin
           apiPath="/api/query/heat/generalAssessment/provinceOfOrigin"
           title="General Assessment"
@@ -329,20 +333,22 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Food & Nutrition Assessment')) && (
       <div>
-        <AccessToMarket
-          apiPath="/api/query/heat/food/accessToMarket"
-          title="Food & Nutrition Assessment"
-          subTitle="Reported Access to Market"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <AvailableFoodStocks
-          apiPath="/api/query/heat/food/availableFoodStocks"
-          title="Food & Nutrition Assessment"
-          subTitle="Reported Food Stocks Available"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <AccessToMarket
+            apiPath="/api/query/heat/food/accessToMarket"
+            title="Food & Nutrition Assessment"
+            subTitle="Reported Access to Market"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <AvailableFoodStocks
+            apiPath="/api/query/heat/food/availableFoodStocks"
+            title="Food & Nutrition Assessment"
+            subTitle="Reported Food Stocks Available"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
         <AverageDistanceToMarket
           apiPath="/api/query/heat/food/averageDistanceToMarket"
           title="Food & Nutrition Assessment"
@@ -382,20 +388,22 @@ const Charts = (
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
-        <AccessToLatrine
-          apiPath="/api/query/heat/wash/accessToLatrine"
-          title="Wash Assessment"
-          subTitle="Reported Access to Latrine"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <TypeOfLatrine
-          apiPath="/api/query/heat/wash/typeOfLatrine"
-          title="Wash Assessment"
-          subTitle="Reported Type of Latrine Available"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <AccessToLatrine
+            apiPath="/api/query/heat/wash/accessToLatrine"
+            title="Wash Assessment"
+            subTitle="Reported Access to Latrine"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <TypeOfLatrine
+            apiPath="/api/query/heat/wash/typeOfLatrine"
+            title="Wash Assessment"
+            subTitle="Reported Type of Latrine Available"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
       </div>
     )}
     {(sectionFilter === null ||

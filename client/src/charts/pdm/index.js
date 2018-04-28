@@ -142,34 +142,38 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Cash Distribution')) && (
       <div>
-        <AppropriatenessOfTargeting
-          apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
-          title="Cash Distribution"
-          subTitle="Reported Appropriateness of Targeting"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <AverageCashReceived
-          apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
-          title="Cash Distribution"
-          subTitle="Reported Average Amount of Cash Assistance Received"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <SafetyOfTravel
-          apiPath="/api/query/pdm/cashDistribution/safetyOfTravel"
-          title="Cash Distribution"
-          subTitle="Reported Safety of Travel to Distribution Site"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <TravelTime
-          apiPath="/api/query/pdm/cashDistribution/travelTime"
-          title="Cash Distribution"
-          subTitle="Reported Travel Time to Distribution Site"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <AppropriatenessOfTargeting
+            apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
+            title="Cash Distribution"
+            subTitle="Reported Appropriateness of Targeting"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <AverageCashReceived
+            apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
+            title="Cash Distribution"
+            subTitle="Reported Average Amount of Cash Assistance Received"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
+        <div className="graph__row">
+          <SafetyOfTravel
+            apiPath="/api/query/pdm/cashDistribution/safetyOfTravel"
+            title="Cash Distribution"
+            subTitle="Reported Safety of Travel to Distribution Site"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <TravelTime
+            apiPath="/api/query/pdm/cashDistribution/travelTime"
+            title="Cash Distribution"
+            subTitle="Reported Travel Time to Distribution Site"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
       </div>
     )}
 
@@ -273,20 +277,22 @@ const Charts = (
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
-        <ImpactOfCashAssistance
-          apiPath="/api/query/pdm/impact/impactOfCashAssistance"
-          title="Impact"
-          subTitle="Reported Impact of Cash Assistance on Well Being of HH"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <LevelOfDebtCompared
-          apiPath="/api/query/pdm/impact/levelOfDebtCompared"
-          title="Impact"
-          subTitle="Reported Level of Debt Compared to One Month Ago"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <ImpactOfCashAssistance
+            apiPath="/api/query/pdm/impact/impactOfCashAssistance"
+            title="Impact"
+            subTitle="Reported Impact of Cash Assistance on Well Being of HH"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <LevelOfDebtCompared
+            apiPath="/api/query/pdm/impact/levelOfDebtCompared"
+            title="Impact"
+            subTitle="Reported Level of Debt Compared to One Month Ago"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
         <LevelOfDebtComparedPerProvince
           apiPath="/api/query/pdm/impact/levelOfDebtComparedPerProvince"
           title="Impact"
