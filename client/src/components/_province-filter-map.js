@@ -6,6 +6,7 @@ import {
   Geographies,
   Geography,
 } from 'react-simple-maps';
+import ReactTooltip from 'react-tooltip';
 import PROVINCE_GEO_DATA from '../constants/province-geo-data';
 
 class ProvinceFilterMap extends Component {
@@ -14,13 +15,10 @@ class ProvinceFilterMap extends Component {
     toggleSelectedProvince: PropTypes.func.isRequired,
   };
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (
-      this.props.selectedProvinces.length !== nextProps.selectedProvinces.length
-    ) {
-      this.forceUpdate();
-    }
+  componentDidMount() {
+    setTimeout(() => {
+      ReactTooltip.rebuild();
+    }, 100);
   }
 
   render() {
@@ -43,10 +41,9 @@ class ProvinceFilterMap extends Component {
                       onClick={() =>
                         toggleSelectedProvince(geography.properties.ID_1)
                       }
+                      data-tip={geography.properties.NAME_1}
+                      data-for="provinceFilterMap"
                       key={geography.properties.ID_1}
-                      cacheId={`${selectedProvinces.join('')}-${
-                        geography.properties.ID_1
-                      }`}
                       geography={geography}
                       projection={projection}
                       style={{
@@ -87,6 +84,7 @@ class ProvinceFilterMap extends Component {
               </Geographies>
             </ZoomableGroup>
           </ComposableMap>
+          <ReactTooltip className="graph__tooltip" id="provinceFilterMap" />
         </div>
       </div>
     );

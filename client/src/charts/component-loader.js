@@ -14,7 +14,7 @@ const ComponentIsLoading = ({ error, pastDelay, timedOut }) => (
 );
 
 ComponentIsLoading.propTypes = {
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   pastDelay: PropTypes.bool,
   timedOut: PropTypes.bool,
 };

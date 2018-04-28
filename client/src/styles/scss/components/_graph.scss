@@ -50,16 +50,26 @@
 }
 
 .graph__tooltip {
-  background-color: #f9f7f7;
-  border: 1px solid #95a0a9;
-  border-radius: 4px;
-  padding: 4px;
-  width: 180px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  color: #072A53 !important;
+  background-color: #f9f7f7 !important;
+  border: 1px solid #95a0a9 !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  width: 180px !important;
+  height: 120px !important;
+  display: flex !important;
+  align-items: center !important;
+  align-content: center !important;
+  justify-content: center !important;
+
+  &.place-top {
+
+    &:after {
+      border: none;
+    }
+
+  }
+
 }
 
 .graph__row {
