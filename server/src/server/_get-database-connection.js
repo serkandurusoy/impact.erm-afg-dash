@@ -30,6 +30,7 @@ const getDatabaseConnection = async () => {
 
     return mysqlConnection;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log('DATABASE CONNECTION ERROR', JSON.stringify(error));
     return undefined;
   }

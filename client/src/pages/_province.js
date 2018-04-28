@@ -163,9 +163,13 @@ class Province extends Component {
       filterActive,
     } = this.state;
 
-    const { label, info, infoSource, districts } = PROVINCE_INFO.find(
-      province => province.slug === provinceSlug,
-    );
+    const {
+      label,
+      info,
+      infoSource,
+      districts,
+      id: provinceId,
+    } = PROVINCE_INFO.find(province => province.slug === provinceSlug);
 
     const districtCount = allDistricts.length;
 
@@ -289,6 +293,7 @@ class Province extends Component {
                         .find(section => section.title === 'HEAT')
                         .subTitles.map(subTitle => subTitle.subTitle)}
                       districtFilter={selectedDistricts}
+                      provinceFilter={[provinceId]}
                     />
                   </div>
                 </div>
@@ -313,6 +318,7 @@ class Province extends Component {
                         .find(section => section.title === 'MPC')
                         .subTitles.map(subTitle => subTitle.subTitle)}
                       districtFilter={selectedDistricts}
+                      provinceFilter={[provinceId]}
                     />
                   </div>
                 </div>
@@ -337,6 +343,7 @@ class Province extends Component {
                         .find(section => section.title === 'PDM')
                         .subTitles.map(subTitle => subTitle.subTitle)}
                       districtFilter={selectedDistricts}
+                      provinceFilter={[provinceId]}
                     />
                   </div>
                 </div>

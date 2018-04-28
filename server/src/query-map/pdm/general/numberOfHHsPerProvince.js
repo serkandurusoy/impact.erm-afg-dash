@@ -1,12 +1,28 @@
+import filterWhere from '../filterWhere';
+
 export default async (
   database,
-  // eslint-disable-next-line no-unused-vars
   { provinces, districts, dateBegin, dateEnd },
 ) => {
-  const [results] = await database.raw(`SELECT
-    \`general_infoq1_province\`, COUNT(*) AS \`count\`
+  const where = filterWhere(database, {
+    provinces,
+    districts,
+    dateBegin,
+    dateEnd,
+  });
+
+  const [results] = await database.raw(
+    `
+    SELECT
+        \`general_infoq1_province\`, COUNT(*) AS \`count\`
     FROM
-    pdm
-    GROUP BY \`general_infoq1_province\`;`);
+        pdm
+    :where
+    GROUP BY
+        \`general_infoq1_province\`
+    ;`,
+    { where },
+  );
+
   return results;
 };

@@ -35,5 +35,13 @@ import catchAllErrors from './_catch-all-errors';
 
   app.use(catchAllErrors);
 
-  app.listen(parseInt(process.env.PORT, 10) || 8002);
+  const port = parseInt(process.env.PORT, 10) || 8002;
+
+  app.listen(port, () => {
+    /* eslint-disable no-console */
+    console.log('\n======================\n');
+    console.log(`Listening on port ${port}`);
+    console.log('\n======================\n');
+    /* eslint-enable no-console */
+  });
 })();

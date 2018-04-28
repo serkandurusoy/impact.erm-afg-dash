@@ -1,13 +1,29 @@
+import filterWhere from '../filterWhere';
+
 export default async (
   database,
-  // eslint-disable-next-line no-unused-vars
   { provinces, districts, dateBegin, dateEnd },
 ) => {
-  const [results] = await database.raw(`SELECT
-    \`S6_washq6_6_latrine_type\`,
-    COUNT(\`S6_washq6_6_latrine_type\`) as \`count\`
+  const where = filterWhere(database, {
+    provinces,
+    districts,
+    dateBegin,
+    dateEnd,
+  });
+
+  const [results] = await database.raw(
+    `
+    SELECT
+        \`S6_washq6_6_latrine_type\`,
+        COUNT(\`S6_washq6_6_latrine_type\`) as \`count\`
     FROM
-    heat
-    GROUP BY \`S6_washq6_6_latrine_type\`;`);
+        heat
+    :where
+    GROUP BY
+        \`S6_washq6_6_latrine_type\`
+    ;`,
+    { where },
+  );
+
   return results;
 };

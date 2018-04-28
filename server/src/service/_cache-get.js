@@ -4,6 +4,8 @@ import lastUpdate from './_last-update';
 const cacheGet = async (database, queryObject) => {
   const lastUpdateObject = await lastUpdate(database);
 
+  if (lastUpdateObject.noCache) return false;
+
   const hash = objectHash(
     { ...queryObject, ...lastUpdateObject },
     { unorderedArrays: true },
