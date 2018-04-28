@@ -60,7 +60,6 @@ class DataLoader extends Component {
 
   fetchData = debounce(1000, async () => {
     const { apiPath, provinceFilter, districtFilter } = this.props;
-    console.log('FETCHING', apiPath);
 
     let lastUpdate;
     let version;
