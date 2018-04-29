@@ -11,7 +11,6 @@ export default async (
     dateEnd,
   });
 
-  // TODO: Percentile how to handle ?
   const [results] = await database.raw(
     `
     SELECT
@@ -25,5 +24,20 @@ export default async (
     { where },
   );
 
-  return results[0];
+  const avgMinMax = results[0];
+
+  // TODO: 25/75 percentile
+  const result = avgMinMax && {
+    ...avgMinMax,
+    '25_S4_financial_ASSESSq4_3_income_before':
+      (avgMinMax.min_S4_financial_ASSESSq4_3_income_before +
+        avgMinMax.avg_S4_financial_ASSESSq4_3_income_before) /
+      2,
+    '75_S4_financial_ASSESSq4_3_income_before':
+      (avgMinMax.max_S4_financial_ASSESSq4_3_income_before +
+        avgMinMax.avg_S4_financial_ASSESSq4_3_income_before) /
+      2,
+  };
+
+  return result;
 };

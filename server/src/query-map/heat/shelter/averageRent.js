@@ -12,10 +12,10 @@ export default async (
       dateBegin,
       dateEnd,
     },
-    `\`S7_SHELTERq7_4_if_rented_amount\` != '' AND`,
+    // TODO: Count NULL's as N/A, how to represent in chart?
+    `\`S7_SHELTERq7_4_if_rented_amount\` IS NOT NULL AND`,
   );
 
-  // TODO: "!=" should be replaced with N/A
   const [results] = await database.raw(
     `
     SELECT
@@ -29,5 +29,20 @@ export default async (
     { where },
   );
 
-  return results[0];
+  const avgMinMax = results[0];
+
+  // TODO: 25/75 percentile
+  const result = avgMinMax && {
+    ...avgMinMax,
+    '25_S7_SHELTERq7_4_if_rented_amount':
+      (avgMinMax.min_S7_SHELTERq7_4_if_rented_amount +
+        avgMinMax.avg_S7_SHELTERq7_4_if_rented_amount) /
+      2,
+    '75_S7_SHELTERq7_4_if_rented_amount':
+      (avgMinMax.max_S7_SHELTERq7_4_if_rented_amount +
+        avgMinMax.avg_S7_SHELTERq7_4_if_rented_amount) /
+      2,
+  };
+
+  return result;
 };

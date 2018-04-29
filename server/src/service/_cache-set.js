@@ -12,11 +12,14 @@ const cacheSet = async (database, queryObject, queryResult) => {
   return database.raw(
     `
       insert into cache (hash, value)
-      values (?, ?)
+      values (:hash, :value)
       on duplicate key
       update hash = hash
     `,
-    [hash, JSON.stringify(queryResult)],
+    {
+      hash,
+      value: JSON.stringify(queryResult),
+    },
   );
 };
 

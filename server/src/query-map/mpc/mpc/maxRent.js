@@ -27,5 +27,16 @@ export default async (
     { where },
   );
 
-  return results;
+  // TODO: 25/75 percentile
+  return results.map(province => ({
+    ...province,
+    '25_s1_full_market_survey/q1_17_2_room_cost_max':
+      (province['min_s1_full_market_survey/q1_17_2_room_cost_max'] +
+        province['avg_s1_full_market_survey/q1_17_2_room_cost_max']) /
+      2,
+    '75_s1_full_market_survey/q1_17_2_room_cost_max':
+      (province['max_s1_full_market_survey/q1_17_2_room_cost_max'] +
+        province['avg_s1_full_market_survey/q1_17_2_room_cost_max']) /
+      2,
+  }));
 };

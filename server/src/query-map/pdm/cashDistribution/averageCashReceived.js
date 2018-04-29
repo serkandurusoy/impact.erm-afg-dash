@@ -24,5 +24,20 @@ export default async (
     { where },
   );
 
-  return results;
+  const avgMinMax = results[0];
+
+  // TODO: 25/75 percentile
+  const result = avgMinMax && {
+    ...avgMinMax,
+    '25_s2_cash_distribution_processq2_3_how_mach_cash':
+      (avgMinMax.min_s2_cash_distribution_processq2_3_how_mach_cash +
+        avgMinMax.avg_s2_cash_distribution_processq2_3_how_mach_cash) /
+      2,
+    '75_s2_cash_distribution_processq2_3_how_mach_cash':
+      (avgMinMax.max_s2_cash_distribution_processq2_3_how_mach_cash +
+        avgMinMax.avg_s2_cash_distribution_processq2_3_how_mach_cash) /
+      2,
+  };
+
+  return result;
 };

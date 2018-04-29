@@ -7076,6 +7076,10 @@ react-autocomplete@^1.8.1:
     dom-scroll-into-view "1.0.1"
     prop-types "^15.5.10"
 
+react-bullet-graph-react16@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-bullet-graph-react16/-/react-bullet-graph-react16-1.0.4.tgz#c66681dd06bf4a9cd50a547355080cf940c9520b"
+
 react-dom@^16.3.2:
   version "16.3.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"

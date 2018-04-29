@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import BulletGraph from 'react-bullet-graph-react16';
 
 const Chart = ({ data }) => (
   <div
     style={{
-      backgroundColor: '#696969',
-      color: '#ffffff',
-      textAlign: 'left',
-      lineHeight: 1.5,
       width: '100%',
-      height: '100%',
-      overflow: 'auto',
-      fontSize: 10,
+      maxWidth: 980,
+      margin: '0 auto',
     }}
   >
     <pre>{JSON.stringify(data, null, 2)}</pre>

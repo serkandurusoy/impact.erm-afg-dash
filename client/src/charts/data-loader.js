@@ -115,8 +115,6 @@ class DataLoader extends Component {
           { loading: true, error: false, data: null },
           async () => {
             try {
-              console.warn(`FETCHING ${apiPath}`);
-
               const { data } = await axios.get(apiPath, options);
               this.setStateIfMounted(
                 { loading: false, error: false, data },

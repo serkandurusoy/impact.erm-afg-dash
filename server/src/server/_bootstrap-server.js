@@ -3,6 +3,7 @@ import compression from 'compression';
 import path from 'path';
 import validateEnvironmentVariables from './_validate-environment-variables';
 import getDatabaseConnection from './_get-database-connection';
+import bootstrapCache from './_bootstrap-cache';
 import setupAppContext from './_setup-app-context';
 import setupSecurity from './_setup-security';
 import handleNotFound from './_handle-not-found';
@@ -12,6 +13,8 @@ import catchAllErrors from './_catch-all-errors';
   validateEnvironmentVariables();
 
   const database = await getDatabaseConnection();
+
+  await bootstrapCache(database);
 
   const app = express();
 
@@ -24,6 +27,7 @@ import catchAllErrors from './_catch-all-errors';
   app.use(express.static(path.join(__dirname, '../public')));
 
   const router = express.Router();
+
   setupAppContext(app, database, router);
 
   app.use(handleNotFound);

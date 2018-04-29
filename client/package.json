@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "client",
-  "version": "1.1.0",
+  "version": "1.4.1",
   "description": "Public web site for visualizations",
   "scripts": {
     "start": "yarn run dev",
@@ -54,6 +54,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-autocomplete": "^1.8.1",
+    "react-bullet-graph-react16": "^1.0.4",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.1.1",
