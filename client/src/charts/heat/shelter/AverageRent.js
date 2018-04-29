@@ -1,25 +1,68 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import BulletGraph from 'react-bullet-graph-react16';
+import ReactTooltip from 'react-tooltip';
 
-const Chart = ({ data }) => (
-  <div
-    style={{
-      backgroundColor: '#696969',
-      color: '#ffffff',
-      textAlign: 'left',
-      lineHeight: 1.5,
-      width: '100%',
-      height: '100%',
-      overflow: 'auto',
-      fontSize: 10,
-    }}
-  >
-    <pre>{JSON.stringify(data, null, 2)}</pre>
-  </div>
-);
+class Chart extends Component {
+  static propTypes = {
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  };
 
-Chart.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
-};
+  componentDidMount() {
+    setTimeout(() => {
+      ReactTooltip.rebuild();
+    }, 100);
+  }
+
+  render() {
+    const { data } = this.props;
+    return (
+      <div
+        style={{
+          width: '100%',
+          maxWidth: 980,
+          margin: '0 auto',
+        }}
+      >
+        <div
+          style={{ width: 600, height: 40, margin: '0 auto' }}
+          data-for="averageRent"
+          data-tip={`
+            <div style="padding: 10px; line-height: 1.5; text-align: left">
+              Min: ${data.min_S7_SHELTERq7_4_if_rented_amount}
+              <br />
+              Max: ${data.max_S7_SHELTERq7_4_if_rented_amount}
+              <br />
+              Avg: ${data.avg_S7_SHELTERq7_4_if_rented_amount}
+              <br />
+              25th: ${data['25_S7_SHELTERq7_4_if_rented_amount']}
+              <br />
+              75th: ${data['75_S7_SHELTERq7_4_if_rented_amount']}
+            </div>
+          `}
+        >
+          <BulletGraph
+            title=""
+            textLabel=""
+            scaleMin={parseInt(data.min_S7_SHELTERq7_4_if_rented_amount, 10)}
+            scaleMax={parseInt(data.max_S7_SHELTERq7_4_if_rented_amount, 10)}
+            symbolMarker={data['25_S7_SHELTERq7_4_if_rented_amount']}
+            performanceVal={data['75_S7_SHELTERq7_4_if_rented_amount']}
+            badVal={0}
+            satisfactoryVal={data.avg_S7_SHELTERq7_4_if_rented_amount}
+            height={40}
+            width={600}
+            badColor="#ffffff"
+            satisfactoryColor="#ee4e4e"
+            goodColor="#ff776f"
+            isActiveColor
+            opacity={0.6}
+          />
+        </div>
+        <ReactTooltip className="graph__tooltip" id="averageRent" html />
+      </div>
+    );
+  }
+}
 
 export default Chart;
