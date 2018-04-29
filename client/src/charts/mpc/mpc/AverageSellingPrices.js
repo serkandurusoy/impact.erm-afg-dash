@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -18,13 +19,25 @@ class Chart extends Component {
     data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   };
 
+  state = {
+    selected: 's1_full_market_survey/q1_10_current_price_wheat_flour',
+  };
+
   componentDidMount() {
     setTimeout(() => {
       ReactTooltip.rebuild();
     }, 100);
   }
 
+  toggleSelected = (e, selected) => {
+    e.preventDefault();
+    this.setState({
+      selected,
+    });
+  };
+
   render() {
+    const { selected } = this.state;
     const { data } = this.props;
 
     return (
@@ -35,18 +48,75 @@ class Chart extends Component {
           margin: '0 auto',
         }}
       >
+        <div className="chartLayerSelector">
+          <a
+            className={classNames({
+              active:
+                selected ===
+                's1_full_market_survey/q1_10_current_price_wheat_flour',
+            })}
+            href=""
+            onClick={e =>
+              this.toggleSelected(
+                e,
+                's1_full_market_survey/q1_10_current_price_wheat_flour',
+              )
+            }
+          >
+            Wheat Flour
+          </a>
+          <a
+            className={classNames({
+              active:
+                selected === 's1_full_market_survey/q1_10_1_current_price_rice',
+            })}
+            href=""
+            onClick={e =>
+              this.toggleSelected(
+                e,
+                's1_full_market_survey/q1_10_1_current_price_rice',
+              )
+            }
+          >
+            Rice
+          </a>
+          <a
+            className={classNames({
+              active:
+                selected === 's1_full_market_survey/q1_10_2_current_price_oil',
+            })}
+            href=""
+            onClick={e =>
+              this.toggleSelected(
+                e,
+                's1_full_market_survey/q1_10_2_current_price_oil',
+              )
+            }
+          >
+            Oil
+          </a>
+          <a
+            className={classNames({
+              active:
+                selected ===
+                's1_full_market_survey/q1_10_3_current_price_diesel',
+            })}
+            href=""
+            onClick={e =>
+              this.toggleSelected(
+                e,
+                's1_full_market_survey/q1_10_3_current_price_diesel',
+              )
+            }
+          >
+            Diesel
+          </a>
+        </div>
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
             <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
               {(geographies, projection) => {
-                const maxAvg = Math.max(
-                  ...data.map(
-                    d =>
-                      d[
-                        's1_full_market_survey/q1_10_current_price_wheat_flour'
-                      ],
-                  ),
-                );
+                const maxAvg = Math.max(...data.map(d => d[selected]));
                 return geographies.map(geography => {
                   const provinceName = PROVINCE_INFO.find(
                     ({ id }) => id === geography.properties.ID_1,
@@ -56,26 +126,14 @@ class Chart extends Component {
                   );
                   const color =
                     province &&
-                    province[
-                      's1_full_market_survey/q1_10_current_price_wheat_flour'
-                    ] &&
-                    colorScale(
-                      province[
-                        's1_full_market_survey/q1_10_current_price_wheat_flour'
-                      ] / maxAvg,
-                    ).hex();
+                    province[selected] &&
+                    colorScale(province[selected] / maxAvg).hex();
                   const tooltip = `${geography.properties.NAME_1}${
-                    province
-                      ? `: ${
-                          province[
-                            's1_full_market_survey/q1_10_current_price_wheat_flour'
-                          ]
-                        }`
-                      : ''
+                    province ? `: ${province[selected]}` : ''
                   }`;
                   return (
                     <Geography
-                      data-for="averageSellingPrices"
+                      data-for={selected}
                       data-tip={tooltip}
                       cacheId={tooltip}
                       key={geography.properties.ID_1}
@@ -108,7 +166,7 @@ class Chart extends Component {
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>
-        <ReactTooltip className="graph__tooltip" id="averageSellingPrices" />
+        <ReactTooltip className="graph__tooltip" id={selected} />
       </div>
     );
   }

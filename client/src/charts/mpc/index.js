@@ -36,7 +36,7 @@ const Charts = (
       sectionFilter.includes('Average Current Selling Prices')) && (
       <AverageSellingPrices
         apiPath="/api/query/mpc/mpc/averageSellingPrices"
-        title="Average Current Selling Prices"
+        title="Average Current Selling Prices (AFN/kg)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />

@@ -53,7 +53,7 @@ class Chart extends Component {
             className={classNames({
               active: selected === 'S4_financial_ASSESSfemale_breadwinner',
             })}
-            href="#"
+            href=""
             onClick={e =>
               this.toggleSelected(e, 'S4_financial_ASSESSfemale_breadwinner')
             }
@@ -64,7 +64,7 @@ class Chart extends Component {
             className={classNames({
               active: selected === 'S4_financial_ASSESSmale_breadwinner',
             })}
-            href="#"
+            href=""
             onClick={e =>
               this.toggleSelected(e, 'S4_financial_ASSESSmale_breadwinner')
             }
