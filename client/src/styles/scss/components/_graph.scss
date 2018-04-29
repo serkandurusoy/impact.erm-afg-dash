@@ -155,3 +155,12 @@
     text-decoration: underline;
   }
 }
+
+.bullet--dataNotAvailable {
+  width: 530px;
+  height: 40px;
+  background-color: #ecebeb;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

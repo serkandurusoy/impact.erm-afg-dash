@@ -142,22 +142,20 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Cash Distribution')) && (
       <div>
-        <div className="graph__row">
-          <AppropriatenessOfTargeting
-            apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
-            title="Cash Distribution"
-            subTitle="Reported Appropriateness of Targeting"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <AverageCashReceived
-            apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
-            title="Cash Distribution"
-            subTitle="Reported Average Amount of Cash Assistance Received"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-        </div>
+        <AppropriatenessOfTargeting
+          apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
+          title="Cash Distribution"
+          subTitle="Reported Appropriateness of Targeting"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <AverageCashReceived
+          apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
+          title="Cash Distribution"
+          subTitle="Reported Average Amount of Cash Assistance Received"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
         <div className="graph__row">
           <SafetyOfTravel
             apiPath="/api/query/pdm/cashDistribution/safetyOfTravel"

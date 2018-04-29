@@ -41,23 +41,34 @@ class Chart extends Component {
             </div>
           `}
         >
-          <BulletGraph
-            title=""
-            textLabel=""
-            scaleMin={data.min_S4_financial_ASSESSq4_4_income_after}
-            scaleMax={data.max_S4_financial_ASSESSq4_4_income_after}
-            symbolMarker={data['25_S4_financial_ASSESSq4_4_income_after']}
-            performanceVal={data['75_S4_financial_ASSESSq4_4_income_after']}
-            badVal={0}
-            satisfactoryVal={data.avg_S4_financial_ASSESSq4_4_income_after}
-            height={40}
-            width={600}
-            badColor="#ffffff"
-            satisfactoryColor="#ee4e4e"
-            goodColor="#ff776f"
-            isActiveColor
-            opacity={0.6}
-          />
+          {data.min_S4_financial_ASSESSq4_4_income_after === 0 ? (
+            <div className="bullet--dataNotAvailable">Data not available</div>
+          ) : data.min_S4_financial_ASSESSq4_4_income_after ===
+          data.max_S4_financial_ASSESSq4_4_income_after ? (
+            <div className="bullet--dataNotAvailable">
+              Single value of {`"`}
+              {data.min_S4_financial_ASSESSq4_4_income_after}
+              {`"`} not chartable
+            </div>
+          ) : (
+            <BulletGraph
+              title=""
+              textLabel=""
+              scaleMin={data.min_S4_financial_ASSESSq4_4_income_after}
+              scaleMax={data.max_S4_financial_ASSESSq4_4_income_after}
+              symbolMarker={data['25_S4_financial_ASSESSq4_4_income_after']}
+              performanceVal={data['75_S4_financial_ASSESSq4_4_income_after']}
+              badVal={0}
+              satisfactoryVal={data.avg_S4_financial_ASSESSq4_4_income_after}
+              height={40}
+              width={600}
+              badColor="#ffffff"
+              satisfactoryColor="#ee4e4e"
+              goodColor="#ff776f"
+              isActiveColor
+              opacity={0.6}
+            />
+          )}
         </div>
         <ReactTooltip
           className="graph__tooltip"

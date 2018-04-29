@@ -41,29 +41,40 @@ class Chart extends Component {
             </div>
           `}
         >
-          <BulletGraph
-            title=""
-            textLabel=""
-            scaleMin={data.min_s2_cash_distribution_processq2_3_how_mach_cash}
-            scaleMax={data.max_s2_cash_distribution_processq2_3_how_mach_cash}
-            symbolMarker={
-              data['25_s2_cash_distribution_processq2_3_how_mach_cash']
-            }
-            performanceVal={
-              data['75_s2_cash_distribution_processq2_3_how_mach_cash']
-            }
-            badVal={0}
-            satisfactoryVal={
-              data.avg_s2_cash_distribution_processq2_3_how_mach_cash
-            }
-            height={40}
-            width={600}
-            badColor="#ffffff"
-            satisfactoryColor="#ee4e4e"
-            goodColor="#ff776f"
-            isActiveColor
-            opacity={0.6}
-          />
+          {data.min_s2_cash_distribution_processq2_3_how_mach_cash === 0 ? (
+            <div className="bullet--dataNotAvailable">Data not available</div>
+          ) : data.min_s2_cash_distribution_processq2_3_how_mach_cash ===
+          data.max_s2_cash_distribution_processq2_3_how_mach_cash ? (
+            <div className="bullet--dataNotAvailable">
+              Single value of {`"`}
+              {data.min_s2_cash_distribution_processq2_3_how_mach_cash}
+              {`"`} not chartable
+            </div>
+          ) : (
+            <BulletGraph
+              title=""
+              textLabel=""
+              scaleMin={data.min_s2_cash_distribution_processq2_3_how_mach_cash}
+              scaleMax={data.max_s2_cash_distribution_processq2_3_how_mach_cash}
+              symbolMarker={
+                data['25_s2_cash_distribution_processq2_3_how_mach_cash']
+              }
+              performanceVal={
+                data['75_s2_cash_distribution_processq2_3_how_mach_cash']
+              }
+              badVal={0}
+              satisfactoryVal={
+                data.avg_s2_cash_distribution_processq2_3_how_mach_cash
+              }
+              height={40}
+              width={600}
+              badColor="#ffffff"
+              satisfactoryColor="#ee4e4e"
+              goodColor="#ff776f"
+              isActiveColor
+              opacity={0.6}
+            />
+          )}
         </div>
         <ReactTooltip
           className="graph__tooltip"

@@ -41,23 +41,34 @@ class Chart extends Component {
             </div>
           `}
         >
-          <BulletGraph
-            title=""
-            textLabel=""
-            scaleMin={data.min_S7_SHELTERq7_4_if_rented_amount}
-            scaleMax={data.max_S7_SHELTERq7_4_if_rented_amount}
-            symbolMarker={data['25_S7_SHELTERq7_4_if_rented_amount']}
-            performanceVal={data['75_S7_SHELTERq7_4_if_rented_amount']}
-            badVal={0}
-            satisfactoryVal={data.avg_S7_SHELTERq7_4_if_rented_amount}
-            height={40}
-            width={600}
-            badColor="#ffffff"
-            satisfactoryColor="#ee4e4e"
-            goodColor="#ff776f"
-            isActiveColor
-            opacity={0.6}
-          />
+          {data.min_S7_SHELTERq7_4_if_rented_amount === 0 ? (
+            <div className="bullet--dataNotAvailable">Data not available</div>
+          ) : data.min_S7_SHELTERq7_4_if_rented_amount ===
+          data.max_S7_SHELTERq7_4_if_rented_amount ? (
+            <div className="bullet--dataNotAvailable">
+              Single value of {`"`}
+              {data.min_S7_SHELTERq7_4_if_rented_amount}
+              {`"`} not chartable
+            </div>
+          ) : (
+            <BulletGraph
+              title=""
+              textLabel=""
+              scaleMin={data.min_S7_SHELTERq7_4_if_rented_amount}
+              scaleMax={data.max_S7_SHELTERq7_4_if_rented_amount}
+              symbolMarker={data['25_S7_SHELTERq7_4_if_rented_amount']}
+              performanceVal={data['75_S7_SHELTERq7_4_if_rented_amount']}
+              badVal={0}
+              satisfactoryVal={data.avg_S7_SHELTERq7_4_if_rented_amount}
+              height={40}
+              width={600}
+              badColor="#ffffff"
+              satisfactoryColor="#ee4e4e"
+              goodColor="#ff776f"
+              isActiveColor
+              opacity={0.6}
+            />
+          )}
         </div>
         <ReactTooltip className="graph__tooltip" id="averageRent" html />
       </div>
