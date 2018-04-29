@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import logo from '../styles/images/logo.png';
 import NavigationLink from './_navigation-link';
+import ProvinceSearchNavigation from './_province-search-navigation';
 
 class Navigation extends Component {
   state = {
@@ -67,13 +68,7 @@ class Navigation extends Component {
                 <span className="icon icon--search" />
                 <span className="nav-search__link-text">Search</span>
               </a>
-              <div className="dropdown-menu nav-search__form">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search by province"
-                />
-              </div>
+              <ProvinceSearchNavigation />
             </li>
           </ul>
         </div>
