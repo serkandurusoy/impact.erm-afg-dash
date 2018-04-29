@@ -5,7 +5,7 @@ import chroma from 'chroma-js';
 
 class SpotMatrix extends Component {
   static propTypes = {
-    data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+    data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
     colorMin: PropTypes.string,
     colorMax: PropTypes.string,
   };

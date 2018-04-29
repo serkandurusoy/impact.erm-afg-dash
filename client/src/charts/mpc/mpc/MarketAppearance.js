@@ -36,7 +36,7 @@ const Chart = ({ data }) => (
 );
 
 Chart.propTypes = {
-  data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
 };
 
 export default Chart;

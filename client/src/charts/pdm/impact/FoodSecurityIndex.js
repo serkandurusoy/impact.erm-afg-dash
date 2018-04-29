@@ -15,7 +15,7 @@ const colorScale = chroma.scale(['fbd9d9', 'ee4e4e']);
 
 class Chart extends Component {
   static propTypes = {
-    data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+    data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
   };
 
   componentDidMount() {
