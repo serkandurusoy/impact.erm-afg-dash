@@ -140,3 +140,18 @@
   }
 
 }
+
+.chartLayerSelector {
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  text-align: left;
+
+  a:not(:first-of-type) {
+    margin-left: 20px;
+  }
+
+  a.active {
+    text-decoration: underline;
+  }
+}

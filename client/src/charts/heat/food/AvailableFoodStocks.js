@@ -32,7 +32,7 @@ const Chart = ({ data }) => (
 );
 
 Chart.propTypes = {
-  data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 export default Chart;

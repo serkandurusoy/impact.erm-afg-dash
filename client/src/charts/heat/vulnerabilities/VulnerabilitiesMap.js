@@ -15,7 +15,7 @@ const colorScale = chroma.scale(['fbd9d9', '7d0f0e']);
 
 class Chart extends Component {
   static propTypes = {
-    data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   };
 
   componentDidMount() {

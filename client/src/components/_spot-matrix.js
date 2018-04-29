@@ -5,7 +5,7 @@ import chroma from 'chroma-js';
 
 class SpotMatrix extends Component {
   static propTypes = {
-    data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
     colorMin: PropTypes.string,
     colorMax: PropTypes.string,
   };

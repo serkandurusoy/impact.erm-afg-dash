@@ -5,7 +5,7 @@ import { SpotMatrix } from '../../../components';
 const Chart = ({ data }) => <SpotMatrix data={data} />;
 
 Chart.propTypes = {
-  data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 export default Chart;

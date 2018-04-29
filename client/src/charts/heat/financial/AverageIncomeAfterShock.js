@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip';
 
 class Chart extends Component {
   static propTypes = {
-    data: PropTypes.oneOfType(PropTypes.object, PropTypes.array).isRequired,
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   };
 
   componentDidMount() {

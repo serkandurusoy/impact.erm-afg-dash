@@ -6,17 +6,21 @@ import {
   Geographies,
   Geography,
 } from 'react-simple-maps';
+import classNames from 'classnames';
 import chroma from 'chroma-js';
 import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScale = chroma.scale(['ffffff', 'ee4e4e']);
+const colorScale = chroma.scale(['ff958e', 'cf3e3e']);
 
-// TODO: female!
 class Chart extends Component {
   static propTypes = {
-    data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+    data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  };
+
+  state = {
+    selected: 'S4_financial_ASSESSfemale_breadwinner',
   };
 
   componentDidMount() {
@@ -25,7 +29,15 @@ class Chart extends Component {
     }, 100);
   }
 
+  toggleSelected = (e, selected) => {
+    e.preventDefault();
+    this.setState({
+      selected,
+    });
+  };
+
   render() {
+    const { selected } = this.state;
     const { data } = this.props;
 
     return (
@@ -36,6 +48,30 @@ class Chart extends Component {
           margin: '0 auto',
         }}
       >
+        <div className="chartLayerSelector">
+          <a
+            className={classNames({
+              active: selected === 'S4_financial_ASSESSfemale_breadwinner',
+            })}
+            href="#"
+            onClick={e =>
+              this.toggleSelected(e, 'S4_financial_ASSESSfemale_breadwinner')
+            }
+          >
+            Female
+          </a>
+          <a
+            className={classNames({
+              active: selected === 'S4_financial_ASSESSmale_breadwinner',
+            })}
+            href="#"
+            onClick={e =>
+              this.toggleSelected(e, 'S4_financial_ASSESSmale_breadwinner')
+            }
+          >
+            Male
+          </a>
+        </div>
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
             <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
@@ -48,18 +84,13 @@ class Chart extends Component {
                     d => d.general_infoq1_province === provinceName,
                   );
                   const color =
-                    province &&
-                    colorScale(
-                      province.S4_financial_ASSESSmale_breadwinner,
-                    ).hex();
+                    province && colorScale(province[selected]).hex();
                   const tooltip = `${geography.properties.NAME_1}${
-                    province
-                      ? `: ${province.S4_financial_ASSESSmale_breadwinner}`
-                      : ''
+                    province ? `: ${province[selected]}` : ''
                   }`;
                   return (
                     <Geography
-                      data-for="averageNumberOfBreadWinnerMale"
+                      data-for={selected}
                       data-tip={tooltip}
                       cacheId={tooltip}
                       key={geography.properties.ID_1}
@@ -92,10 +123,7 @@ class Chart extends Component {
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>
-        <ReactTooltip
-          className="graph__tooltip"
-          id="averageNumberOfBreadWinnerMale"
-        />
+        <ReactTooltip className="graph__tooltip" id={selected} />
       </div>
     );
   }
