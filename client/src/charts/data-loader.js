@@ -58,7 +58,7 @@ class DataLoader extends Component {
     }
   };
 
-  fetchData = debounce(1000, async () => {
+  fetchData = async () => {
     const { apiPath, provinceFilter, districtFilter } = this.props;
 
     let lastUpdate;
@@ -93,55 +93,51 @@ class DataLoader extends Component {
       options.params = query;
     }
 
-    try {
-      const hash = objectHash(
-        { apiPath, options, version },
-        { unorderedArrays: true },
-      );
+    const hash = objectHash(
+      { apiPath, options, version },
+      { unorderedArrays: true },
+    );
 
-      const cachedResult = await localForage
-        .getItem(hash)
-        // eslint-disable-next-line no-console
-        .catch(localForageError => console.log({ localForageError }));
-
-      if (!noCache && cachedResult) {
-        this.setStateIfMounted({
-          loading: false,
-          error: false,
-          data: cachedResult,
-        });
-      } else {
-        this.setStateIfMounted(
-          { loading: true, error: false, data: null },
-          async () => {
-            try {
-              const { data } = await axios.get(apiPath, options);
-              this.setStateIfMounted(
-                { loading: false, error: false, data },
-                async () => {
-                  if (!noCache) {
-                    await localForage
-                      .setItem(hash, data)
-                      .catch(localForageError =>
-                        // eslint-disable-next-line no-console
-                        console.log({ localForageError }),
-                      );
-                  }
-                },
-              );
-            } catch (apiError) {
-              // eslint-disable-next-line no-console
-              console.log({ apiError });
-              this.setStateIfMounted({ loading: false, error: true });
-            }
-          },
-        );
-      }
-    } catch (apiError) {
+    const cachedResult = await localForage
+      .getItem(hash)
       // eslint-disable-next-line no-console
-      console.log({ apiError });
-      this.setStateIfMounted({ loading: false, error: true });
+      .catch(localForageError => console.log({ localForageError }));
+
+    if (!noCache && cachedResult) {
+      this.setStateIfMounted({
+        loading: false,
+        error: false,
+        data: cachedResult,
+      });
+    } else {
+      this.fetchFromAPI(apiPath, options, hash, noCache);
     }
+  };
+
+  fetchFromAPI = debounce(1000, async (apiPath, options, hash, noCache) => {
+    this.setStateIfMounted(
+      { loading: true, error: false, data: null },
+      async () => {
+        try {
+          const { data } = await axios.get(apiPath, options);
+          this.setStateIfMounted(
+            { loading: false, error: false, data },
+            async () => {
+              if (!noCache) {
+                await localForage.setItem(hash, data).catch(localForageError =>
+                  // eslint-disable-next-line no-console
+                  console.log({ localForageError }),
+                );
+              }
+            },
+          );
+        } catch (apiError) {
+          // eslint-disable-next-line no-console
+          console.log({ apiError });
+          this.setStateIfMounted({ loading: false, error: true });
+        }
+      },
+    );
   });
 
   componentIsInMountedState = false;

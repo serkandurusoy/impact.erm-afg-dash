@@ -11,7 +11,6 @@ export default async (
     dateEnd,
   });
 
-  // TODO: Any way to calculate percentile easily?
   const [results] = await database.raw(
     `
     SELECT
