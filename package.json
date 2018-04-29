@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "impact-afg-erm-dash",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "description": "Impact / REACH - Afghanistan Emergency Response Mechanism Dashboard",
   "scripts": {
     "clean": "rimraf client/node_modules client/dist server/node_modules server/dist node_modules",

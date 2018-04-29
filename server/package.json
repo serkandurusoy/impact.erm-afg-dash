@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "server",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "description": "Server API for data queries",
   "scripts": {
     "start": "yarn run dev",
     "lint": "eslint --cache src/",
     "lint-fix": "eslint --fix src/",
-    "dev": "yarn run lint && IMPACT_VERSION=1.5.5 PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
+    "dev": "yarn run lint && IMPACT_VERSION=1.6.0 PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
     "build": "rimraf dist && babel --source-maps inline -d dist/ src/ --copy-files"
   },
   "author": "Serkan Durusoy<serkan@waat.eu>",
