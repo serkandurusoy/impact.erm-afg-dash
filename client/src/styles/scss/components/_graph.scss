@@ -105,3 +105,38 @@
     }
   }
 }
+
+.graph__spotMatrix-wrapper {
+  width: 100%;
+  height: 500px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  .graph__spotMatrix {
+    table-layout: fixed;
+    width: 100%;
+
+    thead td {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    tbody tr td:first-of-type {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td {
+      padding: 20px 10px;
+    }
+
+    .spotMatrix-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      margin: auto auto;
+    }
+  }
+
+}

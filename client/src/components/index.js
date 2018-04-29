@@ -1,3 +1,4 @@
+export SpotMatrix from './_spot-matrix';
 export Layout from './_layout';
 export Header from './_header';
 export ProvinceSearch from './_province-search';
