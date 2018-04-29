@@ -26,17 +26,28 @@ export default async (
 
   const avgMinMax = results[0];
 
-  // TODO: 25/75 percentile
+  const [count] = await database('heat').count(
+    'S4_financial_ASSESSq4_3_income_before as cnt',
+  );
+
+  const [p25] = await database
+    .select('S4_financial_ASSESSq4_3_income_before as p25')
+    .from('heat')
+    .orderBy('S4_financial_ASSESSq4_3_income_before', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.25, 10));
+
+  const [p75] = await database
+    .select('S4_financial_ASSESSq4_3_income_before as p75')
+    .from('heat')
+    .orderBy('S4_financial_ASSESSq4_3_income_before', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.75, 10));
+
   const result = avgMinMax && {
     ...avgMinMax,
-    '25_S4_financial_ASSESSq4_3_income_before':
-      (avgMinMax.min_S4_financial_ASSESSq4_3_income_before +
-        avgMinMax.avg_S4_financial_ASSESSq4_3_income_before) /
-      2,
-    '75_S4_financial_ASSESSq4_3_income_before':
-      (avgMinMax.max_S4_financial_ASSESSq4_3_income_before +
-        avgMinMax.avg_S4_financial_ASSESSq4_3_income_before) /
-      2,
+    '25_S4_financial_ASSESSq4_3_income_before': p25.p25,
+    '75_S4_financial_ASSESSq4_3_income_before': p75.p75,
   };
 
   return result;

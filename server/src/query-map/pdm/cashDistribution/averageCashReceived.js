@@ -26,17 +26,28 @@ export default async (
 
   const avgMinMax = results[0];
 
-  // TODO: 25/75 percentile
+  const [count] = await database('pdm').count(
+    's2_cash_distribution_processq2_3_how_mach_cash as cnt',
+  );
+
+  const [p25] = await database
+    .select('s2_cash_distribution_processq2_3_how_mach_cash as p25')
+    .from('pdm')
+    .orderBy('s2_cash_distribution_processq2_3_how_mach_cash', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.25, 10));
+
+  const [p75] = await database
+    .select('s2_cash_distribution_processq2_3_how_mach_cash as p75')
+    .from('pdm')
+    .orderBy('s2_cash_distribution_processq2_3_how_mach_cash', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.75, 10));
+
   const result = avgMinMax && {
     ...avgMinMax,
-    '25_s2_cash_distribution_processq2_3_how_mach_cash':
-      (avgMinMax.min_s2_cash_distribution_processq2_3_how_mach_cash +
-        avgMinMax.avg_s2_cash_distribution_processq2_3_how_mach_cash) /
-      2,
-    '75_s2_cash_distribution_processq2_3_how_mach_cash':
-      (avgMinMax.max_s2_cash_distribution_processq2_3_how_mach_cash +
-        avgMinMax.avg_s2_cash_distribution_processq2_3_how_mach_cash) /
-      2,
+    '25_s2_cash_distribution_processq2_3_how_mach_cash': p25.p25,
+    '75_s2_cash_distribution_processq2_3_how_mach_cash': p75.p75,
   };
 
   return result;

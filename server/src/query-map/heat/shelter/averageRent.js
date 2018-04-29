@@ -31,17 +31,28 @@ export default async (
 
   const avgMinMax = results[0];
 
-  // TODO: 25/75 percentile
+  const [count] = await database('heat').count(
+    'S7_SHELTERq7_4_if_rented_amount as cnt',
+  );
+
+  const [p25] = await database
+    .select('S7_SHELTERq7_4_if_rented_amount as p25')
+    .from('heat')
+    .orderBy('S7_SHELTERq7_4_if_rented_amount', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.25, 10));
+
+  const [p75] = await database
+    .select('S7_SHELTERq7_4_if_rented_amount as p75')
+    .from('heat')
+    .orderBy('S7_SHELTERq7_4_if_rented_amount', 'asc')
+    .limit(1)
+    .offset(parseInt(count.cnt * 0.75, 10));
+
   const result = avgMinMax && {
     ...avgMinMax,
-    '25_S7_SHELTERq7_4_if_rented_amount':
-      (avgMinMax.min_S7_SHELTERq7_4_if_rented_amount +
-        avgMinMax.avg_S7_SHELTERq7_4_if_rented_amount) /
-      2,
-    '75_S7_SHELTERq7_4_if_rented_amount':
-      (avgMinMax.max_S7_SHELTERq7_4_if_rented_amount +
-        avgMinMax.avg_S7_SHELTERq7_4_if_rented_amount) /
-      2,
+    '25_S7_SHELTERq7_4_if_rented_amount': p25.p25,
+    '75_S7_SHELTERq7_4_if_rented_amount': p75.p75,
   };
 
   return result;

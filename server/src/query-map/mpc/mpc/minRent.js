@@ -27,16 +27,39 @@ export default async (
     { where },
   );
 
-  // TODO: 25/75 percentile
-  return results.map(province => ({
-    ...province,
-    '25_s1_full_market_survey/q1_17_1_room_cost_min':
-      (province['min_s1_full_market_survey/q1_17_1_room_cost_min'] +
-        province['avg_s1_full_market_survey/q1_17_1_room_cost_min']) /
-      2,
-    '75_s1_full_market_survey/q1_17_1_room_cost_min':
-      (province['max_s1_full_market_survey/q1_17_1_room_cost_min'] +
-        province['avg_s1_full_market_survey/q1_17_1_room_cost_min']) /
-      2,
-  }));
+  return Promise.all(
+    results.map(async province => {
+      const [count] = await database('mpc')
+        .count('s1_full_market_survey/q1_17_1_room_cost_min as cnt')
+        .where({
+          'general_info/q3_province': province['general_info/q3_province'],
+        });
+
+      const [p25] = await database
+        .select('s1_full_market_survey/q1_17_1_room_cost_min as p25')
+        .from('mpc')
+        .where({
+          'general_info/q3_province': province['general_info/q3_province'],
+        })
+        .orderBy('s1_full_market_survey/q1_17_1_room_cost_min', 'asc')
+        .limit(1)
+        .offset(parseInt(count.cnt * 0.25, 10));
+
+      const [p75] = await database
+        .select('s1_full_market_survey/q1_17_1_room_cost_min as p75')
+        .from('mpc')
+        .where({
+          'general_info/q3_province': province['general_info/q3_province'],
+        })
+        .orderBy('s1_full_market_survey/q1_17_1_room_cost_min', 'asc')
+        .limit(1)
+        .offset(parseInt(count.cnt * 0.75, 10));
+
+      return {
+        ...province,
+        '25_s1_full_market_survey/q1_17_1_room_cost_min': p25.p25,
+        '75_s1_full_market_survey/q1_17_1_room_cost_min': p75.p75,
+      };
+    }),
+  );
 };
