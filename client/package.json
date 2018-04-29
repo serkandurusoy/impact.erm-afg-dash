@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "client",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "Public web site for visualizations",
   "scripts": {
     "start": "yarn run dev",

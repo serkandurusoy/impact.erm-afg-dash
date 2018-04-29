@@ -31,15 +31,19 @@ export default async (
     results.map(async province => {
       const [count] = await database('mpc')
         .count('s1_full_market_survey/q1_17_2_room_cost_max as cnt')
-        .where({
-          'general_info/q3_province': province['general_info/q3_province'],
+        .whereRaw(`${where.toString().replace('WHERE', '')} AND :query`, {
+          query: database.raw(`\`general_info/q3_province\` = :province`, {
+            province: province['general_info/q3_province'],
+          }),
         });
 
       const [p25] = await database
         .select('s1_full_market_survey/q1_17_2_room_cost_max as p25')
         .from('mpc')
-        .where({
-          'general_info/q3_province': province['general_info/q3_province'],
+        .whereRaw(`${where.toString().replace('WHERE', '')} AND :query`, {
+          query: database.raw(`\`general_info/q3_province\` = :province`, {
+            province: province['general_info/q3_province'],
+          }),
         })
         .orderBy('s1_full_market_survey/q1_17_2_room_cost_max', 'asc')
         .limit(1)
@@ -48,8 +52,10 @@ export default async (
       const [p75] = await database
         .select('s1_full_market_survey/q1_17_2_room_cost_max as p75')
         .from('mpc')
-        .where({
-          'general_info/q3_province': province['general_info/q3_province'],
+        .whereRaw(`${where.toString().replace('WHERE', '')} AND :query`, {
+          query: database.raw(`\`general_info/q3_province\` = :province`, {
+            province: province['general_info/q3_province'],
+          }),
         })
         .orderBy('s1_full_market_survey/q1_17_2_room_cost_max', 'asc')
         .limit(1)
@@ -57,12 +63,15 @@ export default async (
 
       return Object.entries({
         ...province,
-        '25_s1_full_market_survey/q1_17_2_room_cost_max': p25.p25,
-        '75_s1_full_market_survey/q1_17_2_room_cost_max': p75.p75,
+        '25_s1_full_market_survey/q1_17_2_room_cost_max': p25 && p25.p25,
+        '75_s1_full_market_survey/q1_17_2_room_cost_max': p75 && p75.p75,
       }).reduce(
         (obj, [k, v]) => ({
           ...obj,
-          [k]: v === 'null' || v === null || !v ? 0 : v,
+          [k]:
+            typeof v === 'undefined' || v === 'null' || v === null || !v
+              ? 0
+              : v,
         }),
         {},
       );

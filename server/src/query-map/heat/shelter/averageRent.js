@@ -51,19 +51,19 @@ export default async (
     .limit(1)
     .offset(parseInt(count.cnt * 0.75, 10));
 
-  const result =
+  return (
     avgMinMax &&
     Object.entries({
       ...avgMinMax,
-      '25_S7_SHELTERq7_4_if_rented_amount': p25.p25,
-      '75_S7_SHELTERq7_4_if_rented_amount': p75.p75,
+      '25_S7_SHELTERq7_4_if_rented_amount': p25 && p25.p25,
+      '75_S7_SHELTERq7_4_if_rented_amount': p75 && p75.p75,
     }).reduce(
       (obj, [k, v]) => ({
         ...obj,
-        [k]: v === 'null' || v === null || !v ? 0 : v,
+        [k]:
+          typeof v === 'undefined' || v === 'null' || v === null || !v ? 0 : v,
       }),
       {},
-    );
-
-  return result;
+    )
+  );
 };
