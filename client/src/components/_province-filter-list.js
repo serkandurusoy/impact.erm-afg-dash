@@ -11,7 +11,7 @@ const provinceColumns = chunkedArray(
 
 const ProvinceFilterList = ({ selectedProvinces, toggleSelectedProvince }) => (
   <div className="subpage-map__left">
-    <h3>Select intrested province(s)</h3>
+    <h3>Select interested province(s)</h3>
     <div className="subpage-map__lists">
       {provinceColumns.map(column => (
         <div key={column[0].name} className="subpage-map__list">
