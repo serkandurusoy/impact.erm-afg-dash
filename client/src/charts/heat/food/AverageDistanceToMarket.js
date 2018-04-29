@@ -37,6 +37,7 @@ const Chart = ({ data }) => (
       <XAxis type="number" />
       <Tooltip
         content={({ payload, label }) =>
+          payload &&
           payload[0] && (
             <div className="graph__tooltip">
               In {label} people need at least around{' '}

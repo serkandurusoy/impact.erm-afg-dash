@@ -187,7 +187,7 @@ const Charts = (
         <AgeDisaggregation
           apiPath="/api/query/heat/demographics/ageDisaggregation"
           title="Household Demographics"
-          subTitle="Age disaggregation"
+          subTitle="Age Disaggregation"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />

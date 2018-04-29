@@ -34,6 +34,7 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip
         content={({ payload, label }) =>
+          payload &&
           payload[0] && (
             <div className="graph__tooltip">
               {payload[0].payload.count} HHs with {payload[0].payload.sum}{' '}

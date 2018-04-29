@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { debounce } from 'throttle-debounce';
+import exportCSV from '../utils/export-csv';
 
 class DataLoader extends Component {
   static propTypes = {
@@ -157,7 +158,22 @@ class DataLoader extends Component {
     ) : data ? (
       <div>
         <div className="graph">
-          <h4 className="graph__title">{title}</h4>
+          <h4 className="graph__title">
+            {title}
+            <a
+              title={`Download chart data as "${title}${
+                subTitle ? ` - ${subTitle}` : ''
+              }.csv"`}
+              className="graph__full"
+              href="#"
+              onClick={e => {
+                e.preventDefault();
+                exportCSV(data, `${title}${subTitle ? ` - ${subTitle}` : ''}`);
+              }}
+            >
+              <span className="icon icon--arrow-top-right" />
+            </a>
+          </h4>
           {subTitle !== '' && <div className="graph__subtitle">{subTitle}</div>}
           <div className="graph__graph">
             <div className="graph__placeholder">{children(data)}</div>
