@@ -41,7 +41,7 @@ class Chart extends Component {
             </div>
           `}
         >
-          {data.min_S7_SHELTERq7_4_if_rented_amount === 0 ? (
+          {data.max_S7_SHELTERq7_4_if_rented_amount === 0 ? (
             <div className="bullet--dataNotAvailable">Data not available</div>
           ) : data.min_S7_SHELTERq7_4_if_rented_amount ===
           data.max_S7_SHELTERq7_4_if_rented_amount ? (

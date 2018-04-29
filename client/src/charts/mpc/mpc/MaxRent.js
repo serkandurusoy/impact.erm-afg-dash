@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BulletGraph from 'react-bullet-graph-react16';
 import ReactTooltip from 'react-tooltip';
+import PROVINCE_INFO from '../../../constants/province-info';
 
 class Chart extends Component {
   static propTypes = {
@@ -61,9 +62,13 @@ class Chart extends Component {
                   }}
                 >
                   <span style={{ width: '70px', textAlign: 'left' }}>
-                    {d['general_info/q3_province']}
+                    {
+                      PROVINCE_INFO.find(
+                        ({ name }) => name === d['general_info/q3_province'],
+                      ).label
+                    }
                   </span>
-                  {d['min_s1_full_market_survey/q1_17_1_room_cost_max'] ===
+                  {d['max_s1_full_market_survey/q1_17_1_room_cost_max'] ===
                   0 ? (
                     <div className="bullet--dataNotAvailable">
                       Data not available

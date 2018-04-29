@@ -41,7 +41,7 @@ class Chart extends Component {
             </div>
           `}
         >
-          {data.min_s2_cash_distribution_processq2_3_how_mach_cash === 0 ? (
+          {data.max_s2_cash_distribution_processq2_3_how_mach_cash === 0 ? (
             <div className="bullet--dataNotAvailable">Data not available</div>
           ) : data.min_s2_cash_distribution_processq2_3_how_mach_cash ===
           data.max_s2_cash_distribution_processq2_3_how_mach_cash ? (

@@ -41,7 +41,7 @@ class Chart extends Component {
             </div>
           `}
         >
-          {data.min_S4_financial_ASSESSq4_3_income_before === 0 ? (
+          {data.max_S4_financial_ASSESSq4_3_income_before === 0 ? (
             <div className="bullet--dataNotAvailable">Data not available</div>
           ) : data.min_S4_financial_ASSESSq4_3_income_before ===
           data.max_S4_financial_ASSESSq4_3_income_before ? (
