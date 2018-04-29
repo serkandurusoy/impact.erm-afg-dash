@@ -63,7 +63,9 @@ class Chart extends Component {
                   symbolMarker={
                     d['25_s1_full_market_survey/q1_17_2_room_cost_max']
                   }
-                  performanceVal={d['75_S4_financial_ASSESSq4_3_income_before']}
+                  performanceVal={
+                    d['75_s1_full_market_survey/q1_17_2_room_cost_max']
+                  }
                   badVal={0}
                   satisfactoryVal={
                     d['avg_s1_full_market_survey/q1_17_2_room_cost_max']
