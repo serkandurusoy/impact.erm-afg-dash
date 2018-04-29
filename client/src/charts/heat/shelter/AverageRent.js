@@ -44,8 +44,8 @@ class Chart extends Component {
           <BulletGraph
             title=""
             textLabel=""
-            scaleMin={parseInt(data.min_S7_SHELTERq7_4_if_rented_amount, 10)}
-            scaleMax={parseInt(data.max_S7_SHELTERq7_4_if_rented_amount, 10)}
+            scaleMin={data.min_S7_SHELTERq7_4_if_rented_amount}
+            scaleMax={data.max_S7_SHELTERq7_4_if_rented_amount}
             symbolMarker={data['25_S7_SHELTERq7_4_if_rented_amount']}
             performanceVal={data['75_S7_SHELTERq7_4_if_rented_amount']}
             badVal={0}
