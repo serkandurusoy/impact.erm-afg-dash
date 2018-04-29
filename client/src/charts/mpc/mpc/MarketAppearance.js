@@ -9,12 +9,14 @@ import {
   YAxis,
   Legend,
 } from 'recharts';
+import { getLabel } from '../../../constants/labels';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
       data={data.map(d => ({
-        ...d,
+        [getLabel('well_function_busy')]: d.well_function_busy,
+        [getLabel('moderate_function')]: d.moderate_function,
         x: d.Province,
       }))}
     >
@@ -29,8 +31,8 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="well_function_busy" fill="#ED4E4F" />
-      <Bar dataKey="moderate_function" fill="#f2b8b8" />
+      <Bar dataKey={getLabel('well_function_busy')} fill="#ED4E4F" />
+      <Bar dataKey={getLabel('moderate_function')} fill="#f2b8b8" />
     </BarChart>
   </ResponsiveContainer>
 );

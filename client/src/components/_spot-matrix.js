@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import chroma from 'chroma-js';
+import { getLabel } from '../constants/labels';
 
 class SpotMatrix extends Component {
   static propTypes = {
@@ -42,7 +43,7 @@ class SpotMatrix extends Component {
           <thead>
             <tr>
               {Object.keys(data[0]).map((key, ix) => (
-                <td key={key}>{ix === 0 ? '' : key}</td>
+                <td key={key}>{ix === 0 ? '' : getLabel(key)}</td>
               ))}
             </tr>
           </thead>
@@ -52,7 +53,7 @@ class SpotMatrix extends Component {
                 {Object.entries(d).map(([k, v], ix) => (
                   <td key={k}>
                     {ix === 0 ? (
-                      v
+                      getLabel(v)
                     ) : (
                       <div
                         data-for={chartId}

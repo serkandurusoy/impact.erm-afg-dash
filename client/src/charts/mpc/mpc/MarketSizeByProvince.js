@@ -9,12 +9,15 @@ import {
   YAxis,
   Legend,
 } from 'recharts';
+import { getLabel } from '../../../constants/labels';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
       data={data.map(d => ({
-        ...d,
+        [getLabel('large')]: d.large,
+        [getLabel('medium')]: d.medium,
+        [getLabel('small')]: d.small,
         x: d.Province,
       }))}
     >
@@ -29,9 +32,9 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="large" fill="#ED4E4F" />
-      <Bar dataKey="medium" fill="#b27272" />
-      <Bar dataKey="small" fill="#f2b8b8" />
+      <Bar dataKey={getLabel('large')} fill="#ED4E4F" />
+      <Bar dataKey={getLabel('medium')} fill="#b27272" />
+      <Bar dataKey={getLabel('small')} fill="#f2b8b8" />
     </BarChart>
   </ResponsiveContainer>
 );

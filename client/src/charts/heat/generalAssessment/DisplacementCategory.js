@@ -8,11 +8,18 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import LABELS from '../../../constants/labels';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
-      data={data.map(d => ({ ...d, x: d.S3_GEN_ASSESSq3_1_disp_categ }))}
+      data={data.map(d => ({
+        ...d,
+        x:
+          LABELS.value.S3_GEN_ASSESSq3_1_disp_categ[
+            d.S3_GEN_ASSESSq3_1_disp_categ
+          ] || d.S3_GEN_ASSESSq3_1_disp_categ,
+      }))}
     >
       <XAxis dataKey="x" />
       <YAxis />

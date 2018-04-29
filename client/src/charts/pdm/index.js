@@ -273,7 +273,7 @@ const Charts = (
         <FoodSecurityIndex
           apiPath="/api/query/pdm/impact/foodSecurityIndex"
           title="Impact"
-          subTitle="Food Security Index"
+          subTitle="Food Security Index (Food Consumption)"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />

@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 import chroma from 'chroma-js';
+import { getLabel } from '../../../constants/labels';
 
 const colorScale = chroma.scale(['c0c0c0', 'ee4e4e']);
 
 const Chart = ({ data }) => {
   const dataMap = Object.entries(data[0]).map(([k, v]) => ({
-    name: k[0].toUpperCase() + k.substr(1),
+    name: getLabel(k),
     value: v,
   }));
 

@@ -19,19 +19,25 @@ const Chart = ({ data }) => (
         );
         return {
           ...d,
-          label: province.label,
-          x: province.id,
+          x: province.label,
         };
       })}
     >
-      <XAxis dataKey="x" />
+      <XAxis
+        dataKey="x"
+        height={80}
+        angle={90}
+        interval={0}
+        tickMargin={40}
+        tickCount={1}
+      />
       <YAxis />
       <Tooltip
-        content={({ payload }) =>
+        content={({ payload, label }) =>
           payload[0] && (
             <div className="graph__tooltip">
               {payload[0].payload.count} HHs with {payload[0].payload.sum}{' '}
-              individuals assessed in {payload[0].payload.label}
+              individuals assessed in {label}
             </div>
           )
         }

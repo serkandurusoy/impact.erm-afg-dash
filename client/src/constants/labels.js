@@ -144,7 +144,7 @@ const LABELS = {
     },
     S3_GEN_ASSESSq3_1_disp_categ: {
       conf_idp: 'Conflict IDP',
-      nat_disaster: 'idp	Natural disaster IDP',
+      nat_disaster_idp: 'Natural disaster IDP',
       doc_returnee: 'Documented Returnee',
       undoc_returnee: 'Undocumented Returnee',
       no_disp: 'No Displacement',
@@ -167,5 +167,14 @@ const LABELS = {
     FSI: 'Food Security Index',
   },
 };
+
+export const getLabel = key =>
+  LABELS.column[key] ||
+  (key
+    ? key
+        .split('_')
+        .map(w => w[0].toUpperCase() + w.substr(1))
+        .join(' ')
+    : 'N/A');
 
 export default LABELS;
