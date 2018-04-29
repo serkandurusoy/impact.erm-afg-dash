@@ -8,11 +8,21 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { getLabel } from '../../../constants/labels';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
-    <BarChart data={data.map(d => ({ ...d, x: d.S3_GEN_ASSESSq3_4_1_if_no }))}>
-      <XAxis dataKey="x" />
+    <BarChart
+      data={data.map(d => ({ ...d, x: getLabel(d.S3_GEN_ASSESSq3_4_1_if_no) }))}
+    >
+      <XAxis
+        dataKey="x"
+        height={80}
+        angle={45}
+        interval={0}
+        tickMargin={40}
+        tickCount={1}
+      />
       <YAxis />
       <Tooltip
         content={({ payload, label }) =>

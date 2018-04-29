@@ -14,7 +14,8 @@ const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
       data={data.map(d => ({
-        ...d,
+        Yes: d.yes,
+        No: d.no,
         x: d.general_infoq1_province,
       }))}
     >
@@ -29,8 +30,8 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="yes" fill="#ED4E4F" />
-      <Bar dataKey="no" fill="#f2b8b8" />
+      <Bar dataKey="Yes" fill="#ED4E4F" />
+      <Bar dataKey="No" fill="#f2b8b8" />
     </BarChart>
   </ResponsiveContainer>
 );

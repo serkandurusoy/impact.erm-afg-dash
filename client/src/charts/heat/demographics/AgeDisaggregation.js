@@ -17,13 +17,13 @@ const Chart = ({ data }) => (
       data={[
         {
           x: 'New Born',
-          male:
+          Male:
             data[
               Object.keys(data).filter(
                 k => k.includes('new_born') && k.includes('male'),
               )[0]
             ],
-          female:
+          Female:
             0 -
             data[
               Object.keys(data).filter(
@@ -33,13 +33,13 @@ const Chart = ({ data }) => (
         },
         {
           x: 'Children 6 - 18',
-          male:
+          Male:
             data[
               Object.keys(data).filter(
                 k => k.includes('6_18') && k.includes('male'),
               )[0]
             ],
-          female:
+          Female:
             0 -
             data[
               Object.keys(data).filter(
@@ -49,13 +49,13 @@ const Chart = ({ data }) => (
         },
         {
           x: 'Adults 19 - 59',
-          male:
+          Male:
             data[
               Object.keys(data).filter(
                 k => k.includes('19_59') && k.includes('male'),
               )[0]
             ],
-          female:
+          Female:
             0 -
             data[
               Object.keys(data).filter(
@@ -65,13 +65,13 @@ const Chart = ({ data }) => (
         },
         {
           x: 'Elders above 60',
-          male:
+          Male:
             data[
               Object.keys(data).filter(
                 k => k.includes('60') && k.includes('male'),
               )[0]
             ],
-          female:
+          Female:
             0 -
             data[
               Object.keys(data).filter(
@@ -85,8 +85,8 @@ const Chart = ({ data }) => (
       <XAxis type="number" />
       <Tooltip />
       <Legend />
-      <Bar dataKey="male" fill="#ED4E4F" />
-      <Bar dataKey="female" fill="#f2b8b8" />
+      <Bar dataKey="Male" fill="#ED4E4F" />
+      <Bar dataKey="Female" fill="#f2b8b8" />
     </BarChart>
   </ResponsiveContainer>
 );

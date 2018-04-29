@@ -8,11 +8,27 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import LABELS from '../../../constants/labels';
+
+const index = ['no_dept', 'less_afs_2000', 'between_2000_8000', 'more_8000'];
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
-      data={data.map(d => ({ ...d, x: d.S4_financial_ASSESSq4_5_new_debts }))}
+      data={data
+        .sort(
+          (
+            { S4_financial_ASSESSq4_5_new_debts: l },
+            { S4_financial_ASSESSq4_5_new_debts: r },
+          ) => (index.indexOf(l) > index.indexOf(r) ? 1 : -1),
+        )
+        .map(d => ({
+          ...d,
+          x:
+            LABELS.value.S4_financial_ASSESSq4_5_new_debts[
+              d.S4_financial_ASSESSq4_5_new_debts
+            ] || d.S4_financial_ASSESSq4_5_new_debts,
+        }))}
     >
       <XAxis dataKey="x" />
       <YAxis />
