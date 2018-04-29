@@ -55,11 +55,17 @@ export default async (
         .limit(1)
         .offset(parseInt(count.cnt * 0.75, 10));
 
-      return {
+      return Object.entries({
         ...province,
         '25_s1_full_market_survey/q1_17_2_room_cost_max': p25.p25,
         '75_s1_full_market_survey/q1_17_2_room_cost_max': p75.p75,
-      };
+      }).reduce(
+        (obj, [k, v]) => ({
+          ...obj,
+          [k]: v === 'null' || v === null || !v ? 0 : v,
+        }),
+        {},
+      );
     }),
   );
 };
