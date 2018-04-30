@@ -7,7 +7,7 @@
     "start": "yarn run dev",
     "lint": "eslint --cache src/",
     "lint-fix": "eslint --fix src/",
-    "dev": "yarn run lint && cross-env IMPACT_VERSION=1.7.1 PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
+    "dev": "yarn run lint && IMPACT_VERSION=1.7.1 PORT=8002 TZ=Etc/UTC NODE_ENV=development nodemon src/index.js --exec 'yarn run lint && babel-node'",
     "build": "rimraf dist && babel --source-maps inline -d dist/ src/ --copy-files"
   },
   "author": "Serkan Durusoy<serkan@waat.eu>",
