@@ -14,9 +14,11 @@
     "server:build": "cd server && yarn run build",
     "server:start": "cd server && yarn start",
     "client:build": "cd client && yarn run build",
+    "client:build:win": "cd client && yarn run build:win",
     "client:start": "cd client && yarn start",
     "client:open": "opener http://localhost:8001",
     "build": "yarn run server:build && yarn run client:build",
+    "build:win": "yarn run server:build && yarn run client:build:win",
     "dev": "concurrently --kill-others 'yarn run db:start' 'yarn run server:start' 'yarn run client:start' 'yarn run client:open'",
     "start": "yarn run dev"
   },
