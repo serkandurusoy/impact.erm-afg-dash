@@ -64,24 +64,17 @@ class ProvinceSearchNavigation extends Component {
         }
         value={label}
         renderInput={props => (
-          <div className="header-search__group">
-            <input
-              className="form-control"
-              placeholder="Search by province"
-              {...props}
-            />
-            <div className="header-search__submit">
-              <button className="btn--primary" type="submit" onClick={this.go}>
-                <span className="icon icon--search" />
-              </button>
-            </div>
-          </div>
+          <input
+            className="form-control"
+            placeholder="Search by province"
+            {...props}
+          />
         )}
         renderItem={(province, isHighlighted) => (
           <div
             key={province.slug}
             style={{
-              borderBottom: '1px rgba(7, 42, 83, 0.1) solid',
+              borderBottom: '1px rgba(255, 255, 255, 0.1) solid',
               padding: '10px 15px',
               textAlign: 'left',
               fontSize: '1rem',
@@ -89,10 +82,10 @@ class ProvinceSearchNavigation extends Component {
               ...(isHighlighted
                 ? {
                     color: '#fff',
-                    background: '#072A53',
+                    background: '#0067A9',
                   }
                 : {
-                    color: '#072A53',
+                    color: '#fff',
                     background: 'transparent',
                   }),
             }}

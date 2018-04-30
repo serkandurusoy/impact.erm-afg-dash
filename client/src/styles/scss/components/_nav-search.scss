@@ -39,3 +39,29 @@
 .nav-search.active .nav-search__form {
   display: block;
 }
+
+.nav-search__form {
+  .form-control {
+    + div {
+      background-color: $blue-3 !important;
+      border: none;
+      border-top: none;
+      box-shadow: none !important;
+      margin-left: -11px;
+      min-width: 584px !important;
+      max-height: 25vh !important;
+      //overflow: hidden !important;
+      position: absolute !important;
+      z-index: 1;
+      top: 100% !important;
+      left: 11px !important;
+      padding: 0 11px !important;
+
+      > div {
+        &:last-child {
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+}
