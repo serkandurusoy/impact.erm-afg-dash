@@ -1,40 +1,120 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
-import { getLabel } from '../../../constants/labels';
+import { Treemap, Tooltip } from 'recharts';
+import chroma from 'chroma-js';
+
+const colorScale = chroma.scale(['#F5F5F5', 'ee4e4e']);
+
+const buildColors = (data = []) => {
+  const maxCount = Math.max(...data.map(d => d.count));
+  return data
+    .filter(
+      d =>
+        !!d.count &&
+        d.count !== 'null' &&
+        d.count > 0 &&
+        !!d.s8_prioritiesFirst &&
+        d.s8_prioritiesFirst != 'null', // eslint-disable-line
+    )
+    .map(d => colorScale(d.count / maxCount).hex());
+};
+/* eslint-disable */
+const CustomizedContent = ({
+                             root,
+                             depth,
+                             x,
+                             y,
+                             width,
+                             height,
+                             index,
+                             colors,
+                             name,
+                           }) => (
+  <g>
+    <rect
+      x={x}
+      y={y}
+      width={width}
+      height={height}
+      style={{
+        fill:
+          depth < 2
+            ? colors[Math.floor(index / root.children.length * 6)]
+            : 'none',
+        stroke: '#fff',
+        strokeWidth: 2 / (depth + 1e-10),
+        strokeOpacity: 1 / (depth + 1e-10),
+      }}
+    />
+    {depth === 1 ? (
+      <text x={x + 4} y={y + 18} fill="#000" stroke="none" fontSize={10}>
+        {name}
+      </text>
+    ) : null}
+  </g>
+);
+
+CustomizedContent.propTypes = {
+  colors: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  root: PropTypes.any, // eslint-disable-line react/forbid-prop-types
+  depth: PropTypes.number,
+  x: PropTypes.number,
+  y: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  index: PropTypes.number,
+  name: PropTypes.string,
+};
+
+CustomizedContent.defaultProps = {
+  root: {},
+  depth: 0,
+  x: 0,
+  y: 0,
+  width: 0,
+  height: 0,
+  index: 0,
+  name: '',
+};
 
 const Chart = ({ data }) => (
-  <ResponsiveContainer height={400}>
-    <BarChart
-      data={data.map(d => ({ ...d, x: getLabel(d.s8_prioritiesFirst) }))}
-    >
-      <XAxis dataKey="x" />
-      <YAxis />
-      <Tooltip
-        content={({ payload, label }) =>
-          payload &&
-          payload[0] && (
-            <div className="graph__tooltip">
-              {payload[0].payload.count} individuals reported {label} as their
-              first household priority
-            </div>
-          )
-        }
-      />
-      <Bar dataKey="count" fill="#ee4e4e" />
-    </BarChart>
-  </ResponsiveContainer>
+  <Treemap
+    width={800}
+    height={400}
+    data={data
+      .filter(
+        d =>
+          !!d.count &&
+          d.count !== 'null' &&
+          d.count > 0 &&
+          !!d.s8_prioritiesFirst &&
+          d.s8_prioritiesFirst != 'null', // eslint-disable-line
+      )
+      .map(d => ({
+        name: d.s8_prioritiesFirst,
+        count: d.count,
+      }))}
+    dataKey="count"
+    ratio={4 / 3}
+    stroke="#fff"
+    fill="#8884d8"
+    content={<CustomizedContent colors={buildColors(data)} />}
+  >
+    <Tooltip
+      content={({ payload }) =>
+        payload &&
+        payload[0] && (
+          <div className="graph__tooltip">
+            {payload[0].payload.name}: {payload[0].payload.count}
+          </div>
+        )
+      }
+    />
+  </Treemap>
 );
 
 Chart.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+  data: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default Chart;
