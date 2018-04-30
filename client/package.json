@@ -8,7 +8,7 @@
     "lint": "eslint --cache src/",
     "lint-fix": "eslint --fix src/",
     "dev": "yarn run lint && cross-env TZ=Etc/UTC NODE_ENV=development node webpack-dev-server.js",
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --display-optimization-bailout --define process.env.NODE_ENV=\"'production'\""
+    "build": "rimraf dist && cross-env NODE_ENV=\"'production'\" webpack --display-optimization-bailout --define process.env.NODE_ENV=\"'production'\""
   },
   "author": "Serkan Durusoy<serkan@waat.eu>",
   "contributors": [

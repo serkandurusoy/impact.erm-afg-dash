@@ -39,6 +39,8 @@ plugins.push(
   new webpack.DefinePlugin({
     DEVELOPMENT: JSON.stringify(DEVELOPMENT),
     PRODUCTION: JSON.stringify(PRODUCTION),
+    'process.env.PRODUCTION': JSON.stringify(PRODUCTION),
+    'proccess.env.DEVELOPMENT': JSON.stringify(DEVELOPMENT),
   }),
 );
 
