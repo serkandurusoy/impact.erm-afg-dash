@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import headerBlock from '../styles/images/header-block.jpg';
+import headerBlock from '../styles/images/header-block-1.jpg';
 import { Header, ProvinceSearch } from '../components/index';
 import SECTIONS from '../constants/sections';
 
