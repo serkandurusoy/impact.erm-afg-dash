@@ -48,26 +48,29 @@ class SpotMatrix extends Component {
             </tr>
           </thead>
           <tbody>
-            {data.map(d => (
-              <tr key={Object.values(d)[0]}>
-                {Object.entries(d).map(([k, v], ix) => (
-                  <td key={k}>
-                    {ix === 0 ? (
-                      getLabel(v)
-                    ) : (
+            {data.map(d => {
+              const [label, ...values] = Object.values(d);
+              const sum = values.reduce((t, v) => t + v, 0);
+              return (
+                <tr key={label}>
+                  <td>{getLabel(label)}</td>
+                  {values.map((v, ix) => (
+                    <td key={ix}>
                       <div
                         data-for={chartId}
-                        data-tip={v}
+                        data-tip={`${v} (${(sum ? v / sum * 100 : 0).toFixed(
+                          2,
+                        )}%)`}
                         className="spotMatrix-circle"
                         style={{
                           backgroundColor: colorScale(v / maxValue).hex(),
                         }}
                       />
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <ReactTooltip className="graph__tooltip" id={chartId} />

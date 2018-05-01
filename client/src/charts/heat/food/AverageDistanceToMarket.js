@@ -30,7 +30,7 @@ const Chart = ({ data }) => (
         dataKey="x"
         width={100}
         interval={0}
-        tickMargin={40}
+        tickMargin={20}
         tickCount={1}
         type="category"
       />
@@ -40,9 +40,9 @@ const Chart = ({ data }) => (
           payload &&
           payload[0] && (
             <div className="graph__tooltip">
-              In {label} people need at least around{' '}
-              {Math.round(payload[0].payload.min)} minutes to reach the nearest
-              market
+              In {label} province HH reported an average{' '}
+              {Math.round(payload[0].payload.min)} minutes travel time to reach
+              the next market
             </div>
           )
         }

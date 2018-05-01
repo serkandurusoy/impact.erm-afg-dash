@@ -25,7 +25,7 @@ class Chart extends Component {
         }}
       >
         <div
-          style={{ width: 600, height: 40, margin: '0 auto' }}
+          style={{ width: 390, height: 40, margin: '0 auto' }}
           data-for="averageIncomeAfterShock"
           data-tip={`
             <div style="padding: 10px; line-height: 1.5; text-align: left">
@@ -61,7 +61,7 @@ class Chart extends Component {
               badVal={0}
               satisfactoryVal={data.avg_S4_financial_ASSESSq4_4_income_after}
               height={40}
-              width={600}
+              width={390}
               badColor="#ffffff"
               satisfactoryColor="#ee4e4e"
               goodColor="#ff776f"

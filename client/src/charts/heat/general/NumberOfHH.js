@@ -7,7 +7,19 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  Cell,
 } from 'recharts';
+
+const colors = [
+  '#ee4e4e',
+  '#072a53',
+  '#a5c9a1',
+  '#f69e61',
+  '#fff67a',
+  '#56b3cd',
+  '#0067a9',
+  '#95a0a9',
+];
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
@@ -27,7 +39,11 @@ const Chart = ({ data }) => (
           )
         }
       />
-      <Bar dataKey="count" fill="#ee4e4e" />
+      <Bar dataKey="count" fill="#ee4e4e">
+        {data.map((d, index) => (
+          <Cell key={d.general_infoq5_organization} fill={colors[index]} />
+        ))}
+      </Bar>
     </BarChart>
   </ResponsiveContainer>
 );

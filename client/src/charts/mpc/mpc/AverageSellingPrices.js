@@ -129,7 +129,7 @@ class Chart extends Component {
                     province[selected] &&
                     colorScale(province[selected] / maxAvg).hex();
                   const tooltip = `${geography.properties.NAME_1}${
-                    province ? `: ${province[selected]}` : ''
+                    province ? `: ${province[selected].toFixed(2)} AFN` : ''
                   }`;
                   return (
                     <Geography

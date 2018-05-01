@@ -44,15 +44,15 @@ class Chart extends Component {
                 data-for={`${d['general_info/q3_province']}-minRent`}
                 data-tip={`
               <div style="padding: 10px; line-height: 1.5; text-align: left">
-                Min: ${d['min_s1_full_market_survey/q1_17_1_room_cost_min']}
+                Min: ${d['min_s1_full_market_survey/q1_17_1_room_cost_min']} AFN
                 <br />
-                Max: ${d['max_s1_full_market_survey/q1_17_1_room_cost_min']}
+                Max: ${d['max_s1_full_market_survey/q1_17_1_room_cost_min']} AFN
                 <br />
-                Avg: ${d['avg_s1_full_market_survey/q1_17_1_room_cost_min']}
+                Avg: ${d['avg_s1_full_market_survey/q1_17_1_room_cost_min']} AFN
                 <br />
-                25th: ${d['25_s1_full_market_survey/q1_17_1_room_cost_min']}
+                25th: ${d['25_s1_full_market_survey/q1_17_1_room_cost_min']} AFN
                 <br />
-                75th: ${d['75_s1_full_market_survey/q1_17_1_room_cost_min']}
+                75th: ${d['75_s1_full_market_survey/q1_17_1_room_cost_min']} AFN
               </div>
             `}
               >
