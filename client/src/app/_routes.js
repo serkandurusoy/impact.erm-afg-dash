@@ -9,6 +9,7 @@ import {
   Pdm,
   Provinces,
   Province,
+  HeatAsGrid,
 } from '../pages';
 import PROVINCE_INFO from '../constants/province-info';
 
@@ -16,6 +17,7 @@ const Routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />
     <Route path="/heat" exact component={Heat} />
+    <Route path="/heat-as-grid" exact component={HeatAsGrid} />
     <Route path="/mpc" exact component={Mpc} />
     <Route path="/provinces" exact component={Provinces} />
     <Route

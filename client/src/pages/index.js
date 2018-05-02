@@ -63,3 +63,7 @@ export const NotFound = PageLoader({
 export const Contact = PageLoader({
   loader: () => import('./_contact'),
 });
+
+export const HeatAsGrid = PageLoader({
+  loader: () => import('./_heat-as-grid'),
+});
