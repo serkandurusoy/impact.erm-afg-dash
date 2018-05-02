@@ -100,9 +100,22 @@ class Chart extends Component {
                   );
                   const color =
                     province && colorScale(province[selected] / maxValue).hex();
+                  const totalFCSlevelCount =
+                    province && province[1] + province[2] + province[3];
                   const tooltip = `${geography.properties.NAME_1}${
-                    province ? `: ${province[selected].toFixed(2)}` : ''
+                    province
+                      ? `: ${province[selected].toFixed(2)} ${
+                          selected !== 'avg_FCS'
+                            ? ` (${(
+                                province[selected] /
+                                totalFCSlevelCount *
+                                100
+                              ).toFixed(2)}%)`
+                            : ''
+                        }`
+                      : ''
                   }`;
+
                   return (
                     <Geography
                       data-for={`foodSecurityIndex-${selected}`}
