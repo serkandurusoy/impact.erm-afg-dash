@@ -13,6 +13,7 @@ import {
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
     <BarChart
+      stackOffset="sign"
       layout="vertical"
       data={[
         {
@@ -83,10 +84,10 @@ const Chart = ({ data }) => (
     >
       <YAxis dataKey="x" type="category" />
       <XAxis type="number" />
-      <Tooltip />
+      <Tooltip formatter={value => Math.abs(value)} />
       <Legend />
-      <Bar dataKey="Male" fill="#ED4E4F" />
-      <Bar dataKey="Female" fill="#f2b8b8" />
+      <Bar dataKey="Male" fill="#072A53" stackId="stack" />
+      <Bar dataKey="Female" fill="#EE4E4E" stackId="stack" />
     </BarChart>
   </ResponsiveContainer>
 );

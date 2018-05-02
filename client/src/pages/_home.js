@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import headerBlock from '../styles/images/header-block-1.jpg';
+import headerBlock1 from '../styles/images/header-block-1.jpg';
+import headerBlock2 from '../styles/images/header-block-2.jpg';
+import headerBlock3 from '../styles/images/header-block-3.jpg';
+import headerBlock4 from '../styles/images/header-block-4.jpg';
+import headerBlock5 from '../styles/images/header-block-5.jpg';
+import headerBlock6 from '../styles/images/header-block-6.jpg';
 import { Header, ProvinceSearch } from '../components/index';
 import SECTIONS from '../constants/sections';
+
+const headerBlocks = [
+  [headerBlock1, headerBlock2],
+  [headerBlock3, headerBlock4],
+  [headerBlock5, headerBlock6],
+];
 
 const Home = () => (
   <div>
@@ -14,7 +25,7 @@ const Home = () => (
     >
       <ProvinceSearch />
       <div className="header-blocks">
-        {SECTIONS.map(({ title, subTitles }) => (
+        {SECTIONS.map(({ title, subTitles }, sectionIndex) => (
           <div key={title} className="header-block">
             <div className="header-block__title">
               <span className="icon icon--tools" />
@@ -27,7 +38,10 @@ const Home = () => (
                   className="header-block__item"
                   key={index}
                 >
-                  <img className="img-fluid" src={headerBlock} />
+                  <img
+                    className="img-fluid"
+                    src={headerBlocks[sectionIndex][index]}
+                  />
                   <div className="header-block__item-title">{subTitle}</div>
                 </Link>
               ))}

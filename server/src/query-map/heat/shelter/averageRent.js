@@ -12,7 +12,6 @@ export default async (
       dateBegin,
       dateEnd,
     },
-    // TODO: Count NULL's as N/A, how to represent in chart?
     `\`S7_SHELTERq7_4_if_rented_amount\` IS NOT NULL AND`,
   );
 

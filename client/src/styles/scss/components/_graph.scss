@@ -47,7 +47,8 @@
 
 .graph__placeholder {
   height: 510px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .graph__placeholder {

@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "impact-afg-erm-dash",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "Impact / REACH - Afghanistan Emergency Response Mechanism Dashboard",
   "scripts": {
     "clean": "rimraf client/node_modules client/dist server/node_modules server/dist node_modules",
@@ -14,9 +14,11 @@
     "server:build": "cd server && yarn run build",
     "server:start": "cd server && yarn start",
     "client:build": "cd client && yarn run build",
+    "client:build:win": "cd client && yarn run build:win",
     "client:start": "cd client && yarn start",
     "client:open": "opener http://localhost:8001",
     "build": "yarn run server:build && yarn run client:build",
+    "build:win": "yarn run server:build && yarn run client:build:win",
     "dev": "concurrently --kill-others 'yarn run db:start' 'yarn run server:start' 'yarn run client:start' 'yarn run client:open'",
     "start": "yarn run dev"
   },
@@ -51,7 +53,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "concurrently": "^3.5.1",
-    "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",

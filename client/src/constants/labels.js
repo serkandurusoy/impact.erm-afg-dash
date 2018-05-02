@@ -120,7 +120,7 @@ const LABELS = {
     's1_full_market_survey/q1_10_2_current_price_oil':
       'Reported current selling price for Cooking oil (AFN/kg):',
     's1_full_market_survey/q1_10_3_current_price_diesel':
-      'Reported current selling price for Diesel (AFN/lit):',
+      'Reported current selling price for Diesel (AFN/lt):',
     's1_full_market_survey/q1_17_1_room_cost_min':
       'Reported minimum rent amount (AFN)',
     's1_full_market_survey/q1_17_2_room_cost_max':

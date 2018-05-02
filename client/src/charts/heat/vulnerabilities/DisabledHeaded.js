@@ -1,43 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
-import chroma from 'chroma-js';
-
-const colorScale = chroma.scale(['c0c0c0', 'ee4e4e']);
 
 const Chart = ({ data }) => {
   const dataMap = [
     {
       name: 'Others',
       value: data.total - data.S2_AdditionalVulnerabilityq2_4_physical,
+      percent: parseFloat(
+        (data.total > 0
+          ? (data.total - data.S2_AdditionalVulnerabilityq2_4_physical) /
+            data.total *
+            100
+          : 0
+        ).toFixed(2),
+      ),
     },
-    { name: 'Count', value: data.S2_AdditionalVulnerabilityq2_4_physical },
+    {
+      name: 'Count',
+      value: data.S2_AdditionalVulnerabilityq2_4_physical,
+      percent: parseFloat(
+        (data.total > 0
+          ? data.S2_AdditionalVulnerabilityq2_4_physical / data.total * 100
+          : 0
+        ).toFixed(2),
+      ),
+    },
   ];
 
   return (
     <PieChart width={400} height={400}>
       <Pie
         data={dataMap}
-        dataKey="value"
+        dataKey="percent"
         nameKey="name"
         cx="50%"
         cy="50%"
+        innerRadius={130}
         outerRadius={150}
         fill="#8884d8"
-        label
+        label={({ value }) => `${value} %`}
       >
         {dataMap.map(d => (
           <Cell
             key={d.name}
-            fill={colorScale(
-              d.value / dataMap.reduce((t, v) => t + v.value, 0),
-            ).hex()}
+            fill={d.name === 'Count' ? '#072a53' : '#ee4e4e'}
           />
         ))}
       </Pie>
       <Tooltip
-        formatter={value =>
-          `${value} (${(value / data.total * 100).toFixed(2)}%)`
+        content={({ payload }) =>
+          payload &&
+          payload[0] && (
+            <div className="graph__tooltip">
+              {payload[0].payload.name}: {payload[0].payload.value} ({
+                payload[0].payload.percent
+              }%)
+            </div>
+          )
         }
       />
     </PieChart>

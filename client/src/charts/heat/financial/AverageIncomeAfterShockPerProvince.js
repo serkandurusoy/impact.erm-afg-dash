@@ -58,7 +58,9 @@ class Chart extends Component {
                     ).hex();
                   const tooltip = `${geography.properties.NAME_1}${
                     province
-                      ? `: ${province.avg_S4_financial_ASSESSq4_4_income_after}`
+                      ? `: ${province.avg_S4_financial_ASSESSq4_4_income_after.toFixed(
+                          2,
+                        )} AFN`
                       : ''
                   }`;
                   return (

@@ -36,7 +36,7 @@ const Charts = (
       sectionFilter.includes('Average Current Selling Prices')) && (
       <AverageSellingPrices
         apiPath="/api/query/mpc/mpc/averageSellingPrices"
-        title="Average Current Selling Prices (AFN/kg)"
+        title="Average Current Selling Prices (AFN/kg or lt)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
@@ -75,7 +75,7 @@ const Charts = (
       sectionFilter.includes('Reported Maximum Rent Amount')) && (
       <MaxRent
         apiPath="/api/query/mpc/mpc/maxRent"
-        title="Reported Maximum Rent Amount"
+        title="Reported Maximum Rent Amount (AFN)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />
@@ -85,7 +85,7 @@ const Charts = (
       sectionFilter.includes('Reported Minimum Rent Amount')) && (
       <MinRent
         apiPath="/api/query/mpc/mpc/minRent"
-        title="Reported Minimum Rent Amount"
+        title="Reported Minimum Rent Amount (AFN)"
         provinceFilter={provinceFilter}
         districtFilter={districtFilter}
       />

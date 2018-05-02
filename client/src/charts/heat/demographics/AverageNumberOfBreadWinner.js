@@ -12,7 +12,8 @@ import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScale = chroma.scale(['ff958e', 'cf3e3e']);
+const colorScaleFemale = chroma.scale(['ff958e', 'cf3e3e']);
+const colorScaleMale = chroma.scale(['078ec7', '074472']);
 
 class Chart extends Component {
   static propTypes = {
@@ -84,7 +85,10 @@ class Chart extends Component {
                     d => d.general_infoq1_province === provinceName,
                   );
                   const color =
-                    province && colorScale(province[selected]).hex();
+                    province &&
+                    (selected === 'S4_financial_ASSESSmale_breadwinner'
+                      ? colorScaleMale
+                      : colorScaleFemale)(province[selected]).hex();
                   const tooltip = `${geography.properties.NAME_1}${
                     province ? `: ${province[selected]}` : ''
                   }`;

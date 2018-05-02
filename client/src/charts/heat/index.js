@@ -300,24 +300,26 @@ const Charts = (
     {(sectionFilter === null ||
       sectionFilter.includes('Financial & Asset Assessment')) && (
       <div>
-        <AverageIncomeAfterShock
-          apiPath="/api/query/heat/financial/averageIncomeAfterShock"
-          title="Financial & Asset Assessment"
-          subTitle="Average Income After Shock"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
+        <div className="graph__row">
+          <AverageIncomeBeforeShock
+            apiPath="/api/query/heat/financial/averageIncomeBeforeShock"
+            title="Financial & Asset Assessment"
+            subTitle="Average Income Before Shock"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <AverageIncomeAfterShock
+            apiPath="/api/query/heat/financial/averageIncomeAfterShock"
+            title="Financial & Asset Assessment"
+            subTitle="Average Income After Shock"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
         <AverageIncomeAfterShockPerProvince
           apiPath="/api/query/heat/financial/averageIncomeAfterShockPerProvince"
           title="Financial & Asset Assessment"
           subTitle="Average Income After Shock per Province"
-          provinceFilter={provinceFilter}
-          districtFilter={districtFilter}
-        />
-        <AverageIncomeBeforeShock
-          apiPath="/api/query/heat/financial/averageIncomeBeforeShock"
-          title="Financial & Asset Assessment"
-          subTitle="Average Income Before Shock"
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />
