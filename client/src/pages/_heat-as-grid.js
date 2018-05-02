@@ -69,6 +69,68 @@ class Heat extends Component {
             />
 
             <section className="content__single">
+              <div className="graph--horizontal" id="anchor-4">
+                <div className="graph__col--30">
+                  <h4 className="graph__title">General Assessment</h4>
+                  <div className="graph__description">
+                    Quisque velit nisi, pretium ut lacinia in, elementum id
+                    enim. Vivamus magna justo, lacinia eget consectetur sed,
+                    convallis at tellus. Vivamus magna justo, lacinia eget
+                    consectetur sed, convallis at tellus. Vivamus suscipit
+                    tortor eget felis porttitor volutpat. Vestibulum ac diam sit
+                    amet quam vehicula elementum sed sit amet dui.
+                  </div>
+                </div>
+                <div className="graph__col--70">
+                  <div className="graph__grid-2">
+                    <div className="graph__graph">
+                      <div className="graph__subtitle">Lorem ipsum</div>
+                      <div className="graph__placeholder">
+                        <a className="graph__full" href="#">
+                          <span className="icon icon--arrow-top-right" />
+                        </a>
+                        <img className="img-fluid" src="/images/graph.png" />
+                      </div>
+                    </div>
+                    <div className="graph__graph">
+                      <div className="graph__subtitle">Lorem ipsum</div>
+                      <div className="graph__placeholder">
+                        <a className="graph__full" href="#">
+                          <span className="icon icon--arrow-top-right" />
+                        </a>
+                        <img className="img-fluid" src="/images/graph.png" />
+                      </div>
+                    </div>
+                    <div className="graph__graph">
+                      <div className="graph__subtitle">Lorem ipsum</div>
+                      <div className="graph__placeholder">
+                        <a className="graph__full" href="#">
+                          <span className="icon icon--arrow-top-right" />
+                        </a>
+                        <img className="img-fluid" src="/images/graph.png" />
+                      </div>
+                    </div>
+                    <div className="graph__graph">
+                      <div className="graph__subtitle">Lorem ipsum</div>
+                      <div className="graph__placeholder">
+                        <a className="graph__full" href="#">
+                          <span className="icon icon--arrow-top-right" />
+                        </a>
+                        <img className="img-fluid" src="/images/graph.png" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="graph__graph">
+                    <div className="graph__subtitle">Lorem ipsum</div>
+                    <div className="graph__placeholder">
+                      <a className="graph__full" href="#">
+                        <span className="icon icon--arrow-top-right" />
+                      </a>
+                      <img className="img-fluid" src="/images/graph.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div
                 style={{
                   backgroundColor: 'cyan',
