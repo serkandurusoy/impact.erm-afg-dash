@@ -95,8 +95,7 @@
   > * {
     @media (min-width: $xl-min) {
       display: flex;
-      flex: 1;
-      width: 0;
+      width: calc(50% - 30px);
       margin: 0 15px !important;
     }
   }
