@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { Treemap, Tooltip, ResponsiveContainer } from 'recharts';
 import chroma from 'chroma-js';
 
-const colorScale = chroma.scale(['#F5F5F5', 'ee4e4e']);
+const colorScale = chroma.scale([
+  '#F5F5F5',
+  `${chroma('#fff67a')
+    .darken(1)
+    .hex()}`,
+]);
 
 const buildColors = (data = []) => {
   const maxCount = Math.max(...data.map(d => d.count));
