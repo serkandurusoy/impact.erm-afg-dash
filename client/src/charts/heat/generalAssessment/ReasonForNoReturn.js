@@ -35,7 +35,7 @@ const Chart = ({ data }) => (
           )
         }
       />
-      <Bar dataKey="count" fill="#ee4e4e" />
+      <Bar dataKey="count" fill="#fff67a" />
     </BarChart>
   </ResponsiveContainer>
 );

@@ -49,7 +49,7 @@ const Chart = ({ data }) => {
             )
           }
         />
-        <Bar dataKey="percent" fill="#ee4e4e" />
+        <Bar dataKey="percent" fill="#0067a9" />
       </BarChart>
     </ResponsiveContainer>
   );

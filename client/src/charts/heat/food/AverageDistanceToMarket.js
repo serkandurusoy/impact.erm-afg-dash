@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import chroma from 'chroma-js';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
@@ -47,7 +48,12 @@ const Chart = ({ data }) => (
           )
         }
       />
-      <Bar dataKey="S5_FOOD_ASSESSq5_2_distance_marketmin" fill="#ee4e4e" />
+      <Bar
+        dataKey="S5_FOOD_ASSESSq5_2_distance_marketmin"
+        fill={`${chroma('#a5c9a1')
+          .darken(1)
+          .hex()}`}
+      />
     </BarChart>
   </ResponsiveContainer>
 );

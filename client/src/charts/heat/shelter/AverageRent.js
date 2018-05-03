@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BulletGraph from 'react-bullet-graph-react16';
 import ReactTooltip from 'react-tooltip';
+import chroma from 'chroma-js';
 
 class Chart extends Component {
   static propTypes = {
@@ -63,8 +64,10 @@ class Chart extends Component {
               height={40}
               width={600}
               badColor="#ffffff"
-              satisfactoryColor="#ee4e4e"
-              goodColor="#ff776f"
+              satisfactoryColor="#f69e61"
+              goodColor={`${chroma('#f69e61')
+                .darken(2)
+                .hex()}`}
               isActiveColor
               opacity={0.6}
             />

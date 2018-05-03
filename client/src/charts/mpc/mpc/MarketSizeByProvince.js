@@ -9,6 +9,7 @@ import {
   YAxis,
   Legend,
 } from 'recharts';
+import chroma from 'chroma-js';
 import { getLabel } from '../../../constants/labels';
 
 const Chart = ({ data }) => (
@@ -32,9 +33,19 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey={getLabel('large')} fill="#ED4E4F" />
-      <Bar dataKey={getLabel('medium')} fill="#b27272" />
-      <Bar dataKey={getLabel('small')} fill="#f2b8b8" />
+      <Bar dataKey={getLabel('large')} fill="#a5c9a1" />
+      <Bar
+        dataKey={getLabel('medium')}
+        fill={`${chroma('#a5c9a1')
+          .darken(1)
+          .hex()}`}
+      />
+      <Bar
+        dataKey={getLabel('small')}
+        fill={`${chroma('#a5c9a1')
+          .darken(1.5)
+          .hex()}`}
+      />
     </BarChart>
   </ResponsiveContainer>
 );
