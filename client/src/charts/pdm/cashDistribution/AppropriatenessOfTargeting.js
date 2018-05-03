@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import chroma from 'chroma-js';
 import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import { getLabel } from '../../../constants/labels';
 import { PieChartLabel } from '../../../components';
 
-const colors = ['#fff67a', '#ee4e4e', '#072a53'];
+const colors = [
+  `${chroma('#fff67a')
+    .darken(1.7)
+    .hex()}`,
+  '#ee4e4e',
+  '#072a53',
+];
 
 const Chart = ({ data }) => {
   const sum = Object.values(data[0]).reduce((total, d) => total + d, 0);
