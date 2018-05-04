@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+} from 'recharts';
+import chroma from 'chroma-js';
 import { PieChartLabel } from '../../../components';
 
 const Chart = ({ data }) => {
@@ -42,10 +50,19 @@ const Chart = ({ data }) => {
           {dataMap.map(d => (
             <Cell
               key={d.name}
-              fill={d.name === 'Yes' ? '#072a53' : '#ee4e4e'}
+              fill={
+                d.name === 'Yes'
+                  ? `${chroma('#a5c9a1')
+                      .darken(1)
+                      .hex()}`
+                  : `${chroma('#ee4e4e')
+                      .brighten(0.7)
+                      .hex()}`
+              }
             />
           ))}
         </Pie>
+        <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
         <Tooltip
           content={({ payload }) =>
             payload &&

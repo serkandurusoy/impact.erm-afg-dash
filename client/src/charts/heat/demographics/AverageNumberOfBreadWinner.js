@@ -12,8 +12,20 @@ import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScaleFemale = chroma.scale(['#ff958e', '#cf3e3e']);
-const colorScaleMale = chroma.scale(['#078ec7', '#074472']);
+const colorScaleFemale = chroma.scale([
+  `#cf3e3e`,
+  `${chroma('#cf3e3e')
+    .darken(2)
+    .hex()}`,
+]);
+const colorScaleMale = chroma.scale([
+  `${chroma('#078ec7')
+    .brighten(1.7)
+    .hex()}`,
+  `${chroma('#078ec7')
+    .darken(1.7)
+    .hex()}`,
+]);
 
 class Chart extends Component {
   static propTypes = {

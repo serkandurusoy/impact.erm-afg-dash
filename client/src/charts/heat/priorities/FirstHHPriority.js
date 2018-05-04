@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Treemap, Tooltip, ResponsiveContainer } from 'recharts';
 import chroma from 'chroma-js';
+import { getLabel } from '../../../constants/labels';
 
-const colorScale = chroma.scale(['#F5F5F5', '#f69e61']);
+const colorScale = chroma.scale([
+  `${chroma('#ee4e4e')
+    .brighten(2)
+    .hex()}`,
+  `${chroma('#ee4e4e')
+    .brighten(1)
+    .hex()}`,
+]);
 
 const buildColors = (data = []) => {
   const maxCount = Math.max(...data.map(d => d.count));
@@ -14,7 +22,7 @@ const buildColors = (data = []) => {
         d.count !== 'null' &&
         d.count > 0 &&
         !!d.s8_prioritiesFirst &&
-        d.s8_prioritiesFirst != 'null', // eslint-disable-line
+        d.s8_prioritiesFirst !== null,
     )
     .map(d => colorScale(d.count / maxCount).hex());
 };
@@ -42,13 +50,20 @@ const CustomizedContent = ({
             ? colors[Math.floor(index / root.children.length * 6)]
             : 'none',
         stroke: '#fff',
-        strokeWidth: 2 / (depth + 1e-10),
-        strokeOpacity: 1 / (depth + 1e-10),
+        strokeWidth: 1,
+        strokeOpacity: 1,
       }}
     />
     {depth === 1 ? (
-      <text x={x + 4} y={y + 12} fill="#000" stroke="none" fontSize={10}>
-        {name}
+      <text
+        x={x + 4}
+        y={y + 12}
+        fill="#000"
+        strokeWidth={0.2}
+        stroke="#000"
+        fontSize={10}
+      >
+        {getLabel(name)}
       </text>
     ) : null}
   </g>

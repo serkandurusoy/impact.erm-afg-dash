@@ -62,7 +62,7 @@ const Chart = ({ data }) => {
         />
         <Bar
           dataKey="percent"
-          fill={`${chroma('#fff67a')
+          fill={`${chroma('#f69e61')
             .darken(1)
             .hex()}`}
         />
