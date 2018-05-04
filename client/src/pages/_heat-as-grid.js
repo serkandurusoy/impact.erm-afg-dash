@@ -374,6 +374,11 @@ class HeatAsGrid extends Component {
                       tortor eget felis porttitor volutpat. Vestibulum ac diam
                       sit amet quam vehicula elementum sed sit amet dui.
                     </div>
+                    <div class="go2top">
+                      <a href="#" class="go2top__link active">
+                        <span class="icon icon--arrow-top"></span>
+                      </a>
+                    </div>
                   </div>
 
                   <div className="graph__col--70">
@@ -404,11 +409,6 @@ class HeatAsGrid extends Component {
                     <div className="loader__message">Loading chart data</div>
                   </div>
                 </div>
-              </div>
-              <div class="go2top">
-                <a href="#" class="go2top__link active">
-                  <span class="icon icon--arrow-top"></span>
-                </a>
               </div>
             </section>
           </section>
