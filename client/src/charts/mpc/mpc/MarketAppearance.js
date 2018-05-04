@@ -18,13 +18,13 @@ const Chart = ({ data }) => (
       data={data.map(d => ({
         [getLabel('well_function_busy')]: d.well_function_busy,
         [getLabel('moderate_function')]: d.moderate_function,
-        x: d.Province,
+        x: getLabel(d.Province),
       }))}
     >
       <XAxis
         dataKey="x"
         height={80}
-        angle={90}
+        angle={270}
         interval={0}
         tickMargin={40}
         tickCount={1}
@@ -36,11 +36,11 @@ const Chart = ({ data }) => (
       />
       <Bar
         dataKey={getLabel('well_function_busy')}
-        fill={`${chroma('#f69e61')
-          .brighten(1.5)
+        fill={`${chroma('#a5c9a1')
+          .darken(1)
           .hex()}`}
       />
-      <Bar dataKey={getLabel('moderate_function')} fill="#f69e61" />
+      <Bar dataKey={getLabel('moderate_function')} fill="#a5c9a1" />
     </BarChart>
   </ResponsiveContainer>
 );

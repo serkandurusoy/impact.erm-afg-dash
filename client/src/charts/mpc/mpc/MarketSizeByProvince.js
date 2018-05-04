@@ -25,7 +25,7 @@ const Chart = ({ data }) => (
       <XAxis
         dataKey="x"
         height={80}
-        angle={90}
+        angle={270}
         interval={0}
         tickMargin={40}
         tickCount={1}
@@ -33,17 +33,22 @@ const Chart = ({ data }) => (
       <YAxis />
       <Tooltip />
       <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
-      <Bar dataKey={getLabel('large')} fill="#a5c9a1" />
+      <Bar
+        dataKey={getLabel('large')}
+        fill={`${chroma('#56b3cd')
+          .darken(2.5)
+          .hex()}`}
+      />
       <Bar
         dataKey={getLabel('medium')}
-        fill={`${chroma('#a5c9a1')
-          .darken(1)
+        fill={`${chroma('#56b3cd')
+          .darken(1.2)
           .hex()}`}
       />
       <Bar
         dataKey={getLabel('small')}
-        fill={`${chroma('#a5c9a1')
-          .darken(1.5)
+        fill={`${chroma('#56b3cd')
+          .darken(0.2)
           .hex()}`}
       />
     </BarChart>
