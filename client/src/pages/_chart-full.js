@@ -289,7 +289,7 @@ const LoadCompTwoCol = () =>  <div className="loader loader__component">
 
 const SECTION = SECTIONS.find(({ title }) => title === 'HEAT');
 
-class HeatAsGrid extends Component {
+class ChartFull extends Component {
   state = {
     selectedProvinces: [],
   };
@@ -390,9 +390,19 @@ class HeatAsGrid extends Component {
             </section>
           </section>
         </main>
+        <div className="popup active">
+          <div className="popup__inner">
+            <div className="popup__header">
+              <a className="popup__close" href="#"><span class="icon icon--close"></span></a>
+            </div>
+            <div className="popup__content">
+              <OneCol1 />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default HeatAsGrid;
+export default ChartFull;

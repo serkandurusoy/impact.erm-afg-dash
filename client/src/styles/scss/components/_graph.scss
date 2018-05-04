@@ -24,31 +24,35 @@
 
 .graph__subtitle {
   font-size: 24px;
+  line-height: 1.5;
   color: $secondary;
   font-weight: normal;
   margin-bottom: 30px;
 }
 
+.graph__buttons {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
 .graph__full {
   @extend .btn--primary;
+  border-left: 1px #fff solid;
   font-size: 18px;
   height: 30px;
   width: 30px;
   display: flex;
-  position: absolute;
-  top: -30px;
-  right: -30px;
   align-items: center;
   justify-content: center;
   //margin-right: 5px;
-  z-index: 3;
 
   @media (min-width: $lg-min) {
     font-size: 24px;
     height: 36px;
     width: 36px;
-    top: -50px;
-    right: -50px;
   }
 }
 
@@ -131,9 +135,9 @@
     text-align: left;
   }
 
-  .graph__full {
-    right: 0;
+  .graph__buttons {
     top: 0;
+    right: 0;
   }
 
   .graph__col {
@@ -170,17 +174,14 @@
   }
 
   .graph__graph {
+    border: 1px $gray-2 solid;
+    position: relative;
     margin: 15px 0;
+    padding: 35px 30px;
 
     + .graph__grid {
       margin-top: 0px;
     }
-  }
-
-  .graph__placeholder {
-    border: 1px $gray-2 solid;
-    padding: 15px;
-    height: 300px;
   }
 
   .graph__grid {
@@ -189,19 +190,15 @@
     @media (min-width: $md-min) {
       display: flex;
       flex-wrap: wrap;
-      margin: -15px;
+      margin: 0 -15px;
     }
 
     .graph__graph {
-      margin: 15px auto;
+      margin: 30px auto;
 
       @media (min-width: $md-min) {
         margin: 15px;
       }
-    }
-
-    + .graph__graph {
-      margin-top: 30px;
     }
   }
 
@@ -209,8 +206,10 @@
     @extend .graph__grid;
 
     .graph__graph {
-      flex: 0 0 calc(50% - 30px);
-      max-width: calc(50% - 30px);
+      @media (min-width: $md-min) {
+        flex: 0 0 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+      }
     }
   }
 }
@@ -251,14 +250,12 @@
 }
 
 .chartLayerSelector {
+  display: flex;
+  flex-direction: column;
   width: 200px;
   height: 40px;
   position: absolute;
   text-align: left;
-
-  a:not(:first-of-type) {
-    margin-left: 20px;
-  }
 
   a.active {
     text-decoration: underline;

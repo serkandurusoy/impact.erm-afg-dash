@@ -67,3 +67,7 @@ export const Contact = PageLoader({
 export const HeatAsGrid = PageLoader({
   loader: () => import('./_heat-as-grid'),
 });
+
+export const ChartFull = PageLoader({
+  loader: () => import('./_chart-full'),
+});
