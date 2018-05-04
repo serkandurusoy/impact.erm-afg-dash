@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Treemap, Tooltip, ResponsiveContainer } from 'recharts';
 import chroma from 'chroma-js';
+import { getLabel } from '../../../constants/labels';
 
 const colorScale = chroma.scale([
-  '#F5F5F5',
-  `${chroma('#fff67a')
-    .darken(1)
+  '#a5c9a1',
+  `${chroma('#a5c9a1')
+    .darken(3)
     .hex()}`,
 ]);
 
@@ -19,7 +20,7 @@ const buildColors = (data = []) => {
         d.count !== 'null' &&
         d.count > 0 &&
         !!d.s8_prioritiesthird &&
-        d.s8_prioritiesthird != 'null', // eslint-disable-line
+        d.s8_prioritiesthird !== 'null', // eslint-disable-line
     )
     .map(d => colorScale(d.count / maxCount).hex());
 };
@@ -52,8 +53,8 @@ const CustomizedContent = ({
       }}
     />
     {depth === 1 ? (
-      <text x={x + 4} y={y + 12} fill="#000" stroke="none" fontSize={10}>
-        {name}
+      <text x={x + 4} y={y + 12} fill="#fff" strokeWidth={0.4} fontSize={10}>
+        {getLabel(name)}
       </text>
     ) : null}
   </g>
@@ -94,7 +95,7 @@ const Chart = ({ data }) => (
             d.count !== 'null' &&
             d.count > 0 &&
             !!d.s8_prioritiesthird &&
-          d.s8_prioritiesthird != 'null', // eslint-disable-line
+            d.s8_prioritiesthird !== 'null',
         )
         .map(d => ({
           name: d.s8_prioritiesthird,

@@ -1,9 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PieChart, Pie, Tooltip, Cell, ResponsiveContainer } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+} from 'recharts';
+import chroma from 'chroma-js';
 import { PieChartLabel } from '../../../components';
 
-const colors = ['#072a53', '#ee4e4e', '#a5c9a1'];
+const colors = [
+  `${chroma('#a5c9a1')
+    .darken(1)
+    .hex()}`,
+  `${chroma('#ee4e4e')
+    .brighten(0.7)
+    .hex()}`,
+  '#95a0a9',
+];
 
 const Chart = ({ data }) => {
   const sum = Object.values(data).reduce((total, d) => total + d, 0);
@@ -45,6 +61,7 @@ const Chart = ({ data }) => {
             <Cell key={d.name} fill={colors[index]} />
           ))}
         </Pie>
+        <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
         <Tooltip
           content={({ payload }) =>
             payload &&

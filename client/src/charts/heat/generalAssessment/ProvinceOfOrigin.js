@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Treemap, Tooltip, ResponsiveContainer } from 'recharts';
 import chroma from 'chroma-js';
+import { getLabel } from '../../../constants/labels';
 
-const colorScale = chroma.scale(['#F5F5F5', '#56b3cd']);
+const colorScale = chroma.scale([
+  `${chroma('#f69e61')
+    .brighten(1)
+    .hex()}`,
+  `${chroma('#f69e61')
+    .darken(2)
+    .hex()}`,
+]);
 
 const buildColors = (data = []) => {
   const maxCount = Math.max(...data.map(d => d.count));
@@ -14,7 +22,7 @@ const buildColors = (data = []) => {
         d.count !== 'null' &&
         d.count > 0 &&
         !!d.S3_GEN_ASSESSq3_2_1_province_origin &&
-        d.S3_GEN_ASSESSq3_2_1_province_origin != 'null', // eslint-disable-line
+        d.S3_GEN_ASSESSq3_2_1_province_origin !== null,
     )
     .map(d => colorScale(d.count / maxCount).hex());
 };
@@ -46,8 +54,15 @@ const CustomizedContent = ({
       }}
     />
     {depth === 1 ? (
-      <text x={x + 4} y={y + 10} fill="#000" stroke="none" fontSize={10}>
-        {name}
+      <text
+        x={x + 4}
+        y={y + 10}
+        fill="#000"
+        strokeWidth={0.2}
+        stroke="#000"
+        fontSize={10}
+      >
+        {getLabel(name)}
       </text>
     ) : null}
   </g>
@@ -86,7 +101,7 @@ const Chart = ({ data }) => (
             d.count !== 'null' &&
             d.count > 0 &&
             !!d.S3_GEN_ASSESSq3_2_1_province_origin &&
-          d.S3_GEN_ASSESSq3_2_1_province_origin != 'null', // eslint-disable-line
+            d.S3_GEN_ASSESSq3_2_1_province_origin !== 'null',
         )
         .map(d => ({
           name: d.S3_GEN_ASSESSq3_2_1_province_origin,

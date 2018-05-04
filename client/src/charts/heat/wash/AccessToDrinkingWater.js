@@ -29,7 +29,7 @@ const Chart = ({ data }) => {
         <XAxis
           dataKey="x"
           height={80}
-          angle={90}
+          angle={270}
           interval={0}
           tickMargin={40}
           tickCount={1}

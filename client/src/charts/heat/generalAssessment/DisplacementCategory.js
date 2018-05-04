@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import chroma from 'chroma-js';
 import LABELS from '../../../constants/labels';
 
 const Chart = ({ data }) => {
@@ -40,7 +41,12 @@ const Chart = ({ data }) => {
             )
           }
         />
-        <Bar dataKey="percent" fill="#f69e61" />
+        <Bar
+          dataKey="percent"
+          fill={`${chroma('#56b3cd')
+            .darken(1)
+            .hex()}`}
+        />
       </BarChart>
     </ResponsiveContainer>
   );
