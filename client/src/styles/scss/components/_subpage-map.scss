@@ -28,10 +28,10 @@
 }
 
 .subpage-map__right {
-  display: none;
-
+  visibility: hidden;
+  margin-bottom: -500px;
   @media (min-width: $lg-min) {
-    display: block;
+    visibility: visible;
     padding-top: 200px;
   }
 }
