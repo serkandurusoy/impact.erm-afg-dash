@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import chroma from 'chroma-js';
 import {
   ResponsiveContainer,
   BarChart,
@@ -44,7 +45,12 @@ const Chart = ({ data }) => {
             )
           }
         />
-        <Bar dataKey="percent" fill="#ee4e4e" />
+        <Bar
+          dataKey="percent"
+          fill={`${chroma('#56b3cd')
+            .darken(1)
+            .hex()}`}
+        />
       </BarChart>
     </ResponsiveContainer>
   );

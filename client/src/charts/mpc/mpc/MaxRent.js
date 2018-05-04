@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BulletGraph from 'react-bullet-graph-react16';
 import ReactTooltip from 'react-tooltip';
+import chroma from 'chroma-js';
 import PROVINCE_INFO from '../../../constants/province-info';
 
 class Chart extends Component {
@@ -103,8 +104,10 @@ class Chart extends Component {
                       height={40}
                       width={530}
                       badColor="#ffffff"
-                      satisfactoryColor="#ee4e4e"
-                      goodColor="#ff776f"
+                      satisfactoryColor="#a5b9a1"
+                      goodColor={`${chroma('#a5b9a1')
+                        .darken(2)
+                        .hex()}`}
                       isActiveColor
                       opacity={0.6}
                     />

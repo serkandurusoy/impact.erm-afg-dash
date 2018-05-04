@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Treemap, Tooltip } from 'recharts';
+import { Treemap, Tooltip, ResponsiveContainer } from 'recharts';
 import chroma from 'chroma-js';
 
-const colorScale = chroma.scale(['#F5F5F5', 'ee4e4e']);
+const colorScale = chroma.scale(['#F5F5F5', '#56b3cd']);
 
 const buildColors = (data = []) => {
   const maxCount = Math.max(...data.map(d => d.count));
@@ -41,12 +41,12 @@ const CustomizedContent = ({
             ? colors[Math.floor(index / root.children.length * 6)]
             : 'none',
         stroke: '#fff',
-        strokeWidth: 2 / (depth + 1e-10),
+        strokeWidth: 1 / (depth + 1e-10),
         strokeOpacity: 1 / (depth + 1e-10),
       }}
     />
     {depth === 1 ? (
-      <text x={x + 4} y={y + 18} fill="#000" stroke="none" fontSize={10}>
+      <text x={x + 4} y={y + 10} fill="#000" stroke="none" fontSize={10}>
         {name}
       </text>
     ) : null}
@@ -77,39 +77,39 @@ CustomizedContent.defaultProps = {
 };
 
 const Chart = ({ data }) => (
-  <Treemap
-    width={800}
-    height={400}
-    data={data
-      .filter(
-        d =>
-          !!d.count &&
-          d.count !== 'null' &&
-          d.count > 0 &&
-          !!d.S3_GEN_ASSESSq3_2_1_province_origin &&
+  <ResponsiveContainer height={400}>
+    <Treemap
+      data={data
+        .filter(
+          d =>
+            !!d.count &&
+            d.count !== 'null' &&
+            d.count > 0 &&
+            !!d.S3_GEN_ASSESSq3_2_1_province_origin &&
           d.S3_GEN_ASSESSq3_2_1_province_origin != 'null', // eslint-disable-line
-      )
-      .map(d => ({
-        name: d.S3_GEN_ASSESSq3_2_1_province_origin,
-        count: d.count,
-      }))}
-    dataKey="count"
-    ratio={4 / 3}
-    stroke="#fff"
-    fill="#8884d8"
-    content={<CustomizedContent colors={buildColors(data)} />}
-  >
-    <Tooltip
-      content={({ payload }) =>
-        payload &&
-        payload[0] && (
-          <div className="graph__tooltip">
-            {payload[0].payload.name}: {payload[0].payload.count}
-          </div>
         )
-      }
-    />
-  </Treemap>
+        .map(d => ({
+          name: d.S3_GEN_ASSESSq3_2_1_province_origin,
+          count: d.count,
+        }))}
+      dataKey="count"
+      ratio={4 / 3}
+      stroke="#fff"
+      fill="#8884d8"
+      content={<CustomizedContent colors={buildColors(data)} />}
+    >
+      <Tooltip
+        content={({ payload }) =>
+          payload &&
+          payload[0] && (
+            <div className="graph__tooltip">
+              {payload[0].payload.name}: {payload[0].payload.count}
+            </div>
+          )
+        }
+      />
+    </Treemap>
+  </ResponsiveContainer>
 );
 
 Chart.propTypes = {
