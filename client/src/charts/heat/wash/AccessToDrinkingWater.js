@@ -46,7 +46,7 @@ const Chart = ({ data }) => {
             )
           }
         />
-        <Legend />
+        <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
         <Bar dataKey="Yes %" fill="#072a53" />
         <Bar dataKey="No %" fill="#ee4e4e" />
       </BarChart>

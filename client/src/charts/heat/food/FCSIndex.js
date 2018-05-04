@@ -59,7 +59,10 @@ const Chart = ({ data }) => {
             )
           }
         />
-        <Legend verticalAlign="top" />
+        <Legend
+          verticalAlign="top"
+          wrapperStyle={{ fontSize: 14, fontWeight: 'bold', marginLeft: 8 }}
+        />
         <Bar dataKey="High %" fill="#072a53" />
         <Bar dataKey="Medium %" fill="#f69e61" />
         <Bar dataKey="No or Low %" fill="#ee4e4e" />

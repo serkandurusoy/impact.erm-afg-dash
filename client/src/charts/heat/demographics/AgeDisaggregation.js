@@ -85,7 +85,9 @@ const Chart = ({ data }) => (
       <YAxis dataKey="x" type="category" />
       <XAxis type="number" />
       <Tooltip formatter={value => Math.abs(value)} />
-      <Legend />
+      <Legend
+        wrapperStyle={{ fontSize: 14, fontWeight: 'bold', marginLeft: 18 }}
+      />
       <Bar dataKey="Male" fill="#072A53" stackId="stack" />
       <Bar dataKey="Female" fill="#EE4E4E" stackId="stack" />
     </BarChart>

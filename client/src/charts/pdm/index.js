@@ -271,7 +271,7 @@ const Charts = (
         <FoodSecurityIndex
           apiPath="/api/query/pdm/impact/foodSecurityIndex"
           title="Impact"
-          subTitle="Food Consumption Score Average and Categorized (Average/Percentage per Province)"
+          subTitle="Food Consumption "
           provinceFilter={provinceFilter}
           districtFilter={districtFilter}
         />

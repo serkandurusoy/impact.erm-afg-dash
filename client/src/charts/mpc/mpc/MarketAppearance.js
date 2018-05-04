@@ -31,7 +31,9 @@ const Chart = ({ data }) => (
       />
       <YAxis />
       <Tooltip />
-      <Legend />
+      <Legend
+        wrapperStyle={{ fontSize: 14, fontWeight: 'bold', marginLeft: 42 }}
+      />
       <Bar
         dataKey={getLabel('well_function_busy')}
         fill={`${chroma('#f69e61')

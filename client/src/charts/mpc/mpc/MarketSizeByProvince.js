@@ -32,7 +32,7 @@ const Chart = ({ data }) => (
       />
       <YAxis />
       <Tooltip />
-      <Legend />
+      <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
       <Bar dataKey={getLabel('large')} fill="#a5c9a1" />
       <Bar
         dataKey={getLabel('medium')}
