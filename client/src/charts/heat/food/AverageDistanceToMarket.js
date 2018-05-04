@@ -9,6 +9,7 @@ import {
   YAxis,
 } from 'recharts';
 import chroma from 'chroma-js';
+import PROVINCE_INFO from '../../../constants/province-info';
 
 const Chart = ({ data }) => (
   <ResponsiveContainer height={400}>
@@ -21,21 +22,23 @@ const Chart = ({ data }) => (
         )
         .map(d => ({
           ...d,
-          x: d.general_infoq1_province,
+          x: PROVINCE_INFO.find(
+            ({ name }) => name === d.general_infoq1_province,
+          ).label,
           min: d.S5_FOOD_ASSESSq5_2_distance_marketmin,
           label: d.general_infoq1_province,
         }))}
-      layout="vertical"
     >
-      <YAxis
+      <XAxis
         dataKey="x"
-        width={100}
+        height={80}
+        angle={90}
         interval={0}
-        tickMargin={20}
+        tickMargin={40}
         tickCount={1}
         type="category"
       />
-      <XAxis type="number" />
+      <YAxis type="number" />
       <Tooltip
         content={({ payload, label }) =>
           payload &&
