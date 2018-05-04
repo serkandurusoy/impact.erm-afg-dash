@@ -60,8 +60,15 @@
 .icon--check:before {
   content: "\e66b";
 }
+.icon--arrow-top:before {
+  content: "\e852";
+}
 .icon--arrow-top-right:before {
   content: "\e667";
+}
+.icon--arrow-bottom-left {
+  @extend .icon--arrow-top-right;
+  transform: rotate(180deg);
 }
 .icon--download:before {
   content: "\e847";

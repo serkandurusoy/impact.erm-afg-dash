@@ -279,11 +279,21 @@ const OneCol3 = () => <OneCol3L
 
 
 const LoadCompOneCol = () => <div className="loader loader__component">
-  <div>Loading chart (test)</div>
+  <div>
+    <div className="loader__header">
+      <div className="graph__subtitle">Household Demographics</div>
+    </div>
+    <div className="loader__message">Loading chart data</div>
+  </div>
 </div>;
 
 const LoadCompTwoCol = () =>  <div className="loader loader__component">
-  <div>Loading chart (test)</div>
+  <div>
+    <div className="loader__header">
+      <div className="graph__subtitle">Household Demographics</div>
+    </div>
+    <div className="loader__message">Loading chart data</div>
+  </div>
 </div>;
 // end:remove
 
@@ -385,7 +395,20 @@ class HeatAsGrid extends Component {
                     <OneCol3 />
                   </div>
                 </div>
-
+                <div className="loader loader__component">
+                  <div>
+                    <div className="loader__header">
+                      <h4 className="graph__title">Household Demographics</h4>
+                      <div className="graph__subtitle">Age Disaggregation</div>
+                    </div>
+                    <div className="loader__message">Loading chart data</div>
+                  </div>
+                </div>
+              </div>
+              <div class="go2top">
+                <a href="#" class="go2top__link active">
+                  <span class="icon icon--arrow-top"></span>
+                </a>
               </div>
             </section>
           </section>

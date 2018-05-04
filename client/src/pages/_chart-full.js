@@ -168,7 +168,7 @@ class DataLoader extends Component {
             <span className="icon icon--download" />
           </a>
           <a className="graph__full" href="#">
-            <span className="icon icon--arrow-top-right" />
+            <span className="icon icon--arrow-bottom-left" />
           </a>
         </div>
         {/* TODO: SERKAN make sure we have subtitles for all of them*/}
@@ -385,21 +385,20 @@ class ChartFull extends Component {
                     <OneCol3 />
                   </div>
                 </div>
-
+                <div className="popup active">
+                  <div className="popup__inner">
+                    <div className="popup__header">
+                      <a className="popup__close" href="#"><span class="icon icon--close"></span></a>
+                    </div>
+                    <div className="popup__content">
+                      <OneCol1 />
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
           </section>
         </main>
-        <div className="popup active">
-          <div className="popup__inner">
-            <div className="popup__header">
-              <a className="popup__close" href="#"><span class="icon icon--close"></span></a>
-            </div>
-            <div className="popup__content">
-              <OneCol1 />
-            </div>
-          </div>
-        </div>
       </div>
     );
   }

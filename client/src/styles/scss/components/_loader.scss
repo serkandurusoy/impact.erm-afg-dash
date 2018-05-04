@@ -1,13 +1,21 @@
 .loader {
   margin: 30px 0;
-  padding: 80px;
+  padding: 30px;
   background-color: #fff;
   border: 1px $gray-2 solid;
   font-size: 200%;
-  min-height: 510px;
+  line-height: 1.3em;
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+
+  @media (min-width: $lg-min) {
+    padding: 50px;
+  }
+
+  > div {
+    width: 100%;
+  }
 }
 
 .loader__page {
@@ -16,6 +24,13 @@
 
 .loader__component {
 
+}
+
+.loader__message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 510px;
 }
 
 .graph--horizontal .loader {

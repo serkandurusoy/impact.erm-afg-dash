@@ -66,9 +66,30 @@
   align-items: center;
   position: relative;
 
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-2;
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: #bbb;
+  }
+
   svg {
     max-width: 100%;
   }
+}
+
+.graph__filter {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-style: 14px;
 }
 
 .graph__tooltip {
@@ -130,7 +151,7 @@
   @extend .graph;
   @media (min-width: $xl-min) {
     display: flex;
-    align-items: center;
+    //align-items: center;
     padding: 100px 65px;
     text-align: left;
   }
@@ -171,6 +192,11 @@
     @media (min-width: $xl-min) {
       margin-bottom: 0;
     }
+  }
+
+  .loader {
+    padding: 35px 30px;
+    text-align: left;
   }
 
   .graph__graph {

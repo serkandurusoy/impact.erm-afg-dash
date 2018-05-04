@@ -49,6 +49,10 @@ class Chart extends Component {
           margin: '0 auto',
         }}
       >
+        <select className="graph__filter">
+          <option selected>Female</option>
+          <option>Male</option>
+        </select>
         <div className="chartLayerSelector">
           <a
             className={classNames({

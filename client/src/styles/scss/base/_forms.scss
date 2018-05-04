@@ -40,3 +40,9 @@ input[type='checkbox'] {
 label {
 
 }
+
+select {
+  height: 34px;
+  padding: 5px;
+  border: 1px solid $gray-2;
+}

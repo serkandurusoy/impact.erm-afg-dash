@@ -73,6 +73,20 @@
       left: 11px !important;
       padding: 0 11px !important;
 
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: $gray-2;
+        border-radius: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background-color: #bbb;
+      }
+
       > div {
         &:last-child {
           border-bottom: none !important;

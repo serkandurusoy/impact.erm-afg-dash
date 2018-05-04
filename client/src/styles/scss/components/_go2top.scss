@@ -1,0 +1,23 @@
+.go2top {
+  @media (max-width: $sm-max) {
+    display: none;
+  }
+
+  .go2top__link {
+    @extend .btn--primary;
+    font-size: 24px;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    transition: opacity 0.3s;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
