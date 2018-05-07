@@ -6,26 +6,27 @@ import {
   Geographies,
   Geography,
 } from 'react-simple-maps';
-import classNames from 'classnames';
 import chroma from 'chroma-js';
 import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScaleFemale = chroma.scale([
-  `#cf3e3e`,
-  `${chroma('#cf3e3e')
-    .darken(2)
-    .hex()}`,
-]);
-const colorScaleMale = chroma.scale([
-  `${chroma('#078ec7')
-    .brighten(1.7)
-    .hex()}`,
-  `${chroma('#078ec7')
-    .darken(1.7)
-    .hex()}`,
-]);
+const colorScale = {
+  S4_financial_ASSESSfemale_breadwinner: chroma.scale([
+    `#cf3e3e`,
+    `${chroma('#cf3e3e')
+      .darken(2)
+      .hex()}`,
+  ]),
+  S4_financial_ASSESSmale_breadwinner: chroma.scale([
+    `${chroma('#078ec7')
+      .brighten(1.7)
+      .hex()}`,
+    `${chroma('#078ec7')
+      .darken(1.7)
+      .hex()}`,
+  ]),
+};
 
 class Chart extends Component {
   static propTypes = {
@@ -42,10 +43,9 @@ class Chart extends Component {
     }, 100);
   }
 
-  toggleSelected = (e, selected) => {
-    e.preventDefault();
+  toggleSelected = e => {
     this.setState({
-      selected,
+      selected: e.target.value,
     });
   };
 
@@ -59,36 +59,17 @@ class Chart extends Component {
           width: '100%',
           maxWidth: 980,
           margin: '0 auto',
+          textAlign: 'center',
         }}
       >
-        <select className="graph__filter">
-          <option selected>Female</option>
-          <option>Male</option>
+        <select
+          className="graph__filter"
+          value={this.state.selected}
+          onChange={this.toggleSelected}
+        >
+          <option value="S4_financial_ASSESSfemale_breadwinner">Female</option>
+          <option value="S4_financial_ASSESSmale_breadwinner">Male</option>
         </select>
-        <div className="chartLayerSelector">
-          <a
-            className={classNames({
-              active: selected === 'S4_financial_ASSESSfemale_breadwinner',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(e, 'S4_financial_ASSESSfemale_breadwinner')
-            }
-          >
-            Female
-          </a>
-          <a
-            className={classNames({
-              active: selected === 'S4_financial_ASSESSmale_breadwinner',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(e, 'S4_financial_ASSESSmale_breadwinner')
-            }
-          >
-            Male
-          </a>
-        </div>
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
             <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
@@ -101,10 +82,7 @@ class Chart extends Component {
                     d => d.general_infoq1_province === provinceName,
                   );
                   const color =
-                    province &&
-                    (selected === 'S4_financial_ASSESSmale_breadwinner'
-                      ? colorScaleMale
-                      : colorScaleFemale)(province[selected]).hex();
+                    province && colorScale[selected](province[selected]).hex();
                   const tooltip = `${geography.properties.NAME_1}${
                     province ? `: ${province[selected]}` : ''
                   }`;

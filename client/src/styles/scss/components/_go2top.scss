@@ -1,4 +1,8 @@
 .go2top {
+  position: absolute;
+  right: 0;
+  top: 0;
+
   .go2top__link {
     @extend .btn--primary;
     font-size: 24px;

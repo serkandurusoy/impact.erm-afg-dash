@@ -147,6 +147,11 @@ class Province extends Component {
     }
   };
 
+  scrollToTop = e => {
+    if (e && e.preventDefault) e.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   render() {
     const {
       match: {
@@ -289,6 +294,7 @@ class Province extends Component {
                       section => section.title === 'HEAT',
                     ).info.map((text, index) => <p key={index}>{text}</p>)}
                     <HeatCharts
+                      toTop={this.scrollToTop}
                       sectionFilter={selectedSections
                         .find(section => section.title === 'HEAT')
                         .subTitles.map(subTitle => subTitle.subTitle)}
@@ -314,6 +320,7 @@ class Province extends Component {
                       (text, index) => <p key={index}>{text}</p>,
                     )}
                     <MpcCharts
+                      toTop={this.scrollToTop}
                       sectionFilter={selectedSections
                         .find(section => section.title === 'MPC')
                         .subTitles.map(subTitle => subTitle.subTitle)}
@@ -339,6 +346,7 @@ class Province extends Component {
                       (text, index) => <p key={index}>{text}</p>,
                     )}
                     <PdmCharts
+                      toTop={this.scrollToTop}
                       sectionFilter={selectedSections
                         .find(section => section.title === 'PDM')
                         .subTitles.map(subTitle => subTitle.subTitle)}

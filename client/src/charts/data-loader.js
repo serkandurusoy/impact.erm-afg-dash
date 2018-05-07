@@ -9,15 +9,13 @@ import exportCSV from '../utils/export-csv';
 class DataLoader extends Component {
   static propTypes = {
     apiPath: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string,
+    subTitle: PropTypes.string.isRequired,
     provinceFilter: PropTypes.arrayOf(PropTypes.number.isRequired),
     districtFilter: PropTypes.arrayOf(PropTypes.string.isRequired),
     children: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
-    subTitle: '',
     provinceFilter: null,
     districtFilter: null,
   };
@@ -26,6 +24,7 @@ class DataLoader extends Component {
     data: null,
     loading: true,
     error: false,
+    fullScreen: false,
   };
 
   componentDidMount() {
@@ -141,58 +140,92 @@ class DataLoader extends Component {
     );
   });
 
+  toggleFullScreen = e => {
+    if (e && e.preventDefault) e.preventDefault();
+    this.setState({ fullScreen: !this.state.fullScreen });
+  };
+
   componentIsInMountedState = false;
 
-  render() {
-    const { title, subTitle, children } = this.props;
-    const { loading, error, data } = this.state;
+  renderChart() {
+    const { subTitle, children } = this.props;
+    const { data, fullScreen } = this.state;
 
-    return loading || error ? (
-      <div className="loader loader__component">
-        {error ? (
-          <div>Error loading chart data</div>
-        ) : (
-          <div>Loading chart data</div>
-        )}
-      </div>
-    ) : data ? (
-      <div>
-        <div className="graph">
+    return (
+      <div className="graph__graph">
+        {!fullScreen && (
           <div className="graph__buttons">
             <a
-              title={`Download chart data as "${title}${
-                subTitle ? ` - ${subTitle}` : ''
-              }.csv"`}
+              title={`Download chart data as "${subTitle}.csv"`}
               className="graph__full"
               href="#"
               onClick={e => {
                 e.preventDefault();
-                exportCSV(data, `${title}${subTitle ? ` - ${subTitle}` : ''}`);
+                exportCSV(data, subTitle);
               }}
             >
               <span className="icon icon--download" />
             </a>
             <a
-              title={`Download chart data as "${title}${
-                subTitle ? ` - ${subTitle}` : ''
-              }.csv"`}
+              title="View large version"
               className="graph__full"
               href="#"
-              onClick={e => {
-                e.preventDefault();
-                exportCSV(data, `${title}${subTitle ? ` - ${subTitle}` : ''}`);
-              }}
+              onClick={this.toggleFullScreen}
             >
               <span className="icon icon--arrow-top-right" />
             </a>
           </div>
-          <h4 className="graph__title">{title}</h4>
-          {subTitle !== '' && <div className="graph__subtitle">{subTitle}</div>}
-          <div className="graph__graph">
-            <div className="graph__placeholder">{children(data)}</div>
+        )}
+        {!fullScreen && <div className="graph__subtitle">{subTitle}</div>}
+        <div className="graph__placeholder">{children(data, fullScreen)}</div>
+      </div>
+    );
+  }
+
+  render() {
+    const { subTitle } = this.props;
+    const { loading, error, data, fullScreen } = this.state;
+
+    return loading || error ? (
+      <div className="loader loader__component">
+        <div>
+          <div className="loader__header">
+            <div className="graph__subtitle">{subTitle}</div>
           </div>
+          {error ? (
+            <div className="loader__message">
+              Error loading chart data,{' '}
+              <a href="#" onClick={this.fetchFromAPI}>
+                click here
+              </a>{' '}
+              to retry.
+            </div>
+          ) : (
+            <div className="loader__message">Loading chart data</div>
+          )}
         </div>
       </div>
+    ) : data ? (
+      <React.Fragment>
+        {this.renderChart()}
+        {fullScreen && (
+          <div className="popup active">
+            <div className="popup__inner">
+              <div className="popup__header">
+                <div className="popup__title">{subTitle}</div>
+                <a
+                  className="popup__close"
+                  href="#"
+                  onClick={this.toggleFullScreen}
+                >
+                  <span className="icon icon--close" />
+                </a>
+              </div>
+              <div className="popup__content">{this.renderChart()}</div>
+            </div>
+          </div>
+        )}
+      </React.Fragment>
     ) : null;
   }
 }

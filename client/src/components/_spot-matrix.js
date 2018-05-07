@@ -7,13 +7,11 @@ import { getLabel } from '../constants/labels';
 class SpotMatrix extends Component {
   static propTypes = {
     data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
-    colorMin: PropTypes.string,
-    colorMax: PropTypes.string,
+    color: PropTypes.string,
   };
 
   static defaultProps = {
-    colorMin: 'fbd9d9',
-    colorMax: 'bf4b48',
+    color: '#bf4b48',
   };
 
   state = {
@@ -28,8 +26,15 @@ class SpotMatrix extends Component {
 
   render() {
     const { chartId } = this.state;
-    const { data, colorMin, colorMax } = this.props;
-    const colorScale = chroma.scale([colorMin, colorMax]);
+    const { data, color } = this.props;
+    const colorScale = chroma.scale([
+      chroma(color)
+        .brighten(3)
+        .hex(),
+      chroma(color)
+        .darken(2)
+        .hex(),
+    ]);
 
     const maxValue = Math.max(
       ...data.map(d =>

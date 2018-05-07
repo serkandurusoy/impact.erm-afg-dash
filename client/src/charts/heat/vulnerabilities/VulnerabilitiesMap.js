@@ -41,6 +41,7 @@ class Chart extends Component {
           width: '100%',
           maxWidth: 980,
           margin: '0 auto',
+          textAlign: 'center',
         }}
       >
         <ComposableMap width={600} height={500}>

@@ -25,6 +25,11 @@ class Mpc extends Component {
     }
   };
 
+  scrollToTop = e => {
+    if (e && e.preventDefault) e.preventDefault();
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   render() {
     const { selectedProvinces } = this.state;
 
@@ -40,9 +45,9 @@ class Mpc extends Component {
           <div className="header__lists">
             {chunkedArray(2, SECTION.subTitles).map((column, index) => (
               <div key={index} className="header__list">
-                {column.map(({ subTitle, index: subTitleIndex }) => (
+                {column.map(({ subTitle, index: subTitleIndex, anchor }) => (
                   <div key={subTitleIndex} className="header__list-item">
-                    {subTitle}
+                    <a href={`#${anchor}`}>{subTitle}</a>
                   </div>
                 ))}
               </div>
@@ -70,7 +75,10 @@ class Mpc extends Component {
             />
 
             <section className="content__single">
-              <MpcCharts provinceFilter={selectedProvinces} />
+              <MpcCharts
+                provinceFilter={selectedProvinces}
+                toTop={this.scrollToTop}
+              />
             </section>
           </section>
         </main>

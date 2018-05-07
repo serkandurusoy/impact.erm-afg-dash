@@ -2,10 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
 
-const PageIsLoading = ({ error, pastDelay, timedOut }) => (
+const PageIsLoading = ({ error, pastDelay, timedOut, retry }) => (
   <div className="loader loader__page">
     {error || timedOut ? (
-      <div>Error loading page</div>
+      <div>
+        Error loading page,{' '}
+        <a
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            retry();
+          }}
+        >
+          click here
+        </a>{' '}
+        to retry.
+      </div>
     ) : pastDelay ? (
       <div>Loading page</div>
     ) : null}
@@ -16,12 +28,14 @@ PageIsLoading.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   pastDelay: PropTypes.bool,
   timedOut: PropTypes.bool,
+  retry: PropTypes.func,
 };
 
 PageIsLoading.defaultProps = {
   error: false,
   pastDelay: false,
   timedOut: false,
+  retry: () => {},
 };
 
 const PageLoader = opts =>
@@ -62,12 +76,4 @@ export const NotFound = PageLoader({
 
 export const Contact = PageLoader({
   loader: () => import('./_contact'),
-});
-
-export const HeatAsGrid = PageLoader({
-  loader: () => import('./_heat-as-grid'),
-});
-
-export const ChartFull = PageLoader({
-  loader: () => import('./_chart-full'),
 });

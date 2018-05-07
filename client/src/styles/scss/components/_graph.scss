@@ -87,7 +87,7 @@
   position: absolute;
   top: 10px;
   left: 0;
-  font-style: 14px;
+  font-size: 14px;
 }
 
 .graph__tooltip {
@@ -229,7 +229,7 @@
   .graph__grid-2 {
     @extend .graph__grid;
 
-    .graph__graph {
+    > .graph__graph {
       @media (min-width: $md-min) {
         flex: 0 0 calc(50% - 30px);
         max-width: calc(50% - 30px);

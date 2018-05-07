@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -12,14 +11,40 @@ import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScale = chroma.scale([
-  `${chroma('#fff67a')
-    .brighten(1.5)
-    .hex()}`,
-  `${chroma('#fff67a')
-    .darken(2)
-    .hex()}`,
-]);
+const colorScale = {
+  avg_FCS: chroma.scale([
+    `${chroma('#fff67a')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#fff67a')
+      .darken(2)
+      .hex()}`,
+  ]),
+  '1': chroma.scale([
+    `${chroma('#f69e61')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#f69e61')
+      .darken(2)
+      .hex()}`,
+  ]),
+  '2': chroma.scale([
+    `${chroma('#56b3cd')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#56b3cd')
+      .darken(2)
+      .hex()}`,
+  ]),
+  '3': chroma.scale([
+    `${chroma('#a5c9a1')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#a5c9a1')
+      .darken(2)
+      .hex()}`,
+  ]),
+};
 
 class Chart extends Component {
   static propTypes = {
@@ -36,10 +61,9 @@ class Chart extends Component {
     }, 100);
   }
 
-  toggleSelected = (e, selected) => {
-    e.preventDefault();
+  toggleSelected = e => {
     this.setState({
-      selected,
+      selected: e.target.value,
     });
   };
 
@@ -53,46 +77,19 @@ class Chart extends Component {
           width: '100%',
           maxWidth: 980,
           margin: '0 auto',
+          textAlign: 'center',
         }}
       >
-        <div className="chartLayerSelector">
-          <a
-            className={classNames({
-              active: selected === 'avg_FCS',
-            })}
-            href=""
-            onClick={e => this.toggleSelected(e, 'avg_FCS')}
-          >
-            Average
-          </a>
-          <a
-            className={classNames({
-              active: selected === '1',
-            })}
-            href=""
-            onClick={e => this.toggleSelected(e, '1')}
-          >
-            Poor
-          </a>
-          <a
-            className={classNames({
-              active: selected === '2',
-            })}
-            href=""
-            onClick={e => this.toggleSelected(e, '2')}
-          >
-            Borderline
-          </a>
-          <a
-            className={classNames({
-              active: selected === '3',
-            })}
-            href=""
-            onClick={e => this.toggleSelected(e, '3')}
-          >
-            Acceptable
-          </a>
-        </div>
+        <select
+          className="graph__filter"
+          value={this.state.selected}
+          onChange={this.toggleSelected}
+        >
+          <option value="avg_FCS">Average</option>
+          <option value="1">Poor</option>
+          <option value="2">Borderline</option>
+          <option value="3">Acceptable</option>
+        </select>
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
             <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
@@ -106,7 +103,8 @@ class Chart extends Component {
                     d => d.general_infoq1_province === provinceName,
                   );
                   const color =
-                    province && colorScale(province[selected] / maxValue).hex();
+                    province &&
+                    colorScale[selected](province[selected] / maxValue).hex();
                   const totalFCSlevelCount =
                     province && province[1] + province[2] + province[3];
                   const tooltip = `${geography.properties.NAME_1}${

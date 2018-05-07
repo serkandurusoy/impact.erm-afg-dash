@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -12,14 +11,40 @@ import ReactTooltip from 'react-tooltip';
 import PROVINCE_INFO from '../../../constants/province-info';
 import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
-const colorScale = chroma.scale([
-  `${chroma('#f69e61')
-    .brighten(3)
-    .hex()}`,
-  `${chroma('#f69e61')
-    .darken(2)
-    .hex()}`,
-]);
+const colorScale = {
+  's1_full_market_survey/q1_10_current_price_wheat_flour': chroma.scale([
+    `${chroma('#f69e61')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#f69e61')
+      .darken(2)
+      .hex()}`,
+  ]),
+  's1_full_market_survey/q1_10_1_current_price_rice': chroma.scale([
+    `${chroma('#95a0a9')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#95a0a9')
+      .darken(2)
+      .hex()}`,
+  ]),
+  's1_full_market_survey/q1_10_2_current_price_oil': chroma.scale([
+    `${chroma('#0067a9')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#0067a9')
+      .darken(2)
+      .hex()}`,
+  ]),
+  's1_full_market_survey/q1_10_3_current_price_diesel': chroma.scale([
+    `${chroma('#ee4e4e')
+      .brighten(3)
+      .hex()}`,
+    `${chroma('#ee4e4e')
+      .darken(2)
+      .hex()}`,
+  ]),
+};
 
 class Chart extends Component {
   static propTypes = {
@@ -36,10 +61,9 @@ class Chart extends Component {
     }, 100);
   }
 
-  toggleSelected = (e, selected) => {
-    e.preventDefault();
+  toggleSelected = e => {
     this.setState({
-      selected,
+      selected: e.target.value,
     });
   };
 
@@ -53,72 +77,27 @@ class Chart extends Component {
           width: '100%',
           maxWidth: 980,
           margin: '0 auto',
+          textAlign: 'center',
         }}
       >
-        <div className="chartLayerSelector">
-          <a
-            className={classNames({
-              active:
-                selected ===
-                's1_full_market_survey/q1_10_current_price_wheat_flour',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(
-                e,
-                's1_full_market_survey/q1_10_current_price_wheat_flour',
-              )
-            }
-          >
+        <select
+          className="graph__filter"
+          value={this.state.selected}
+          onChange={this.toggleSelected}
+        >
+          <option value="s1_full_market_survey/q1_10_current_price_wheat_flour">
             Wheat Flour
-          </a>
-          <a
-            className={classNames({
-              active:
-                selected === 's1_full_market_survey/q1_10_1_current_price_rice',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(
-                e,
-                's1_full_market_survey/q1_10_1_current_price_rice',
-              )
-            }
-          >
+          </option>
+          <option value="s1_full_market_survey/q1_10_1_current_price_rice">
             Rice
-          </a>
-          <a
-            className={classNames({
-              active:
-                selected === 's1_full_market_survey/q1_10_2_current_price_oil',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(
-                e,
-                's1_full_market_survey/q1_10_2_current_price_oil',
-              )
-            }
-          >
+          </option>
+          <option value="s1_full_market_survey/q1_10_2_current_price_oil">
             Oil
-          </a>
-          <a
-            className={classNames({
-              active:
-                selected ===
-                's1_full_market_survey/q1_10_3_current_price_diesel',
-            })}
-            href=""
-            onClick={e =>
-              this.toggleSelected(
-                e,
-                's1_full_market_survey/q1_10_3_current_price_diesel',
-              )
-            }
-          >
+          </option>
+          <option value="s1_full_market_survey/q1_10_3_current_price_diesel">
             Diesel
-          </a>
-        </div>
+          </option>
+        </select>
         <ComposableMap width={600} height={500}>
           <ZoomableGroup zoom={18} center={[67, 34]} disablePanning>
             <Geographies geography={PROVINCE_GEO_DATA} disableOptimization>
@@ -134,7 +113,7 @@ class Chart extends Component {
                   const color =
                     province &&
                     province[selected] &&
-                    colorScale(province[selected] / maxAvg).hex();
+                    colorScale[selected](province[selected] / maxAvg).hex();
                   const tooltip = `${geography.properties.NAME_1}${
                     province ? `: ${province[selected].toFixed(2)} AFN` : ''
                   }`;
