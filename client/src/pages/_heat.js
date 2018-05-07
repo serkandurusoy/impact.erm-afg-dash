@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { Helmet } from 'react-helmet';
 import { Header, ProvinceFilter } from '../components/index';
 import chunkedArray from '../utils/chunkedArray';
@@ -8,6 +9,13 @@ import HeatCharts from '../charts/heat';
 const SECTION = SECTIONS.find(({ title }) => title === 'HEAT');
 
 class Heat extends Component {
+  static propTypes = {
+    /* eslint-disable react/no-typos */
+    history: ReactRouterPropTypes.history.isRequired,
+    location: ReactRouterPropTypes.location.isRequired,
+    /* eslint-enable react/no-typos */
+  };
+
   state = {
     selectedProvinces: [],
   };
@@ -27,7 +35,7 @@ class Heat extends Component {
 
   scrollToTop = e => {
     if (e && e.preventDefault) e.preventDefault();
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    this.props.history.push(this.props.location.pathname);
   };
 
   render() {

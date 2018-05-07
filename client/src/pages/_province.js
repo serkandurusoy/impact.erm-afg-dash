@@ -15,6 +15,8 @@ class Province extends Component {
   static propTypes = {
     /* eslint-disable react/no-typos */
     match: ReactRouterPropTypes.match.isRequired,
+    history: ReactRouterPropTypes.history.isRequired,
+    location: ReactRouterPropTypes.location.isRequired,
     /* eslint-enable react/no-typos */
   };
 
@@ -149,7 +151,7 @@ class Province extends Component {
 
   scrollToTop = e => {
     if (e && e.preventDefault) e.preventDefault();
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    this.props.history.push(this.props.location.pathname);
   };
 
   render() {

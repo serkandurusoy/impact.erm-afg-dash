@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import headerBlock1 from '../styles/images/header-block-1.jpg';
 import headerBlock2 from '../styles/images/header-block-2.jpg';
 import headerBlock3 from '../styles/images/header-block-3.jpg';
@@ -32,9 +33,9 @@ const Home = () => (
               {title}
             </div>
             <div className="header-block__items">
-              {subTitles.slice(0, 2).map(({ index, subTitle }) => (
-                <Link
-                  to={`/${title.toLowerCase()}`}
+              {subTitles.slice(0, 2).map(({ index, subTitle, anchor }) => (
+                <HashLink
+                  to={`/${title.toLowerCase()}#${anchor}`}
                   className="header-block__item"
                   key={index}
                 >
@@ -43,7 +44,7 @@ const Home = () => (
                     src={headerBlocks[sectionIndex][index]}
                   />
                   <div className="header-block__item-title">{subTitle}</div>
-                </Link>
+                </HashLink>
               ))}
             </div>
             <Link className="header-block__link" to={`/${title.toLowerCase()}`}>
