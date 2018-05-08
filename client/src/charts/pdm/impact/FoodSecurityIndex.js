@@ -13,11 +13,12 @@ import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
 const colorScale = {
   avg_FCS: chroma.scale([
+    '#fff67a',
     `${chroma('#fff67a')
-      .brighten(3)
+      .darken(3)
       .hex()}`,
     `${chroma('#fff67a')
-      .darken(2)
+      .darken(5)
       .hex()}`,
   ]),
   '1': chroma.scale([
@@ -30,18 +31,29 @@ const colorScale = {
   ]),
   '2': chroma.scale([
     `${chroma('#56b3cd')
-      .brighten(3)
+      .brighten(1.5)
+      .hex()}`,
+    '#56b3cd',
+    `${chroma('#56b3cd')
+      .darken(3)
       .hex()}`,
     `${chroma('#56b3cd')
-      .darken(2)
+      .darken(5)
       .hex()}`,
   ]),
   '3': chroma.scale([
     `${chroma('#a5c9a1')
-      .brighten(3)
+      .brighten(1.5)
+      .hex()}`,
+    '#a5c9a1',
+    `${chroma('#a5c9a1')
+      .darken(1)
       .hex()}`,
     `${chroma('#a5c9a1')
-      .darken(2)
+      .darken(3)
+      .hex()}`,
+    `${chroma('#a5c9a1')
+      .darken(4)
       .hex()}`,
   ]),
 };

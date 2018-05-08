@@ -30,6 +30,7 @@ const Chart = ({ data }) => (
         interval={0}
         tickMargin={40}
         tickCount={1}
+        tick={{ fontWeight: 'bold' }}
       />
       <YAxis />
       <Tooltip

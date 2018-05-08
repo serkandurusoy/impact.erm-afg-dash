@@ -17,6 +17,9 @@ const colorScale = {
     `${chroma('#cf3e3e')
       .darken(2)
       .hex()}`,
+    `${chroma('#cf3e3e')
+      .darken(4)
+      .hex()}`,
   ]),
   S4_financial_ASSESSmale_breadwinner: chroma.scale([
     `${chroma('#078ec7')

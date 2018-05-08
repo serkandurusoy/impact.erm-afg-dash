@@ -13,10 +13,16 @@ import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
 const colorScale = chroma.scale([
   `${chroma('#56b3cd')
-    .darken(2)
+    .darken(1)
     .hex()}`,
   `${chroma('#56b3cd')
     .darken(4)
+    .hex()}`,
+  `${chroma('#56b3cd')
+    .darken(8)
+    .hex()}`,
+  `${chroma('#56b3cd')
+    .darken(12)
     .hex()}`,
 ]);
 

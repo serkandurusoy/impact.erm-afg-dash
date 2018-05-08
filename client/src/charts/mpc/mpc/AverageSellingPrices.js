@@ -16,16 +16,20 @@ const colorScale = {
     `${chroma('#f69e61')
       .brighten(3)
       .hex()}`,
+    '#f69e61',
     `${chroma('#f69e61')
-      .darken(2)
+      .darken(3)
       .hex()}`,
   ]),
   's1_full_market_survey/q1_10_1_current_price_rice': chroma.scale([
     `${chroma('#95a0a9')
-      .brighten(3)
+      .brighten(5)
       .hex()}`,
     `${chroma('#95a0a9')
-      .darken(2)
+      .brighten(1)
+      .hex()}`,
+    `${chroma('#95a0a9')
+      .darken(3)
       .hex()}`,
   ]),
   's1_full_market_survey/q1_10_2_current_price_oil': chroma.scale([
@@ -33,15 +37,23 @@ const colorScale = {
       .brighten(3)
       .hex()}`,
     `${chroma('#0067a9')
-      .darken(2)
+      .brighten(1)
+      .hex()}`,
+    '#0067a9',
+    `${chroma('#0067a9')
+      .darken(3)
       .hex()}`,
   ]),
   's1_full_market_survey/q1_10_3_current_price_diesel': chroma.scale([
-    `${chroma('#ee4e4e')
+    `${chroma('#fff67a')
       .brighten(3)
       .hex()}`,
-    `${chroma('#ee4e4e')
-      .darken(2)
+    `${chroma('#fff67a')
+      .brighten(0.1)
+      .hex()}`,
+    '#fff67a',
+    `${chroma('#fff67a')
+      .darken(4)
       .hex()}`,
   ]),
 };
