@@ -78,8 +78,11 @@
     background-color: #bbb;
   }
 
+  .recharts-responsive-container,
+  .recharts-wrapper,
   svg {
     max-width: 100%;
+    width: 100% !important;
   }
 }
 
