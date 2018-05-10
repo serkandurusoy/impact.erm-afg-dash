@@ -54,6 +54,8 @@
 .content__right {
   @extend .content__single;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 
   @media (min-width: 1024px) {
     padding: 50px 30px !important;
