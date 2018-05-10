@@ -5,6 +5,7 @@
   margin: 30px 0;
   padding: 30px;
   position: relative;
+  width: 100%;
 
   @media (min-width: $lg-min) {
     padding: 50px;
@@ -78,11 +79,8 @@
     background-color: #bbb;
   }
 
-  .recharts-responsive-container,
-  .recharts-wrapper,
   svg {
     max-width: 100%;
-    width: 100% !important;
   }
 }
 
