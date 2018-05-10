@@ -168,222 +168,210 @@ class Charts extends Component {
     return (
       <div>
         {(sectionFilter === null || sectionFilter.includes('General')) && (
-          <div className="graph--horizontal" id="general">
-            <div className="graph__col--30">
-              <h4 className="graph__title">General</h4>
-              <div className="graph__description" />
-              <div className="go2top">
-                <a onClick={toTop} href="#top" className="go2top__link active">
-                  <span className="icon icon--arrow-top" />
-                </a>
-              </div>
+          <div className="graph" id="general">
+            <h4 className="graph__title">General</h4>
+            <div className="graph__description" />
+            <div className="go2top">
+              <a onClick={toTop} href="#top" className="go2top__link active">
+                <span className="icon icon--arrow-top" />
+              </a>
             </div>
-            <div className="graph__col--70">
-              <NumberOfHHs
-                apiPath="/api/query/pdm/general/numberOfHHs"
-                provinceFilter={provinceFilter}
-                districtFilter={districtFilter}
-              />
-              <NumberOfHHsPerProvince
-                apiPath="/api/query/pdm/general/numberOfHHsPerProvince"
-                provinceFilter={provinceFilter}
-                districtFilter={districtFilter}
-              />
-            </div>
+            <NumberOfHHs
+              apiPath="/api/query/pdm/general/numberOfHHs"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
+            <NumberOfHHsPerProvince
+              apiPath="/api/query/pdm/general/numberOfHHsPerProvince"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
           </div>
         )}
 
         {(sectionFilter === null ||
           sectionFilter.includes('Cash Distribution')) && (
-          <div className="graph--horizontal" id="cash-distribution">
-            <div className="graph__col--30">
-              <h4 className="graph__title">Cash Distribution</h4>
-              <div className="graph__description" />
-              <div className="go2top">
-                <a onClick={toTop} href="#top" className="go2top__link active">
-                  <span className="icon icon--arrow-top" />
-                </a>
-              </div>
+          <div className="graph" id="cash-distribution">
+            <h4 className="graph__title">Cash Distribution</h4>
+            <div className="graph__description" />
+            <div className="go2top">
+              <a onClick={toTop} href="#top" className="go2top__link active">
+                <span className="icon icon--arrow-top" />
+              </a>
             </div>
-            <div className="graph__col--70">
-              <AppropriatenessOfTargeting
-                apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
+            <AppropriatenessOfTargeting
+              apiPath="/api/query/pdm/cashDistribution/appropriatenessOfTargeting"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
+            <AverageCashReceived
+              apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
+            <div className="graph__grid-2">
+              <SafetyOfTravel
+                apiPath="/api/query/pdm/cashDistribution/safetyOfTravel"
                 provinceFilter={provinceFilter}
                 districtFilter={districtFilter}
               />
-              <AverageCashReceived
-                apiPath="/api/query/pdm/cashDistribution/averageCashReceived"
+              <TravelTime
+                apiPath="/api/query/pdm/cashDistribution/travelTime"
                 provinceFilter={provinceFilter}
                 districtFilter={districtFilter}
               />
-              <div className="graph__grid-2">
-                <SafetyOfTravel
-                  apiPath="/api/query/pdm/cashDistribution/safetyOfTravel"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-                <TravelTime
-                  apiPath="/api/query/pdm/cashDistribution/travelTime"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              </div>
             </div>
           </div>
         )}
 
         {(sectionFilter === null || sectionFilter.includes('Impact')) && (
-          <div className="graph--horizontal" id="impact">
-            <div className="graph__col--30">
-              <h4 className="graph__title">Impact</h4>
-              <div className="graph__description" />
-              <div className="go2top">
-                <a onClick={toTop} href="#top" className="go2top__link active">
-                  <span className="icon icon--arrow-top" />
-                </a>
-              </div>
+          <div className="graph" id="impact">
+            <h4 className="graph__title">Impact</h4>
+            <div className="graph__description" />
+            <div className="go2top">
+              <a onClick={toTop} href="#top" className="go2top__link active">
+                <span className="icon icon--arrow-top" />
+              </a>
             </div>
-            <div className="graph__col--70">
-              {displayHHNeeds === 'AmountSpentOnHHNeedsBlankets' && (
-                <AmountSpentOnHHNeedsBlankets
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsBlankets"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsClothes' && (
-                <AmountSpentOnHHNeedsClothes
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsClothes"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsDebtRepayment' && (
-                <AmountSpentOnHHNeedsDebtRepayment
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsDebtRepayment"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsEducation' && (
-                <AmountSpentOnHHNeedsEducation
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsEducation"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsFood' && (
-                <AmountSpentOnHHNeedsFood
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsFood"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsHealth' && (
-                <AmountSpentOnHHNeedsHealth
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsHealth"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsHygieneItems' && (
-                <AmountSpentOnHHNeedsHygieneItems
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsHygieneItems"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsKitchenItems' && (
-                <AmountSpentOnHHNeedsKitchenItems
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsKitchenItems"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsRent' && (
-                <AmountSpentOnHHNeedsRent
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsRent"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsSaved' && (
-                <AmountSpentOnHHNeedsSaved
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsSaved"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsShelterRepair' && (
-                <AmountSpentOnHHNeedsShelterRepair
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsShelterRepair"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsTransportation' && (
-                <AmountSpentOnHHNeedsTransportation
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsTransportation"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              {displayHHNeeds === 'AmountSpentOnHHNeedsUtilities' && (
-                <AmountSpentOnHHNeedsUtilities
-                  toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
-                  displayHHNeeds={displayHHNeeds}
-                  apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsUtilities"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              )}
-              <FoodSecurityIndex
-                apiPath="/api/query/pdm/impact/foodSecurityIndex"
+            {displayHHNeeds === 'AmountSpentOnHHNeedsBlankets' && (
+              <AmountSpentOnHHNeedsBlankets
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsBlankets"
                 provinceFilter={provinceFilter}
                 districtFilter={districtFilter}
               />
-              <div className="graph__grid-2">
-                <ImpactOfCashAssistance
-                  apiPath="/api/query/pdm/impact/impactOfCashAssistance"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-                <LevelOfDebtCompared
-                  apiPath="/api/query/pdm/impact/levelOfDebtCompared"
-                  provinceFilter={provinceFilter}
-                  districtFilter={districtFilter}
-                />
-              </div>
-              <LevelOfDebtComparedPerProvince
-                apiPath="/api/query/pdm/impact/levelOfDebtComparedPerProvince"
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsClothes' && (
+              <AmountSpentOnHHNeedsClothes
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsClothes"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsDebtRepayment' && (
+              <AmountSpentOnHHNeedsDebtRepayment
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsDebtRepayment"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsEducation' && (
+              <AmountSpentOnHHNeedsEducation
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsEducation"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsFood' && (
+              <AmountSpentOnHHNeedsFood
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsFood"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsHealth' && (
+              <AmountSpentOnHHNeedsHealth
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsHealth"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsHygieneItems' && (
+              <AmountSpentOnHHNeedsHygieneItems
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsHygieneItems"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsKitchenItems' && (
+              <AmountSpentOnHHNeedsKitchenItems
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsKitchenItems"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsRent' && (
+              <AmountSpentOnHHNeedsRent
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsRent"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsSaved' && (
+              <AmountSpentOnHHNeedsSaved
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsSaved"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsShelterRepair' && (
+              <AmountSpentOnHHNeedsShelterRepair
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsShelterRepair"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsTransportation' && (
+              <AmountSpentOnHHNeedsTransportation
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsTransportation"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            {displayHHNeeds === 'AmountSpentOnHHNeedsUtilities' && (
+              <AmountSpentOnHHNeedsUtilities
+                toggleDisplayHHNeeds={this.toggleDisplayHHNeeds}
+                displayHHNeeds={displayHHNeeds}
+                apiPath="/api/query/pdm/impact/amountSpendOnHHNeedsUtilities"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+            )}
+            <FoodSecurityIndex
+              apiPath="/api/query/pdm/impact/foodSecurityIndex"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
+            <div className="graph__grid-2">
+              <ImpactOfCashAssistance
+                apiPath="/api/query/pdm/impact/impactOfCashAssistance"
+                provinceFilter={provinceFilter}
+                districtFilter={districtFilter}
+              />
+              <LevelOfDebtCompared
+                apiPath="/api/query/pdm/impact/levelOfDebtCompared"
                 provinceFilter={provinceFilter}
                 districtFilter={districtFilter}
               />
             </div>
+            <LevelOfDebtComparedPerProvince
+              apiPath="/api/query/pdm/impact/levelOfDebtComparedPerProvince"
+              provinceFilter={provinceFilter}
+              districtFilter={districtFilter}
+            />
           </div>
         )}
       </div>

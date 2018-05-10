@@ -110,130 +110,61 @@
     }
 
   }
-
 }
 
-.graph__row {
-  @media (min-width: $xl-min) {
-    display: flex;
-    margin-left: -15px;
-    margin-right: -15px;
-    margin-bottom: 30px;
+.graph .loader {
+  padding: 35px 30px;
+  text-align: left;
+}
+
+.graph__graph {
+  border: 1px $gray-2 solid;
+  position: relative;
+  margin: 15px 0;
+  padding: 35px 30px;
+
+  + .graph__grid {
+    margin-top: 0px;
   }
 
-  > * {
-    @media (min-width: $xl-min) {
-      display: flex;
-      width: calc(50% - 30px);
-      margin: 0 15px !important;
-    }
-  }
-
-  .graph {
-    @media (min-width: $xl-min) {
-      height: 100%;
-      width: 100%;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
-
-  + .graph__row {
-    @media (min-width: $xl-min) {
-      margin-top: 30px;
-    }
+  + .graph__graph {
+    margin-top: 30px;
   }
 }
 
-.graph--horizontal {
-  @extend .graph;
-  @media (min-width: $xl-min) {
+.graph__grid {
+  margin: -15px 0;
+
+  @media (min-width: $md-min) {
     display: flex;
-    //align-items: center;
-    padding: 100px 65px;
-    text-align: left;
+    flex-wrap: wrap;
+    margin: 0 -15px;
   }
 
-  .graph__buttons {
-    top: 0;
-    right: 0;
-  }
+  .graph__graph {
+    margin: 30px auto;
 
-  .graph__col {
-    display: flex;
-    flex-direction: column;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-
-  .graph__col--30 {
-    @extend .graph__col;
-    @media (min-width: $xl-min) {
-      width: 30%;
+    @media (min-width: $md-min) {
+      margin: 15px;
     }
   }
+}
 
-  .graph__col--70 {
-    @extend .graph__col;
-    @media (min-width: $xl-min) {
-      width: 70%;
-    }
-  }
+.graph__grid-2 {
+  @extend .graph__grid;
 
-  .graph__title {
-    @media (min-width: $xl-min) {
-      font-size: 48px;
-    }
-  }
-
-  .graph__subtitle {
-    @media (min-width: $xl-min) {
-      margin-bottom: 0;
+  > .graph__graph {
+    @media (min-width: $md-min) {
+      flex: 0 0 calc(50% - 30px);
+      max-width: calc(50% - 30px);
     }
   }
 
   .loader {
-    padding: 35px 30px;
-    text-align: left;
-  }
-
-  .graph__graph {
-    border: 1px $gray-2 solid;
-    position: relative;
-    margin: 15px 0;
-    padding: 35px 30px;
-
-    + .graph__grid {
-      margin-top: 0px;
-    }
-  }
-
-  .graph__grid {
-    margin: -15px 0;
-
     @media (min-width: $md-min) {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -15px;
-    }
+      width: calc(50% - 30px);
+      margin: 15px;
 
-    .graph__graph {
-      margin: 30px auto;
-
-      @media (min-width: $md-min) {
-        margin: 15px;
-      }
-    }
-  }
-
-  .graph__grid-2 {
-    @extend .graph__grid;
-
-    > .graph__graph {
-      @media (min-width: $md-min) {
-        flex: 0 0 calc(50% - 30px);
-        max-width: calc(50% - 30px);
-      }
     }
   }
 }

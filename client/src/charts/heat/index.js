@@ -197,329 +197,290 @@ const Charts = (
 ) => (
   <div>
     {(sectionFilter === null || sectionFilter.includes('General')) && (
-      <div className="graph--horizontal" id="general">
-        <div className="graph__col--30">
-          <h4 className="graph__title">General</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="general">
+        <h4 className="graph__title">General</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <NumberOfHH
-            apiPath="/api/query/heat/general/numberOfHH"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <NumberOfHHPerProvince
-            apiPath="/api/query/heat/general/numberOfHHPerProvince"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-        </div>
+        <NumberOfHH
+          apiPath="/api/query/heat/general/numberOfHH"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <NumberOfHHPerProvince
+          apiPath="/api/query/heat/general/numberOfHHPerProvince"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Household Demographics')) && (
-      <div className="graph--horizontal" id="household-demographics">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Household Demographics</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="household-demographics">
+        <h4 className="graph__title">Household Demographics</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <AgeDisaggregation
-            apiPath="/api/query/heat/demographics/ageDisaggregation"
+        <AgeDisaggregation
+          apiPath="/api/query/heat/demographics/ageDisaggregation"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <div className="graph__grid-2">
+          <AverageNumberOfBreadWinner
+            apiPath="/api/query/heat/demographics/averageNumberOfBreadWinner"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <div className="graph__grid-2">
-            <AverageNumberOfBreadWinner
-              apiPath="/api/query/heat/demographics/averageNumberOfBreadWinner"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <FrequencyWithNationalId
-              apiPath="/api/query/heat/demographics/frequencyWithNationalId"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
+          <FrequencyWithNationalId
+            apiPath="/api/query/heat/demographics/frequencyWithNationalId"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
         </div>
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Additional Vulnerability Assessment')) && (
-      <div
-        className="graph--horizontal"
-        id="additional-vulnerability-assessment"
-      >
-        <div className="graph__col--30">
-          <h4 className="graph__title">Additional Vulnerability Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="additional-vulnerability-assessment">
+        <h4 className="graph__title">Additional Vulnerability Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <div className="graph__grid-2">
-            <ChildHeaded
-              apiPath="/api/query/heat/vulnerabilities/childHeaded"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <ChronicallyIllHeaded
-              apiPath="/api/query/heat/vulnerabilities/chronicallyIllHeaded"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
-          <div className="graph__grid-2">
-            <DisabledHeaded
-              apiPath="/api/query/heat/vulnerabilities/disabledHeaded"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <ElderlyHeaded
-              apiPath="/api/query/heat/vulnerabilities/elderlyHeaded"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
-          <div className="graph__grid-2">
-            <FemaleHeaded
-              apiPath="/api/query/heat/vulnerabilities/femaleHeaded"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <VulnerabilitiesMap
-              apiPath="/api/query/heat/vulnerabilities/vulnerabilitiesMap"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
+        <div className="graph__grid-2">
+          <ChildHeaded
+            apiPath="/api/query/heat/vulnerabilities/childHeaded"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <ChronicallyIllHeaded
+            apiPath="/api/query/heat/vulnerabilities/chronicallyIllHeaded"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
+        <div className="graph__grid-2">
+          <DisabledHeaded
+            apiPath="/api/query/heat/vulnerabilities/disabledHeaded"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <ElderlyHeaded
+            apiPath="/api/query/heat/vulnerabilities/elderlyHeaded"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+        </div>
+        <div className="graph__grid-2">
+          <FemaleHeaded
+            apiPath="/api/query/heat/vulnerabilities/femaleHeaded"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
+          <VulnerabilitiesMap
+            apiPath="/api/query/heat/vulnerabilities/vulnerabilitiesMap"
+            provinceFilter={provinceFilter}
+            districtFilter={districtFilter}
+          />
         </div>
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('General Assessment')) && (
-      <div className="graph--horizontal" id="general-assessment">
-        <div className="graph__col--30">
-          <h4 className="graph__title">General Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="general-assessment">
+        <h4 className="graph__title">General Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <div className="graph__grid-2">
-            <DisplacementCategory
-              apiPath="/api/query/heat/generalAssessment/displacementCategory"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <PossibilityOfReturn
-              apiPath="/api/query/heat/generalAssessment/possibilityOfReturn"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
-          <ProvinceOfOrigin
-            apiPath="/api/query/heat/generalAssessment/provinceOfOrigin"
+        <div className="graph__grid-2">
+          <DisplacementCategory
+            apiPath="/api/query/heat/generalAssessment/displacementCategory"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <ReasonForNoReturn
-            apiPath="/api/query/heat/generalAssessment/reasonForNoReturn"
+          <PossibilityOfReturn
+            apiPath="/api/query/heat/generalAssessment/possibilityOfReturn"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
         </div>
+        <ProvinceOfOrigin
+          apiPath="/api/query/heat/generalAssessment/provinceOfOrigin"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <ReasonForNoReturn
+          apiPath="/api/query/heat/generalAssessment/reasonForNoReturn"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Financial & Asset Assessment')) && (
-      <div className="graph--horizontal" id="financial-asset-assessment">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Financial & Asset Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="financial-asset-assessment">
+        <h4 className="graph__title">Financial & Asset Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <div className="graph__grid-2">
-            <AverageIncomeBeforeShock
-              apiPath="/api/query/heat/financial/averageIncomeBeforeShock"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <AverageIncomeAfterShock
-              apiPath="/api/query/heat/financial/averageIncomeAfterShock"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
-          <AverageIncomeAfterShockPerProvince
-            apiPath="/api/query/heat/financial/averageIncomeAfterShockPerProvince"
+        <div className="graph__grid-2">
+          <AverageIncomeBeforeShock
+            apiPath="/api/query/heat/financial/averageIncomeBeforeShock"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <LevelOfDebt
-            apiPath="/api/query/heat/financial/levelOfDebts"
+          <AverageIncomeAfterShock
+            apiPath="/api/query/heat/financial/averageIncomeAfterShock"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
         </div>
+        <AverageIncomeAfterShockPerProvince
+          apiPath="/api/query/heat/financial/averageIncomeAfterShockPerProvince"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <LevelOfDebt
+          apiPath="/api/query/heat/financial/levelOfDebts"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Food & Nutrition Assessment')) && (
-      <div className="graph--horizontal" id="food-nutrition-assessment">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Food & Nutrition Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="food-nutrition-assessment">
+        <h4 className="graph__title">Food & Nutrition Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <div className="graph__grid-2">
-            <AccessToMarket
-              apiPath="/api/query/heat/food/accessToMarket"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <AvailableFoodStocks
-              apiPath="/api/query/heat/food/availableFoodStocks"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
-          <AverageDistanceToMarket
-            apiPath="/api/query/heat/food/averageDistanceToMarket"
+        <div className="graph__grid-2">
+          <AccessToMarket
+            apiPath="/api/query/heat/food/accessToMarket"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <FCSIndex
-            apiPath="/api/query/heat/food/fcsIndex"
+          <AvailableFoodStocks
+            apiPath="/api/query/heat/food/availableFoodStocks"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
         </div>
+        <AverageDistanceToMarket
+          apiPath="/api/query/heat/food/averageDistanceToMarket"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <FCSIndex
+          apiPath="/api/query/heat/food/fcsIndex"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
     {(sectionFilter === null || sectionFilter.includes('Wash Assessment')) && (
-      <div className="graph--horizontal" id="wash-assessment">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Wash Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="wash-assessment">
+        <h4 className="graph__title">Wash Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <AccessToBathingWater
-            apiPath="/api/query/heat/wash/accessToBathingWater"
+        <AccessToBathingWater
+          apiPath="/api/query/heat/wash/accessToBathingWater"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <AccessToCookingWater
+          apiPath="/api/query/heat/wash/accessToCookingWater"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <AccessToDrinkingWater
+          apiPath="/api/query/heat/wash/accessToDrinkingWater"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <div className="graph__grid-2">
+          <AccessToLatrine
+            apiPath="/api/query/heat/wash/accessToLatrine"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <AccessToCookingWater
-            apiPath="/api/query/heat/wash/accessToCookingWater"
+          <TypeOfLatrine
+            apiPath="/api/query/heat/wash/typeOfLatrine"
             provinceFilter={provinceFilter}
             districtFilter={districtFilter}
           />
-          <AccessToDrinkingWater
-            apiPath="/api/query/heat/wash/accessToDrinkingWater"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <div className="graph__grid-2">
-            <AccessToLatrine
-              apiPath="/api/query/heat/wash/accessToLatrine"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-            <TypeOfLatrine
-              apiPath="/api/query/heat/wash/typeOfLatrine"
-              provinceFilter={provinceFilter}
-              districtFilter={districtFilter}
-            />
-          </div>
         </div>
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Shelter & NFI Assessment')) && (
-      <div className="graph--horizontal" id="shelter-nfi-assessment">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Shelter & NFI Assessment</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="shelter-nfi-assessment">
+        <h4 className="graph__title">Shelter & NFI Assessment</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <Accomodation
-            apiPath="/api/query/heat/shelter/accomodation"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <AverageRent
-            apiPath="/api/query/heat/shelter/averageRent"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-        </div>
+        <Accomodation
+          apiPath="/api/query/heat/shelter/accomodation"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <AverageRent
+          apiPath="/api/query/heat/shelter/averageRent"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
     {(sectionFilter === null ||
       sectionFilter.includes('Beneficiaries’ Priorities')) && (
-      <div className="graph--horizontal" id="beneficiaries-priorities">
-        <div className="graph__col--30">
-          <h4 className="graph__title">Beneficiaries’ Priorities</h4>
-          <div className="graph__description" />
-          <div className="go2top">
-            <a onClick={toTop} href="#top" className="go2top__link active">
-              <span className="icon icon--arrow-top" />
-            </a>
-          </div>
+      <div className="graph" id="beneficiaries-priorities">
+        <h4 className="graph__title">Beneficiaries’ Priorities</h4>
+        <div className="graph__description" />
+        <div className="go2top">
+          <a onClick={toTop} href="#top" className="go2top__link active">
+            <span className="icon icon--arrow-top" />
+          </a>
         </div>
-        <div className="graph__col--70">
-          <FirstHHPriority
-            apiPath="/api/query/heat/priorities/firstHHpriority"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <SecondHHPriority
-            apiPath="/api/query/heat/priorities/secondHHpriority"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-          <ThirdHHPriority
-            apiPath="/api/query/heat/priorities/thirdHHpriority"
-            provinceFilter={provinceFilter}
-            districtFilter={districtFilter}
-          />
-        </div>
+        <FirstHHPriority
+          apiPath="/api/query/heat/priorities/firstHHpriority"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <SecondHHPriority
+          apiPath="/api/query/heat/priorities/secondHHpriority"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
+        <ThirdHHPriority
+          apiPath="/api/query/heat/priorities/thirdHHpriority"
+          provinceFilter={provinceFilter}
+          districtFilter={districtFilter}
+        />
       </div>
     )}
   </div>
