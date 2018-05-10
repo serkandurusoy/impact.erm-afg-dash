@@ -82,8 +82,8 @@ const Chart = ({ data }) => (
         },
       ]}
     >
-      <YAxis dataKey="x" type="category" />
-      <XAxis type="number" />
+      <YAxis dataKey="x" type="category" tick={{ fontWeight: 'bold' }} />
+      <XAxis type="number" tick={{ fontWeight: 'bold' }} />
       <Tooltip formatter={value => Math.abs(value)} />
       <Legend
         wrapperStyle={{ fontSize: 14, fontWeight: 'bold', marginLeft: 18 }}

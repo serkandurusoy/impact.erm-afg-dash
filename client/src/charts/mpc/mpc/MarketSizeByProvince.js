@@ -29,8 +29,9 @@ const Chart = ({ data }) => (
         interval={0}
         tickMargin={40}
         tickCount={1}
+        tick={{ fontWeight: 'bold' }}
       />
-      <YAxis />
+      <YAxis tick={{ fontWeight: 'bold' }} />
       <Tooltip />
       <Legend wrapperStyle={{ fontSize: 14, fontWeight: 'bold' }} />
       <Bar

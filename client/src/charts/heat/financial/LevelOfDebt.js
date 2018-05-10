@@ -34,8 +34,8 @@ const Chart = ({ data }) => {
   return (
     <ResponsiveContainer height={400}>
       <BarChart data={dataMap}>
-        <XAxis dataKey="x" />
-        <YAxis />
+        <XAxis dataKey="x" tick={{ fontWeight: 'bold' }} />
+        <YAxis tick={{ fontWeight: 'bold' }} />
         <Tooltip
           content={({ payload, label }) =>
             payload &&

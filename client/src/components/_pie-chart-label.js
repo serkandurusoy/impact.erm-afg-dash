@@ -35,6 +35,7 @@ const PieChartLabel = ({
         y={ey - yOffset}
         textAnchor={textAnchor}
         fill={fill}
+        fontWeight="bold"
       >
         {`${value}`}
         <tspan dx={0.7}>%</tspan>

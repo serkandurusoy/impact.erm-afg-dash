@@ -40,6 +40,7 @@ class Chart extends Component {
                   height: 40,
                   margin: '5px auto 35px auto',
                   position: 'relative',
+                  fontWeight: 'bold',
                 }}
                 data-for={`${d['general_info/q3_province']}-minRent`}
                 data-tip={`
@@ -81,33 +82,35 @@ class Chart extends Component {
                       {`"`} not chartable
                     </div>
                   ) : (
-                    <BulletGraph
-                      title=""
-                      textLabel=""
-                      scaleMin={
-                        d['min_s1_full_market_survey/q1_17_1_room_cost_min']
-                      }
-                      scaleMax={
-                        d['max_s1_full_market_survey/q1_17_1_room_cost_min']
-                      }
-                      symbolMarker={
-                        d['25_s1_full_market_survey/q1_17_1_room_cost_min']
-                      }
-                      performanceVal={
-                        d['75_s1_full_market_survey/q1_17_1_room_cost_min']
-                      }
-                      badVal={0}
-                      satisfactoryVal={
-                        d['avg_s1_full_market_survey/q1_17_1_room_cost_min']
-                      }
-                      height={40}
-                      width={530}
-                      badColor="#ffffff"
-                      satisfactoryColor="#ee4e4e"
-                      goodColor="#ff776f"
-                      isActiveColor
-                      opacity={0.6}
-                    />
+                    <div style={{ position: 'relative', left: 5 }}>
+                      <BulletGraph
+                        title=""
+                        textLabel=""
+                        scaleMin={
+                          d['min_s1_full_market_survey/q1_17_1_room_cost_min']
+                        }
+                        scaleMax={
+                          d['max_s1_full_market_survey/q1_17_1_room_cost_min']
+                        }
+                        symbolMarker={
+                          d['25_s1_full_market_survey/q1_17_1_room_cost_min']
+                        }
+                        performanceVal={
+                          d['75_s1_full_market_survey/q1_17_1_room_cost_min']
+                        }
+                        badVal={0}
+                        satisfactoryVal={
+                          d['avg_s1_full_market_survey/q1_17_1_room_cost_min']
+                        }
+                        height={40}
+                        width={530}
+                        badColor="#ffffff"
+                        satisfactoryColor="#ee4e4e"
+                        goodColor="#ff776f"
+                        isActiveColor
+                        opacity={0.6}
+                      />
+                    </div>
                   )}
                 </div>
               </div>

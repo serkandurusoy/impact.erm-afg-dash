@@ -26,7 +26,12 @@ class Chart extends Component {
         }}
       >
         <div
-          style={{ width: 390, height: 40, margin: '0 auto' }}
+          style={{
+            width: 390,
+            height: 40,
+            margin: '0 auto',
+            fontWeight: 'bold',
+          }}
           data-for="averageIncomeAfterShock"
           data-tip={`
             <div style="padding: 10px; line-height: 1.5; text-align: left">

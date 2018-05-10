@@ -41,6 +41,7 @@ class Chart extends Component {
                   height: 40,
                   margin: '5px auto 35px auto',
                   position: 'relative',
+                  fontWeight: 'bold',
                 }}
                 data-for={`${d['general_info/q3_province']}-maxRent`}
                 data-tip={`
@@ -82,35 +83,37 @@ class Chart extends Component {
                       {`"`} not chartable
                     </div>
                   ) : (
-                    <BulletGraph
-                      title=""
-                      textLabel=""
-                      scaleMin={
-                        d['min_s1_full_market_survey/q1_17_2_room_cost_max']
-                      }
-                      scaleMax={
-                        d['max_s1_full_market_survey/q1_17_2_room_cost_max']
-                      }
-                      symbolMarker={
-                        d['25_s1_full_market_survey/q1_17_2_room_cost_max']
-                      }
-                      performanceVal={
-                        d['75_s1_full_market_survey/q1_17_2_room_cost_max']
-                      }
-                      badVal={0}
-                      satisfactoryVal={
-                        d['avg_s1_full_market_survey/q1_17_2_room_cost_max']
-                      }
-                      height={40}
-                      width={530}
-                      badColor="#ffffff"
-                      satisfactoryColor="#a5b9a1"
-                      goodColor={`${chroma('#a5b9a1')
-                        .darken(2)
-                        .hex()}`}
-                      isActiveColor
-                      opacity={0.6}
-                    />
+                    <div style={{ position: 'relative', left: 5 }}>
+                      <BulletGraph
+                        title=""
+                        textLabel=""
+                        scaleMin={
+                          d['min_s1_full_market_survey/q1_17_2_room_cost_max']
+                        }
+                        scaleMax={
+                          d['max_s1_full_market_survey/q1_17_2_room_cost_max']
+                        }
+                        symbolMarker={
+                          d['25_s1_full_market_survey/q1_17_2_room_cost_max']
+                        }
+                        performanceVal={
+                          d['75_s1_full_market_survey/q1_17_2_room_cost_max']
+                        }
+                        badVal={0}
+                        satisfactoryVal={
+                          d['avg_s1_full_market_survey/q1_17_2_room_cost_max']
+                        }
+                        height={40}
+                        width={530}
+                        badColor="#ffffff"
+                        satisfactoryColor="#a5b9a1"
+                        goodColor={`${chroma('#a5b9a1')
+                          .darken(2)
+                          .hex()}`}
+                        isActiveColor
+                        opacity={0.6}
+                      />
+                    </div>
                   )}
                 </div>
               </div>

@@ -37,8 +37,9 @@ const Chart = ({ data }) => (
         tickMargin={40}
         tickCount={1}
         type="category"
+        tick={{ fontWeight: 'bold' }}
       />
-      <YAxis type="number" />
+      <YAxis type="number" tick={{ fontWeight: 'bold' }} />
       <Tooltip
         content={({ payload, label }) =>
           payload &&
