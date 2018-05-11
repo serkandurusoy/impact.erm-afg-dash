@@ -1,7 +1,7 @@
 const env = {
   NO_CACHE: 'false',
   TZ: 'Etc/UTC',
-  IMPACT_VERSION: '1.8.0',
+  IMPACT_VERSION: '2.0.0',
   PORT: 8002,
   NODE_ENV: 'production',
   MYSQL_HOST: 'localhost',

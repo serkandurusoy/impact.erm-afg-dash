@@ -13,9 +13,8 @@ import PROVINCE_GEO_DATA from '../../../constants/province-geo-data';
 
 const colorScale = {
   S4_financial_ASSESSfemale_breadwinner: chroma.scale([
-    `#cf3e3e`,
     `${chroma('#cf3e3e')
-      .darken(2)
+      .brighten(2)
       .hex()}`,
     `${chroma('#cf3e3e')
       .darken(4)
@@ -23,10 +22,10 @@ const colorScale = {
   ]),
   S4_financial_ASSESSmale_breadwinner: chroma.scale([
     `${chroma('#078ec7')
-      .brighten(1.7)
+      .brighten(4)
       .hex()}`,
     `${chroma('#078ec7')
-      .darken(1.7)
+      .darken(2)
       .hex()}`,
   ]),
 };
