@@ -42,3 +42,9 @@
     width: auto;
   }
 }
+
+.footer__logo-lighter {
+  img {
+    filter: opacity(70%);
+  }
+}

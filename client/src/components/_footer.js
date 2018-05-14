@@ -40,7 +40,7 @@ const Footer = () => (
       <div className="footer__logo">
         <img src={logoAction} />
       </div>
-      <div className="footer__logo">
+      <div className="footer__logo footer__logo-lighter">
         <img src={logoActed} />
       </div>
     </div>
