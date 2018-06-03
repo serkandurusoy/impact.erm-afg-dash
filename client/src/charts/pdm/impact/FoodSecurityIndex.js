@@ -124,8 +124,7 @@ class Chart extends Component {
                       ? `: ${province[selected].toFixed(2)} ${
                           selected !== 'avg_FCS'
                             ? ` (${(
-                                province[selected] /
-                                totalFCSlevelCount *
+                                (province[selected] / totalFCSlevelCount) *
                                 100
                               ).toFixed(2)}%)`
                             : ''

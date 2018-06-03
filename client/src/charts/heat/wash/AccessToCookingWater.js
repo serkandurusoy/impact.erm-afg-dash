@@ -18,8 +18,8 @@ const Chart = ({ data }) => {
 
   const dataMap = data.map(d => ({
     ...d,
-    'Yes %': parseFloat((sum.yes > 0 ? d.yes / sum.yes * 100 : 0).toFixed(2)),
-    'No %': parseFloat((sum.no > 0 ? d.no / sum.no * 100 : 0).toFixed(2)),
+    'Yes %': parseFloat((sum.yes > 0 ? (d.yes / sum.yes) * 100 : 0).toFixed(2)),
+    'No %': parseFloat((sum.no > 0 ? (d.no / sum.no) * 100 : 0).toFixed(2)),
     x: d.general_infoq1_province,
   }));
 

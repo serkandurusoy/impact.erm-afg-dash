@@ -20,13 +20,13 @@ const Chart = ({ data }) => {
   const dataMap = data.map(d => ({
     ...d,
     'High %': parseFloat(
-      (sum['1'] > 0 ? d['1'] / sum['1'] * 100 : 0).toFixed(2),
+      (sum['1'] > 0 ? (d['1'] / sum['1']) * 100 : 0).toFixed(2),
     ),
     'Medium %': parseFloat(
-      (sum['2'] > 0 ? d['2'] / sum['2'] * 100 : 0).toFixed(2),
+      (sum['2'] > 0 ? (d['2'] / sum['2']) * 100 : 0).toFixed(2),
     ),
     'No or Low %': parseFloat(
-      (sum['3'] > 0 ? d['3'] / sum['3'] * 100 : 0).toFixed(2),
+      (sum['3'] > 0 ? (d['3'] / sum['3']) * 100 : 0).toFixed(2),
     ),
     x: d.general_infoq1_province,
   }));

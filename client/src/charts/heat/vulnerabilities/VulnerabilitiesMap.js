@@ -66,8 +66,7 @@ class Chart extends Component {
                   const tooltip = `${geography.properties.NAME_1}${
                     province
                       ? `: ${province.total} (${(
-                          province.total /
-                          grandTotal *
+                          (province.total / grandTotal) *
                           100
                         ).toFixed(2)}%)`
                       : ''

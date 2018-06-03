@@ -31,7 +31,7 @@ const Chart = ({ data }) => {
     )
     .map(d => ({
       ...d,
-      percent: parseFloat((sum > 0 ? d.count / sum * 100 : 0).toFixed(2)),
+      percent: parseFloat((sum > 0 ? (d.count / sum) * 100 : 0).toFixed(2)),
       x: getLabel(d.S5_FOOD_ASSESSq5_5_food_stocks),
     }));
 

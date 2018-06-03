@@ -28,7 +28,7 @@ const Chart = ({ data }) => {
   const dataMap = Object.entries(data[0]).map(([k, v]) => ({
     name: getLabel(k),
     value: v,
-    percent: parseFloat((sum > 0 ? v / sum * 100 : 0).toFixed(2)),
+    percent: parseFloat((sum > 0 ? (v / sum) * 100 : 0).toFixed(2)),
   }));
 
   return (

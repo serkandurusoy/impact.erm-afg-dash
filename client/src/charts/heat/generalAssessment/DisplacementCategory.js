@@ -16,7 +16,7 @@ const Chart = ({ data }) => {
 
   const dataMap = data.map(d => ({
     ...d,
-    percent: parseFloat((sum > 0 ? d.count / sum * 100 : 0).toFixed(2)),
+    percent: parseFloat((sum > 0 ? (d.count / sum) * 100 : 0).toFixed(2)),
     x:
       LABELS.value.S3_GEN_ASSESSq3_1_disp_categ[
         d.S3_GEN_ASSESSq3_1_disp_categ

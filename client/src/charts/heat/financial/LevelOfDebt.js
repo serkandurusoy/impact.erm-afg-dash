@@ -24,7 +24,7 @@ const Chart = ({ data }) => {
     )
     .map(d => ({
       ...d,
-      percent: parseFloat((sum > 0 ? d.count / sum * 100 : 0).toFixed(2)),
+      percent: parseFloat((sum > 0 ? (d.count / sum) * 100 : 0).toFixed(2)),
       x:
         LABELS.value.S4_financial_ASSESSq4_5_new_debts[
           d.S4_financial_ASSESSq4_5_new_debts

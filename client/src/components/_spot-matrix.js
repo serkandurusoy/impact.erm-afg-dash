@@ -63,7 +63,7 @@ class SpotMatrix extends Component {
                     <td key={ix}>
                       <div
                         data-for={chartId}
-                        data-tip={`${v} (${(sum ? v / sum * 100 : 0).toFixed(
+                        data-tip={`${v} (${(sum ? (v / sum) * 100 : 0).toFixed(
                           2,
                         )}%)`}
                         className="spotMatrix-circle"

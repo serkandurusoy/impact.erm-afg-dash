@@ -1,8 +1,10 @@
-import csvParse from 'csv-parse';
-import fs from 'fs';
-import path from 'path';
+const csvParse = require('csv-parse');
+const fs = require('fs');
+const path = require('path');
 
-import knex from 'knex';
+const knex = require('knex');
+
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const {
   MYSQL_HOST,
@@ -40,48 +42,54 @@ const getDatabaseConnection = async () => {
   }
 };
 
-const db = getDatabaseConnection();
+const insertInto = (database, record) =>
+  database.insert(
+    Object.entries(record)
+      .map(([n, v]) => ({
+        [n]: v === '' ? null : v,
+      }))
+      .reduce((obj, v) => ({ ...obj, ...v }), {}),
+  );
 
-const parser = table =>
-  csvParse({ columns: true }, (e, d) => {
-    d.forEach(r =>
-      db
-        .insert(
-          Object.entries(r)
-            .map(([n, v]) => ({
-              [n]: v === '' ? null : v,
-            }))
-            .reduce((obj, v) => ({ ...obj, ...v }), {}),
-        )
-        .into(table)
-        .catch(() =>
-          db
-            .insert(
-              Object.entries(r)
-                .map(([n, v]) => ({
-                  [n]: v === '' ? null : v,
-                }))
-                .reduce((obj, v) => ({ ...obj, ...v }), {}),
-            )
-            .into(table),
-        ),
-    );
-  });
+const parse = async () => {
+  console.log('\n\n==================================\n\n');
+  console.log('PLEASE WAIT UNTIL THE SCRIPT COMPLETES\n\n');
+  console.log('\n\n----------------------------------\n\n');
 
-fs
-  .createReadStream(
-    path.resolve(__dirname, './HEAT-fulldata_JAN_17042018_for-web.csv'),
-  )
-  .pipe(parser('heat'));
+  const db = await getDatabaseConnection();
 
-fs
-  .createReadStream(
-    path.resolve(__dirname, './All_MPC_RAW_17042018_for-web.csv'),
-  )
-  .pipe(parser('mpc'));
+  const parser = table =>
+    csvParse({ columns: true }, (e, d) => {
+      d.forEach((r, i) =>
+        insertInto(db, r)
+          .into(table)
+          .catch(({ sqlMessage: error }) => {
+            // eslint-disable-next-line prettier/prettier
+            console.log(`\n\nERROR: Table ${table} in row ${i} of ${d.length} has ${error}\n\nWill try again...\n\n`);
+            insertInto(db, r)
+              .into(table)
+              .catch(({ code, sqlMessage }) =>
+                console.log(
+                  '\n=== ERROR =======================\n',
+                  {
+                    error: { code, sqlMessage },
+                    at: `Table ${table} in row ${i} of ${d.length}`,
+                    record: r,
+                  },
+                  '\n---------------------------------\n',
+                ),
+              );
+          }),
+      );
+    });
 
-fs
-  .createReadStream(
-    path.resolve(__dirname, './PDM_Fulldata_JAN_17042018_for-web.csv'),
-  )
-  .pipe(parser('pdm'));
+  fs
+    .createReadStream(path.resolve(__dirname, './heat.csv'))
+    .pipe(parser('heat'));
+
+  fs.createReadStream(path.resolve(__dirname, './mpc.csv')).pipe(parser('mpc'));
+
+  fs.createReadStream(path.resolve(__dirname, './pdm.csv')).pipe(parser('pdm'));
+};
+
+parse();

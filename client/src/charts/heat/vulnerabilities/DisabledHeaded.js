@@ -18,8 +18,8 @@ const Chart = ({ data }) => {
       value: data.total - data.S2_AdditionalVulnerabilityq2_4_physical,
       percent: parseFloat(
         (data.total > 0
-          ? (data.total - data.S2_AdditionalVulnerabilityq2_4_physical) /
-            data.total *
+          ? ((data.total - data.S2_AdditionalVulnerabilityq2_4_physical) /
+              data.total) *
             100
           : 0
         ).toFixed(2),
@@ -30,7 +30,7 @@ const Chart = ({ data }) => {
       value: data.S2_AdditionalVulnerabilityq2_4_physical,
       percent: parseFloat(
         (data.total > 0
-          ? data.S2_AdditionalVulnerabilityq2_4_physical / data.total * 100
+          ? (data.S2_AdditionalVulnerabilityq2_4_physical / data.total) * 100
           : 0
         ).toFixed(2),
       ),
